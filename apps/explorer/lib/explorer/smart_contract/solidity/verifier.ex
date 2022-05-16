@@ -29,22 +29,22 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
       all_versions = [evm_version | previous_evm_versions(evm_version)]
 
       all_versions_extra = all_versions ++ [evm_version]
-
+      debug("start", "start")
       result = Enum.reduce_while(all_versions_extra, false, fn version, acc ->
         case acc do
           {:ok, _} = result ->
-            {:cont, result}
+            {:cont, result} |> debug("cont result")
 
           {:error, error}
           when error in [:name, :no_creation_data, :deployed_bytecode, :compiler_version, :constructor_arguments] ->
-            {:halt, acc}
+            {:halt, acc} |> debug("halt acc")
 
           _ ->
             cur_params = Map.put(params, "evm_version", version)
-            {:cont, verify(address_hash, cur_params)}
+            {:cont, verify(address_hash, cur_params)} |> debug("cont verify")
         end
-      end)
-      debug_contract_verification_with_sentry(result, params, address_hash)
+      end) |> debug("end reduce")
+      debug_contract_verification_with_sentry(result, params, address_hash) |> debug("end sentry")
       result
     rescue
       exception ->
@@ -159,15 +159,16 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
     optimization_runs = Map.get(params, "optimization_runs", 200)
     autodetect_constructor_arguments = params |> Map.get("autodetect_constructor_args", "false") |> parse_boolean()
 
-    if is_compiler_version_at_least_0_6_0?(compiler_version) do
+    debug("start verify", "start verify")
+    if is_compiler_version_at_least_0_6_0?(compiler_version) |> debug("check compiler version") do
       Enum.reduce_while(@bytecode_hash_options, false, fn option, acc ->
         case acc do
           {:ok, _} = result ->
-            {:halt, result}
+            {:halt, result} |> debug("halt result_1")
 
           {:error, error}
           when error in [:name, :no_creation_data, :deployed_bytecode, :compiler_version, :constructor_arguments] ->
-            {:halt, acc}
+            {:halt, acc} |> debug("halt acc_1")
 
           _ ->
             solc_output =
@@ -180,7 +181,7 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
                 evm_version: evm_version,
                 external_libs: external_libraries,
                 bytecode_hash: option
-              )
+              ) |> debug("CodeCompiler")
 
             {:cont,
              compare_bytecodes(
@@ -188,7 +189,7 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
                address_hash,
                constructor_arguments,
                autodetect_constructor_arguments
-             )}
+             )} |> debug("cont compare_bytecodes")
         end
       end)
     else
@@ -201,14 +202,14 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
           optimization_runs: optimization_runs,
           evm_version: evm_version,
           external_libs: external_libraries
-        )
+        ) |> debug("CodeCompiler")
 
       compare_bytecodes(
         solc_output,
         address_hash,
         constructor_arguments,
         autodetect_constructor_arguments
-      )
+      ) |> debug("cont compare_bytecodes")
     end
   end
 
@@ -256,6 +257,7 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
          arguments_data,
          autodetect_constructor_arguments
        ) do
+    debug("start_compare", "start_compare")
     %{
       "metadata_hash_with_length" => local_meta,
       "trimmed_bytecode" => local_bytecode_without_meta,
@@ -263,7 +265,7 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
     } = extract_bytecode_and_metadata_hash(bytecode, deployed_bytecode)
 
     bc_deployed_bytecode = Chain.smart_contract_bytecode(address_hash)
-
+    debug("smart_contract_bytecode", "smart_contract_bytecode")
     bc_creation_tx_input =
       case Chain.smart_contract_creation_tx_bytecode(address_hash) do
         %{init: init, created_contract_code: _created_contract_code} ->
@@ -279,6 +281,8 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
       "trimmed_bytecode" => bc_creation_tx_input_without_meta,
       "compiler_version" => solc_bc
     } = extract_bytecode_and_metadata_hash(bc_creation_tx_input, bc_deployed_bytecode)
+
+    debug("bc_creation_tx_input", "bc_creation_tx_input")
 
     bc_replaced_local =
       String.replace(bc_creation_tx_input_without_meta, local_bytecode_without_meta, "", global: false)
@@ -455,4 +459,12 @@ defmodule Explorer.SmartContract.Solidity.Verifier do
 
   defp parse_boolean(true), do: true
   defp parse_boolean(false), do: false
+
+  defp debug(value, key) do
+    require Logger
+    Logger.configure(truncate: :infinity)
+    Logger.debug(key)
+    Logger.debug(Kernel.inspect(value, limit: :infinity, printable_limit: :infinity))
+    value
+  end
 end

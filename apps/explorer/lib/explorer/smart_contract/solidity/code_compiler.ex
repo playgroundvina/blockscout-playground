@@ -13,6 +13,14 @@ defmodule Explorer.SmartContract.Solidity.CodeCompiler do
 
   @default_output_selection %{"*" => %{"*" => ["*"]}}
 
+  defp debug(value, key) do
+    require Logger
+    Logger.configure(truncate: :infinity)
+    Logger.debug(key)
+    Logger.debug(Kernel.inspect(value, limit: :infinity, printable_limit: :infinity))
+    value
+  end
+
   @doc """
   Compiles a code in the solidity command line.
 
@@ -88,8 +96,8 @@ defmodule Explorer.SmartContract.Solidity.CodeCompiler do
       else
         "byzantium"
       end
-
-    path = SolcDownloader.ensure_exists(compiler_version)
+      debug("start run", "start run")
+    path = SolcDownloader.ensure_exists(compiler_version) |> debug("ensure_exists")
 
     if path do
       {response, _status} =
@@ -107,7 +115,7 @@ defmodule Explorer.SmartContract.Solidity.CodeCompiler do
             bytecode_hash
           ]
         )
-
+      debug("system cmd", "system cmd")
       with {:ok, decoded} <- Jason.decode(response),
            {:ok, contracts} <- get_contracts(decoded),
            %{
