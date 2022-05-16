@@ -11,8 +11,7 @@ defmodule Indexer.Block.Fetcher do
 
   alias EthereumJSONRPC.{Blocks, FetchedBeneficiaries}
   alias Explorer.Chain
-  alias Explorer.Chain.{Address, Block, Hash, Import, Transaction}
-  alias Explorer.Chain.Block.Reward
+  alias Explorer.Chain.{Address, Block, Hash, Import, Transaction, Wei}
   alias Explorer.Chain.Cache.Blocks, as: BlocksCache
   alias Explorer.Chain.Cache.{Accounts, BlockNumber, Transactions, Uncles}
   alias Indexer.Block.Fetcher.Receipts
@@ -136,7 +135,7 @@ defmodule Indexer.Block.Fetcher do
          %{token_transfers: token_transfers, tokens: tokens} = TokenTransfers.parse(logs),
          %{mint_transfers: mint_transfers} = MintTransfers.parse(logs),
          %FetchedBeneficiaries{params_set: beneficiary_params_set, errors: beneficiaries_errors} =
-           fetch_beneficiaries(blocks, json_rpc_named_arguments),
+           fetch_beneficiaries(blocks, transactions_with_receipts),
          addresses =
            Addresses.extract_addresses(%{
              block_reward_contract_beneficiaries: MapSet.to_list(beneficiary_params_set),
@@ -160,10 +159,6 @@ defmodule Indexer.Block.Fetcher do
              blocks: blocks
            }
            |> AddressCoinBalancesDaily.params_set(),
-         beneficiaries_with_gas_payment <-
-           beneficiary_params_set
-           |> add_gas_payments(transactions_with_receipts, blocks)
-           |> BlockReward.reduce_uncle_rewards(),
          address_token_balances = AddressTokenBalances.params_set(%{token_transfers_params: token_transfers}),
          {:ok, inserted} <-
            __MODULE__.import(
@@ -175,7 +170,7 @@ defmodule Indexer.Block.Fetcher do
                address_token_balances: %{params: address_token_balances},
                blocks: %{params: blocks},
                block_second_degree_relations: %{params: block_second_degree_relations_params},
-               block_rewards: %{errors: beneficiaries_errors, params: beneficiaries_with_gas_payment},
+               block_rewards: %{errors: beneficiaries_errors, params: beneficiary_params_set},
                logs: %{params: logs},
                token_transfers: %{params: token_transfers},
                tokens: %{on_conflict: :nothing, params: tokens},
@@ -336,126 +331,38 @@ defmodule Indexer.Block.Fetcher do
     quantity_to_integer(block_quantity)
   end
 
-  defp fetch_beneficiaries(blocks, json_rpc_named_arguments) do
-    hash_string_by_number =
-      Enum.into(blocks, %{}, fn %{number: number, hash: hash_string}
-                                when is_integer(number) and is_binary(hash_string) ->
-        {number, hash_string}
-      end)
+  def fetch_beneficiaries(blocks, all_transactions) when is_list(blocks) do
+    block_transactions_map = Enum.group_by(all_transactions, & &1.block_number)
 
-    hash_string_by_number
-    |> Map.keys()
-    |> EthereumJSONRPC.fetch_beneficiaries(json_rpc_named_arguments)
-    |> case do
-      {:ok, %FetchedBeneficiaries{params_set: params_set} = fetched_beneficiaries} ->
-        consensus_params_set = consensus_params_set(params_set, hash_string_by_number)
-
-        %FetchedBeneficiaries{fetched_beneficiaries | params_set: consensus_params_set}
-
-      {:error, reason} ->
-        Logger.error(fn -> ["Could not fetch beneficiaries: ", inspect(reason)] end)
-
-        error =
-          case reason do
-            %{code: code, message: message} -> %{code: code, message: message}
-            _ -> %{code: -1, message: inspect(reason)}
-          end
-
-        errors =
-          Enum.map(hash_string_by_number, fn {number, _} when is_integer(number) ->
-            Map.put(error, :data, %{block_number: number})
-          end)
-
-        %FetchedBeneficiaries{errors: errors}
-
-      :ignore ->
-        %FetchedBeneficiaries{}
-    end
-  end
-
-  defp consensus_params_set(params_set, hash_string_by_number) do
-    params_set
-    |> Enum.filter(fn %{block_number: block_number, block_hash: block_hash_string}
-                      when is_integer(block_number) and is_binary(block_hash_string) ->
-      case Map.fetch!(hash_string_by_number, block_number) do
-        ^block_hash_string ->
-          true
-
-        other_block_hash_string ->
-          Logger.debug(fn ->
-            [
-              "fetch beneficiaries reported block number (",
-              to_string(block_number),
-              ") maps to different (",
-              other_block_hash_string,
-              ") block hash than the one from getBlock (",
-              block_hash_string,
-              "). A reorg has occurred."
-            ]
-          end)
-
-          false
-      end
-    end)
-    |> Enum.into(MapSet.new())
-  end
-
-  defp add_gas_payments(beneficiaries, transactions, blocks) do
-    transactions_by_block_number = Enum.group_by(transactions, & &1.block_number)
-
-    Enum.map(beneficiaries, fn beneficiary ->
-      case beneficiary.address_type do
-        :validator ->
-          block_hash = beneficiary.block_hash
-
-          block = find_block(blocks, block_hash)
-
-          block_miner_hash = block.miner_hash
-
-          {:ok, block_miner} = Chain.string_to_address_hash(block_miner_hash)
-          %{payout_key: block_miner_payout_address} = Reward.get_validator_payout_key_by_mining(block_miner)
-
-          reward_with_gas(block_miner_payout_address, beneficiary, transactions_by_block_number)
-
-        _ ->
-          beneficiary
-      end
-    end)
-  end
-
-  defp reward_with_gas(block_miner_payout_address, beneficiary, transactions_by_block_number) do
-    {:ok, beneficiary_address} = Chain.string_to_address_hash(beneficiary.address_hash)
-
-    "0x" <> minted_hex = beneficiary.reward
-    {minted, _} = if minted_hex == "", do: {0, ""}, else: Integer.parse(minted_hex, 16)
-
-    if block_miner_payout_address && beneficiary_address.bytes == block_miner_payout_address.bytes do
-      gas_payment = gas_payment(beneficiary, transactions_by_block_number)
-
-      %{beneficiary | reward: minted + gas_payment}
-    else
-      %{beneficiary | reward: minted}
-    end
-  end
-
-  defp find_block(blocks, block_hash) do
     blocks
-    |> Enum.filter(fn block -> block.hash == block_hash end)
-    |> Enum.at(0)
+    |> Enum.map(fn block -> fetch_beneficiaries(block, block_transactions_map[block.number] || []) end)
+    |> Enum.reduce(%FetchedBeneficiaries{}, fn params_set, %{params_set: acc_params_set} = acc ->
+      %FetchedBeneficiaries{acc | params_set: MapSet.union(acc_params_set, params_set)}
+    end)
   end
 
-  defp gas_payment(transactions) when is_list(transactions) do
-    transactions
-    |> Stream.map(&(&1.gas_used * &1.gas_price))
-    |> Enum.sum()
+  def fetch_beneficiaries(block, transactions) do
+    block
+    |> Chain.block_reward_by_parts(transactions)
+    |> reward_parts_to_beneficiaries()
   end
 
-  defp gas_payment(%{block_number: block_number}, transactions_by_block_number)
-       when is_map(transactions_by_block_number) do
-    case Map.fetch(transactions_by_block_number, block_number) do
-      {:ok, transactions} -> gas_payment(transactions)
-      :error -> 0
-    end
+  defp reward_parts_to_beneficiaries(reward_parts) do
+    reward =
+      reward_parts.static_reward
+      |> Wei.sum(reward_parts.txn_fees)
+      |> Wei.sub(reward_parts.burned_fees)
+      |> Wei.sum(reward_parts.uncle_reward)
+
+    MapSet.new([
+      %{
+        address_hash: reward_parts.miner_hash,
+        block_hash: reward_parts.block_hash,
+        block_number: reward_parts.block_number,
+        reward: reward,
+        address_type: :validator
+      }
+    ])
   end
 
   # `fetched_balance_block_number` is needed for the `CoinBalanceFetcher`, but should not be used for `import` because the
