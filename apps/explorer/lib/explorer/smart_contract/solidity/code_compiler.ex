@@ -100,12 +100,15 @@ defmodule Explorer.SmartContract.Solidity.CodeCompiler do
     path = SolcDownloader.ensure_exists(compiler_version) |> debug("ensure_exists")
 
     if path do
+      debug("start if path", "start if path")
+      source_file = code |> create_source_file() |> debug("create_source_file")
+      app_dir = Application.app_dir(:explorer, "priv/compile_solc.js") |> debug("app_dir")
       {response, _status} =
         System.cmd(
           "node",
           [
-            Application.app_dir(:explorer, "priv/compile_solc.js"),
-            create_source_file(code),
+            app_dir,
+            source_file,
             path,
             optimize_value(optimize),
             optimization_runs,
