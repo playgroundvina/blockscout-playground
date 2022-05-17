@@ -13,4 +13,4 @@ var input = fs.readFileSync(inputJSONFilePath, 'utf8')
 
 const output = JSON.parse(solc.compile(input))
 console.log(JSON.stringify(output))
-process.exit()
+process.exit(1)

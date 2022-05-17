@@ -52,4 +52,4 @@ const input = {
 
 const output = JSON.parse(solc.compile(JSON.stringify(input)))
 console.log(JSON.stringify(output))
-process.exit()
+process.exit(1)
