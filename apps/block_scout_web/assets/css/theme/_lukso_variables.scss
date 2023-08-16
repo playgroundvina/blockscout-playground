@@ -165,9 +165,9 @@ $dark-primary-alternate: #a96c55;
   .dashboard-banner-network-stats-value {
     color: $dark-primary !important;
   }
-  .layout-container .dashboard-banner-container {
-    background-color: #282945 !important;
-  }
+  // .layout-container .dashboard-banner-container {
+  //   background-color: #282945 !important;
+  // }
   .dashboard-banner-network-plain-container::after {
     box-shadow: none !important;
   }

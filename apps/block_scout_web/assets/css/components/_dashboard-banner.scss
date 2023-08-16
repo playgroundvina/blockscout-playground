@@ -1,8 +1,5 @@
 $dashboard-banner-gradient-start: $primary !default;
-$dashboard-banner-gradient-end: lighten(
-  $dashboard-banner-gradient-start,
-  5%
-) !default;
+$dashboard-banner-gradient-end: lighten($dashboard-banner-gradient-start, 5%) !default;
 $dashboard-banner-network-plain-container-background-color: lighten($dashboard-banner-gradient-end, 5%) !default;
 $dashboard-line-color-price: lighten($dashboard-banner-gradient-end, 5%) !default;
 $dashboard-line-color-price-dark-theme: lighten($dashboard-banner-gradient-end, 5%) !default;
@@ -10,9 +7,9 @@ $dashboard-line-color-market: $secondary !default;
 $dashboard-line-color-market-dark-theme: $secondary !default;
 $dashboard-line-color-transactions: $warning !default;
 $dashboard-line-color-transactions-dark-theme: $warning !default;
-$dashboard-stats-item-label-color: #fff !default;
-$dashboard-stats-item-value-color: rgba(#fff, 0.8) !default;
-$dashboard-banner-chart-legend-label-color: #fff !default;
+$dashboard-stats-item-label-color: #262626 !default;
+$dashboard-stats-item-value-color: rgba(#262626, 0.8) !default;
+$dashboard-banner-chart-legend-label-color: #262626 !default;
 $dashboard-banner-chart-legend-value-color: $dashboard-stats-item-value-color !default;
 $dashboard-stats-item-border-color: $primary !default;
 $dashboard-banner-network-plain-container-height: 205px;
@@ -20,17 +17,39 @@ $dashboard-banner-chart-axis-font-color: $dashboard-stats-item-value-color !defa
 $dashboard-banner-chart-axis-font-color-alt: #333;
 
 .dashboard-banner-container {
-  @include gradient-container();
+  // @include gradient-container();
+  background-image: unset !important;
   margin-bottom: 3rem;
   overflow: hidden;
   padding: 0;
   position: relative;
-  height: 264px;
+  min-height: 300px;
   @include media-breakpoint-down(sm) {
-      height: auto;
+    height: auto;
   }
   @include media-breakpoint-down(md) {
-      height: auto;
+    height: auto;
+  }
+  .search-dashboard {
+    max-width: 876px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px 0;
+  }
+  .title-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    h3 {
+      color: #edbe40;
+      font-family: Sora;
+      font-size: 96px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 1.44px;
+    }
   }
 }
 
@@ -39,7 +58,9 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   justify-content: space-between;
   position: relative;
   z-index: 9;
-
+  background: #ffffff;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
   @include media-breakpoint-between(lg, xl) {
     height: 249px;
   }
@@ -93,7 +114,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   display: grid;
   grid-template-columns: 0.6fr 0.9fr 0.9fr 0.9fr;
   padding-bottom: 12px;
-  padding-left:20px;
+  padding-left: 20px;
 
   @include media-breakpoint-down(sm) {
     grid-template-columns: 1fr 1fr;
@@ -145,7 +166,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
 
     &.market-cap-per-day {
       &::before {
-        background-color:$dashboard-line-color-market;
+        background-color: $dashboard-line-color-market;
       }
     }
 
@@ -202,14 +223,14 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
 .dashboard-banner-network-plain-container {
   align-items: center;
   align-self: flex-end;
-  background-color: $dashboard-banner-network-plain-container-background-color;
+  // background-color: $dashboard-banner-network-plain-container-background-color;
   border-top-left-radius: 10px;
   display: flex;
-  height: $dashboard-banner-network-plain-container-height;
+  height: 100%;
   justify-content: center;
-  margin: 45px 0 -15px 30px;
+  // margin: 45px 0 -15px 30px;
   max-width: 100%;
-  padding: 30px 0 30px 60px;
+  // padding: 30px 0 30px 60px;
   width: 750px;
   position: relative;
 
@@ -233,37 +254,38 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
     width: 100%;
   }
 
-  &::after {
-    background-color: $dashboard-banner-network-plain-container-background-color;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: $dashboard-banner-network-plain-container-height;
-    left: 0;
-    position: absolute;
-    width: 9999px;
-    z-index: -1;
-    box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.2);
-    border-top-left-radius: 10px;
+  // &::after {
+  //   background-color: $dashboard-banner-network-plain-container-background-color;
+  //   bottom: 0;
+  //   content: "";
+  //   display: block;
+  //   height: $dashboard-banner-network-plain-container-height;
+  //   left: 0;
+  //   position: absolute;
+  //   width: 9999px;
+  //   z-index: -1;
+  //   box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.2);
+  //   border-top-left-radius: 10px;
 
-    @include media-breakpoint-down(md) {
-      display: none;
-    }
-  }
+  //   @include media-breakpoint-down(md) {
+  //     display: none;
+  //   }
+  // }
 }
 
 .dashboard-banner-network-stats {
-  column-gap: 25px;
+  column-gap: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
   @include media-breakpoint-down(lg) {
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
   }
 
   @include media-breakpoint-down(md) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     row-gap: 20px;
   }
 
@@ -272,7 +294,11 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
     grid-template-columns: 1fr 1fr;
   }
 
-  @include stats-item($dashboard-stats-item-border-color, $dashboard-stats-item-label-color, $dashboard-stats-item-value-color);
+  @include stats-item(
+    $dashboard-stats-item-border-color,
+    $dashboard-stats-item-label-color,
+    $dashboard-stats-item-value-color
+  );
 
   .dashboard-banner-network-stats-item {
     @media (max-width: 374px) {

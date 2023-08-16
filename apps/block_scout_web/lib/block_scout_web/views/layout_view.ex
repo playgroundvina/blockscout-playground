@@ -228,7 +228,7 @@ defmodule BlockScoutWeb.LayoutView do
     |> validate_url()
     |> case do
       :error -> chain_path(conn, :show)
-      {:ok, url} -> url
+      {:ok, url} -> "/images/logo.png"
     end
   end
 
