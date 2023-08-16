@@ -29,6 +29,9 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
 
 .autoComplete_wrapper {
     width: 100% !important;
+    input{
+        background-color: unset !important;
+    }
 }
 
 .main-search-autocomplete {
@@ -36,7 +39,7 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
     padding: 0 !important;
     border: none !important;
     border-radius: 0 !important;
-    background-color: $main-search-autocomplete-background-color !important;
+    // background-color: $main-search-autocomplete-background-color !important;
     @media screen and (max-width: 992px) {
         height: auto !important;
     }

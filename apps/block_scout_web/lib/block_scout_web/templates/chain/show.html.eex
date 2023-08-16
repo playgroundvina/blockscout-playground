@@ -1,4 +1,4 @@
-<div class='dashboard-banner-container' data-page="chain-details">
+<div class='dashboard-banner-container' data-page="chain-details" style="padding-bottom:70px">
 <div class="title-dashboard">
   <h3>
     Explore Pools Blockchain
@@ -101,7 +101,7 @@
             <%# They wont just access @chart_config.x w/o first checking if x exists %>
             <% market_chart_config = Map.has_key?(@chart_config, :market) && @chart_config.market%>
 
-            <%= if price_chart_legend_enabled? || Enum.member?(market_chart_config, :price) do %>
+            <!--<%= if price_chart_legend_enabled? || Enum.member?(market_chart_config, :price) do %>
               <div class="dashboard-banner-chart-legend-item price-per-day">
                   <span class="dashboard-banner-chart-legend-label">
                   <%= Explorer.coin_name() %> <%= gettext "Price" %>
@@ -111,7 +111,7 @@
                     </span>
                 </div>
               </div>
-            <% end %>
+            <% end %>-->
             <%= if price_chart_legend_enabled? || Enum.member?(@chart_config.market, :market_cap) do %>
             <div class="dashboard-banner-chart-legend-item market-cap-per-day">
                 <span class="dashboard-banner-chart-legend-label">
@@ -125,12 +125,12 @@
             </div>
             <% end %>
           <% end %>
-          <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
+          <%#= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
           <%= if Map.has_key?(@chart_config, :transactions) do %>
 
             <% transaction_chart_config = @chart_config.transactions%>
             <%= if Enum.member?(transaction_chart_config, :transactions_per_day) do %>
-            <div class="dashboard-banner-chart-legend-item tx-per-day">
+            <!--<div class="dashboard-banner-chart-legend-item tx-per-day">
                 <span class="dashboard-banner-chart-legend-label">
                     <%= gettext "Daily Transactions" %>
                 </span>
@@ -149,7 +149,7 @@
                       </span>
                     <% end %>
                 </span>
-            </div>
+            </div>-->
             <% end %>
           <% end %>
         </div>
@@ -159,18 +159,20 @@
     </div>
   </div>
 </div>
-<section class="container">
-  <div class="card card-chain-blocks js-ad-dependant-mb-3">
+<section class="container" style="padding-top:50px">
+    <div class="row">
+        <div class="col-lg-6">
+         <div class="card card-chain-blocks js-ad-dependant-mb-3">
     <div class="card-body">
-      <%= link(gettext("View All Blocks"), to: blocks_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right") %>
-      <h2 class="card-title"><%= gettext "Blocks" %></h2>
+      <h2 class="card-title text-center"><%= gettext "Latest blocks" %></h2>
+      <div class="container">
       <div class="row" data-selector="chain-block-list" data-url="<%= chain_blocks_path(@conn, :chain_blocks) %>">
         <button data-selector="error-message" class="alert alert-danger col-12 text-left" style="display: none;">
           <span class="alert-link">
             <%= gettext "Something went wrong, click to reload." %>
           </span>
         </button>
-        <div hidden data-selector="loading-message" class="col-lg-3" >
+        <div hidden data-selector="loading-message" class="col-12" >
          <div data-selector="chain-block">
            <div class="tile tile-type-block n-p d-flex flex-column">
              <a class="tile-title"><span class="tile-loader tile-label-loader"></span> </a>
@@ -181,7 +183,7 @@
            </div>
          </div>
         </div>
-        <div hidden data-selector="loading-message" class="col-lg-3" >
+        <div hidden data-selector="loading-message" class="col-12" >
          <div data-selector="chain-block">
            <div class="tile tile-type-block n-p d-flex flex-column">
              <a class="tile-title"><span class="tile-loader tile-label-loader"></span> </a>
@@ -192,7 +194,7 @@
            </div>
          </div>
         </div>
-        <div hidden data-selector="loading-message" class="col-lg-3" >
+        <div hidden data-selector="loading-message" class="col-12" >
          <div data-selector="chain-block">
            <div class="tile tile-type-block n-p d-flex flex-column">
              <a class="tile-title"><span class="tile-loader tile-label-loader"></span> </a>
@@ -203,7 +205,18 @@
            </div>
          </div>
         </div>
-        <div hidden data-selector="loading-message" class="col-lg-3" >
+        <div hidden data-selector="loading-message" class="col-12" >
+         <div data-selector="chain-block">
+           <div class="tile tile-type-block n-p d-flex flex-column">
+             <a class="tile-title"><span class="tile-loader tile-label-loader"></span> </a>
+             <div class="tile-bottom-contents">
+              <div class="dark-block-loader"></div>
+              <div class="dark-block-loader"></div>
+            </div>
+           </div>
+         </div>
+        </div>
+         <div hidden data-selector="loading-message" class="col-12" >
          <div data-selector="chain-block">
            <div class="tile tile-type-block n-p d-flex flex-column">
              <a class="tile-title"><span class="tile-loader tile-label-loader"></span> </a>
@@ -215,15 +228,18 @@
          </div>
         </div>
       </div>
+      <div class="row d-flex justify-content-center align-items-center">
+      <%= link(gettext("View All Blocks"), to: blocks_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right btn-view-all" ) %>
+        </div>
+      </div>
+
     </div>
   </div>
-
-  <%= render BlockScoutWeb.Advertisement.BannersAdView, "_banner_728.html", conn: @conn %>
-
-  <div class="card card-chain-transactions">
+        </div>
+        <div class="col-lg-6">
+         <div class="card card-chain-transactions">
     <div class="card-body">
-      <%= link(gettext("View All Transactions"), to: transaction_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right") %>
-      <h2 class="card-title lg-card-title"><%= gettext "Transactions" %></h2>
+      <h2 class="card-title lg-card-title text-center"><%= gettext "Latest transaction" %></h2>
       <div data-selector="channel-batching-message" style="display: none;">
         <div data-selector="reload-transactions-button" class="alert alert-info">
           <a href="#" class="alert-link"><span data-selector="channel-batching-count"></span> <%= gettext "More transactions have come in" %></a>
@@ -239,6 +255,16 @@
           <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
         </div>
       </span>
+      <div class="mt-3 row d-flex justify-content-center align-items-center">
+       <%= link(gettext("View All Transactions"), to: transaction_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right btn-view-all") %>
+       </div>
     </div>
   </div>
+        </div>
+    </div>
+
+
+  <%#= render BlockScoutWeb.Advertisement.BannersAdView, "_banner_728.html", conn: @conn %>
+
+
 </section>

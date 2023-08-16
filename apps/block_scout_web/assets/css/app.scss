@@ -1,5 +1,7 @@
 @import "./mixins";
-
+* {
+  font-family: 'Sora', sans-serif !important;
+}
 /* Phoenix flash messages */
 .alert:empty {
   display: none;
