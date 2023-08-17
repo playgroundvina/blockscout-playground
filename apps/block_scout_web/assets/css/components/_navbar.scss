@@ -219,13 +219,13 @@ $header-logo-text-color: #333 !default;
     justify-content: center;
     padding: 0;
     width: 100%;
-
-    &.border {
-      border-color: $secondary !important;
-      border-radius: 5px;
-      color: $secondary;
-      background-color: $header-textfield-background-color;
-    }
+    
+    // &.border {
+    //   border-color: $secondary !important;
+    //   border-radius: 5px;
+    //   color: $secondary;
+    //   background-color: $header-textfield-background-color;
+    // }
   }
 }
 

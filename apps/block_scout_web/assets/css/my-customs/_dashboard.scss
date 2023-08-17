@@ -1,0 +1,17 @@
+.input-group-text{
+    background-color: transparent;
+    border: none;
+}
+.search-form{
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.05);
+}
+.form-control {
+    &.search-control{
+        border: none;
+        &:focus{
+            border: none;
+        }
+    }
+}

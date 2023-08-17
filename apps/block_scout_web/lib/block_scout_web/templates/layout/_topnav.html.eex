@@ -124,7 +124,7 @@
             </div>
           </li>
         <% end %>
-        <%= if apps_menu == true do %>
+    <!--  <%= if apps_menu == true do %>
           <li class="nav-item dropdown">
             <a href="#" role="button" id="navbarAppsDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="nav-link-icon">
@@ -143,7 +143,7 @@
                       <a href="<%= url %>" class="dropdown-item" target="_self"><%= title %></a>
                     <% else %>
                       <a href="<%= url %>" class="dropdown-item" target="_blank"><%= title %>
-                        <span class="external-link-icon">
+                        <span class="exter  nal-link-icon">
                           <%= render BlockScoutWeb.IconsView, "_external_link.html" %>
                         </span>
                       </a>
@@ -152,7 +152,7 @@
               <% end %>
             </div>
           </li>
-        <% end %>
+        <% end %>-->
         <li class="nav-item dropdown">
           <a class="nav-link topnav-nav-link active-icon <%= if dropdown_nets() != [], do: "dropdown-toggle" %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="nav-link-icon">

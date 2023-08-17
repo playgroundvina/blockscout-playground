@@ -7,7 +7,7 @@ $dashboard-line-color-market: $secondary !default;
 $dashboard-line-color-market-dark-theme: $secondary !default;
 $dashboard-line-color-transactions: $warning !default;
 $dashboard-line-color-transactions-dark-theme: $warning !default;
-$dashboard-stats-item-label-color: #262626;
+$dashboard-stats-item-label-color: #DEA131;
 $dashboard-stats-item-value-color: rgba(#262626, 0.8);
 $dashboard-banner-chart-legend-label-color: #262626 !default;
 $dashboard-banner-chart-legend-value-color: $dashboard-stats-item-value-color !default;
@@ -44,7 +44,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
     h3 {
       color: #edbe40;
       font-family: Sora;
-      font-size: 96px;
+      font-size: 80px;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
