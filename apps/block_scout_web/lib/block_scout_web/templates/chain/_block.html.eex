@@ -10,10 +10,10 @@
           to: block_path(BlockScoutWeb.Endpoint, :show, @block),
           "data-selector": "block-number"
         ) %>
-    <div class="text-nowrap" data-from-now="<%= @block.timestamp %>"> </div>
+    <div class="text-nowrap time-block" data-from-now="<%= @block.timestamp %>"> </div>
     </div>
     <div class="tile-bottom-contents">
-     
+
       <%= if !Application.get_env(:block_scout_web, :hide_block_miner) do %>
         <div class="text-truncate">
           <%= gettext "Miner" %>
@@ -32,7 +32,7 @@
       <% end %>
        <div class="tile-transactions">
         <span class="mr-2"><%= gettext("%{count} Transactions", count: Enum.count(@block.transactions)) %></span>
-        
+
       </div>
     </div>
   </div>

@@ -498,10 +498,12 @@ defmodule BlockScoutWeb.TransactionView do
 
   * `:include_label` - Boolean. Defaults to true. Flag for displaying unit with value.
   """
-  def value(%mod{value: value}, opts \\ []) when is_transaction_type(mod) do
-    include_label? = Keyword.get(opts, :include_label, true)
-    format_wei_value(value, :ether, include_unit_label: include_label?)
-  end
+ def value(%mod{value: value}, opts \\ []) when is_transaction_type(mod) do
+  include_label? = Keyword.get(opts, :include_label, true)
+  formatted_value = format_wei_value(value, :ether, include_unit_label: include_label?)
+  formatted_value
+end
+
 
   def format_wei_value(value) do
     format_wei_value(value, :ether, include_unit_label: false)

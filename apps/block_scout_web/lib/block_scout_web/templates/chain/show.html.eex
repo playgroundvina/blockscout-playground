@@ -113,7 +113,7 @@
                     </span>
                  </div>
               </div>
-            <% end %>--> 
+            <% end %>-->
             <%= if price_chart_legend_enabled? || Enum.member?(@chart_config.market, :market_cap) do %>
                <div class="dashboard-banner-chart-legend-item market-cap-per-day">
                 <span class="dashboard-banner-chart-legend-label">
@@ -174,7 +174,7 @@
             <%= gettext "Something went wrong, click to reload." %>
           </span>
         </button>
-        <div hidden data-selector="loading-message" class="col-12" >
+     <!--   <div hidden data-selector="loading-message" class="col-12" >
          <div data-selector="chain-block">
            <div class="tile tile-type-block n-p d-flex flex-column">
              <a class="tile-title"><span class="tile-loader tile-label-loader"></span> </a>
@@ -228,7 +228,7 @@
             </div>
            </div>
          </div>
-        </div>
+        </div>-->
       </div>
       <div class="row d-flex justify-content-center align-items-center">
       <%= link(gettext("View All Blocks"), to: blocks_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right btn-view-all" ) %>
@@ -248,9 +248,7 @@
         </div>
       </div>
       <span data-selector="transactions-list" data-transactions-path="<%= @transactions_path %>">
-      <script>
-        console.log(<%= @transactions_path %>)
-      </script>
+
         <button data-selector="error-message" class="alert alert-danger col-12 text-left" style="display: none;">
           <span class="alert-link">
             <%= gettext "Something went wrong, click to retry." %>
