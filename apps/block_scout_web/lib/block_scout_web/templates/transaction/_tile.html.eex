@@ -26,14 +26,14 @@
     </div>-->
     <!-- Content -->
     <div class=" col-md-4 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
-      <div class="d-flex">
-         <div class="icon-block">
+      <div class="d-flex align-items-center">
+         <div class="icon-block mr-2">
             <%= render BlockScoutWeb.IconsView, "_transaction-icon.html" %>
           </div>
-        <div class="text-truncate d-flex flex-column">
+          <div class="text-truncate d-flex flex-column">
             <%= render "_link.html", transaction_hash: @transaction.hash, data_test: "address_hash_link" %>
-          <% method_name = Transaction.get_method_name(@transaction) %>
-          <div class="mr-2 mr-md-0 order-2" in-tile data-from-now="<%= block_timestamp(@transaction) %>"></div>
+            <% method_name = Transaction.get_method_name(@transaction) %>
+          <div class="mr-2 mr-md-0 order-2 time-transaction" in-tile data-from-now="<%= block_timestamp(@transaction) %>"></div>
                 <!--<%= if method_name do %>
             <%= render BlockScoutWeb.FormView, "_tag.html", text: method_name, additional_classes: ["method", "ml-1"] %>
               <% end %>
@@ -44,17 +44,17 @@
             </div>
             </div>
           </div>
-      <div class=" col-md-4 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
+         <div class=" col-md-5 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
           <div class="transaction-address">
             <span>From: </span>
             <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:from, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
           </div>
           <div  class="transaction-address">
             <span>To: </span>
-          <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:from, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
+          <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:to, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
           </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
           <div class="pool-transaction">
               <%= value(@transaction, include_label: false) %> <%= Explorer.coin_name() %>
           </div>

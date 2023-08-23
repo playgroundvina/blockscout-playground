@@ -384,20 +384,37 @@ export function placeHolderBlock (blockNumber) {
       data-block-number="${blockNumber}"
       data-selector="place-holder"
     >
-      <div
-        class="tile tile-type-block d-flex align-items-center fade-up"
-      >
-        <span class="loading-spinner-small ml-1 mr-4">
-          <span class="loading-spinner-block-1"></span>
-          <span class="loading-spinner-block-2"></span>
-        </span>
-        <div>
-          <span class="tile-title pr-0 pl-0">${blockNumber}</span>
-          <div class="tile-transactions">${
-            // @ts-ignore
-            window.localized['Block Processing']
-          }</div>
+      <div class="tile tile-type-block n-p w-100 row">
+        <div class="col-lg-2">
+          <div class="icon-block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16">
+                <path fill="#D2DAE9" fill-rule="evenodd" d="M7 0L-.007 3.498 7 6.996l7.007-3.498L7 0z"/>
+                <path fill="#C1C7D4" fill-rule="evenodd" d="M0 5.005v7.674L6.004 16V8.326L0 5.005z"/>
+                <path fill="#A3A9B5" fill-rule="evenodd" d="M7.996 8.326V16L14 12.679V5.005L7.996 8.326z"/>
+              </svg>
+          </div>
         </div>
+        <div class="col-lg-6">
+          <span class="loading-spinner-small ml-1 mr-4">
+            <span class="loading-spinner-block-1"></span>
+            <span class="loading-spinner-block-2"></span>
+          </span>
+          <div>
+            <span class="tile-title pr-0 pl-0">${blockNumber}</span>
+            <div class="tile-transactions">${
+              // @ts-ignore
+              window.localized['Block Processing']
+            }</div>
+          </div>
+          </div>
+          <div class="col-lg-4">
+            <div>
+              <div>
+                Miner: Awaiting ...
+              </div>
+              <div>0 Transactions</div>
+            </div>
+          </div>
       </div>
     </div>
   `

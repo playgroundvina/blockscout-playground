@@ -1,7 +1,8 @@
 <footer class="footer">
   <div class="footer-body container">
     <!-- Logo -->
-    <div class="row footer-logo-row">
+   <!-- <div class="row footer-logo-row">
+
       <div class="col-md-12">
         <%= link to: webapp_url(@conn), class: "footer-brand" do %>
           <%= if logo_footer() do %>
@@ -12,14 +13,15 @@
           <% end %>
         <% end %>
       </div>
-    </div>
+
+    </div>/
 
     <% other_explorers = other_explorers() %>
-    <% col_size = if Enum.empty?(other_explorers), do: 3, else: 2 %>
+    <% col_size = if Enum.empty?(other_explorers), do: 3, else: 2 %>-->
 
     <div class="row">
       <div class="col-xs-12 col-lg-3">
-        <p class="footer-info-text"><%= gettext("Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.") %></p>
+        <p class="footer-info-text"><%= gettext("PoolsScan is a Block Explorer and Analytics Platform for Pools Chain") %></p>
         <div class="footer-social-icons">
           <a href="<%= Application.get_env(:block_scout_web, :footer)[:github_link] %>" rel="noreferrer" target="_blank" class="footer-social-icon" title='<%= gettext("Github") %>'>
             <div class="footer-social-icon-container fontawesome-icon github"></div>
