@@ -1,11 +1,11 @@
 <div class="col-12 mb-3 fade-up-blocks-chain"  data-block-number="<%= @block.number %>">
   <div class="tile tile-type-block n-p row w-100">
-  <div class="col-lg-2">
+  <div class="col-3 col-lg-2">
       <div class="icon-block">
         <%= render BlockScoutWeb.IconsView, "_block_latest_icon.html" %>
       </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-9 col-lg-6">
     <div class="d-flex flex-column">
       <%= link(
             @block,
@@ -16,7 +16,7 @@
       <div class="text-nowrap time-block" data-from-now="<%= @block.timestamp %>"> </div>
     </div>
   </div>
-  <div class="col-lg-4">
+  <div class="col-12 col-lg-4">
     <div class="tile-bottom-contents">
       <%= if !Application.get_env(:block_scout_web, :hide_block_miner) do %>
         <div class="text-truncate">

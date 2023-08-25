@@ -51,6 +51,12 @@
       font-weight: 400;
       line-height: normal;
       letter-spacing: 0.07px;
+      @media (max-width: 576px) {
+        font-size: 10px;
+        span {
+          font-size: 10px;
+        }
+      }
     }
   }
   .time-block {
@@ -128,14 +134,14 @@
   }
 }
 .tile.tile-type-block {
-  height: 87px;
+  min-height: 87px;
   display: flex;
   align-items: center;
   border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
 }
 .tile.tile-type-transaction,
 .tile-type-token-transfer {
-  height: 87px;
+  min-height: 87px;
   border-left: none;
   .text-truncate {
     color: #dea131 !important;

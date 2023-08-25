@@ -37,7 +37,7 @@ export const initialState = {
 
 export const reducer = withMissingBlocks(baseReducer)
 
-function baseReducer (state = initialState, action) {
+function baseReducer(state = initialState, action) {
   switch (action.type) {
     case 'ELEMENTS_LOAD': {
       return Object.assign({}, state, omit(action, 'type'))
@@ -153,7 +153,7 @@ function baseReducer (state = initialState, action) {
   }
 }
 
-function withMissingBlocks (reducer) {
+function withMissingBlocks(reducer) {
   return (...args) => {
     const result = reducer(...args)
 
@@ -175,11 +175,11 @@ function withMissingBlocks (reducer) {
 let chart
 const elements = {
   '[data-chart="historyChart"]': {
-    load () {
+    load() {
       // @ts-ignore
       chart = window.dashboardChart
     },
-    render (_$el, state, oldState) {
+    render(_$el, state, oldState) {
       if (!chart || (oldState.availableSupply === state.availableSupply && oldState.marketHistoryData === state.marketHistoryData) || !state.availableSupply) return
 
       chart.updateMarketHistory(state.availableSupply, state.marketHistoryData)
@@ -190,64 +190,64 @@ const elements = {
     }
   },
   '[data-selector="transaction-count"]': {
-    load ($el) {
+    load($el) {
       return { transactionCount: numeral($el.text()).value() }
     },
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.transactionCount === state.transactionCount) return
       $el.empty().append(numeral(state.transactionCount).format())
     }
   },
   '[data-selector="total-gas-usage"]': {
-    load ($el) {
+    load($el) {
       return { totalGasUsageCount: numeral($el.text()).value() }
     },
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.totalGasUsageCount === state.totalGasUsageCount) return
       $el.empty().append(numeral(state.totalGasUsageCount).format())
     }
   },
   '[data-selector="block-count"]': {
-    load ($el) {
+    load($el) {
       return { blockCount: numeral($el.text()).value() }
     },
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.blockCount === state.blockCount) return
       $el.empty().append(numeral(state.blockCount).format())
     }
   },
   '[data-selector="address-count"]': {
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.addressCount === state.addressCount) return
       $el.empty().append(state.addressCount)
     }
   },
   '[data-selector="average-block-time"]': {
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.averageBlockTime === state.averageBlockTime) return
       $el.empty().append(state.averageBlockTime)
     }
   },
   '[data-selector="market-cap"]': {
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.usdMarketCap === state.usdMarketCap) return
       $el.empty().append(formatUsdValue(state.usdMarketCap))
     }
   },
   '[data-selector="tx_per_day"]': {
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (!(JSON.stringify(oldState.transactionStats) === JSON.stringify(state.transactionStats))) {
         $el.empty().append(numeral(state.transactionStats[0].number_of_transactions).format('0,0'))
       }
     }
   },
   '[data-selector="chain-block-list"]': {
-    load ($el) {
+    load($el) {
       return {
         blocksPath: $el[0].dataset.url
       }
     },
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.blocks === state.blocks) return
 
       const container = $el[0]
@@ -259,7 +259,7 @@ const elements = {
     }
   },
   '[data-selector="chain-block-list"] [data-selector="error-message"]': {
-    render ($el, state, _oldState) {
+    render($el, state, _oldState) {
       if (state.blocksError) {
         $el.show()
       } else {
@@ -268,25 +268,25 @@ const elements = {
     }
   },
   '[data-selector="chain-block-list"] [data-selector="loading-message"]': {
-    render ($el, state, _oldState) {
+    render($el, state, _oldState) {
       showLoader(state.blocksLoading, $el)
     }
   },
   '[data-selector="transactions-list"] [data-selector="error-message"]': {
-    render ($el, state, _oldState) {
+    render($el, state, _oldState) {
       $el.toggle(state.transactionsError)
     }
   },
   '[data-selector="transactions-list"] [data-selector="loading-message"]': {
-    render ($el, state, _oldState) {
+    render($el, state, _oldState) {
       showLoader(state.transactionsLoading, $el)
     }
   },
   '[data-selector="transactions-list"]': {
-    load ($el) {
+    load($el) {
       return { transactionsPath: $el[0].dataset.transactionsPath }
     },
-    render ($el, state, oldState) {
+    render($el, state, oldState) {
       if (oldState.transactions === state.transactions) return
       const container = $el[0]
       const newElements = map(state.transactions, ({ transactionHtml }) => $(transactionHtml)[0])
@@ -294,7 +294,7 @@ const elements = {
     }
   },
   '[data-selector="channel-batching-count"]': {
-    render ($el, state, _oldState) {
+    render($el, state, _oldState) {
       const $channelBatching = $('[data-selector="channel-batching-message"]')
       if (!state.transactionsBatch.length) return $channelBatching.hide()
       $channelBatching.show()
@@ -364,7 +364,7 @@ if ($chainDetailsPage.length) {
   })
 }
 
-function loadTransactions (store) {
+function loadTransactions(store) {
   const path = store.getState().transactionsPath
   store.dispatch({ type: 'START_TRANSACTIONS_FETCH' })
   $.getJSON(path)
@@ -373,11 +373,11 @@ function loadTransactions (store) {
     .always(() => store.dispatch({ type: 'FINISH_TRANSACTIONS_FETCH' }))
 }
 
-function bindTransactionErrorMessage (store) {
+function bindTransactionErrorMessage(store) {
   $('[data-selector="transactions-list"] [data-selector="error-message"]').on('click', _event => loadTransactions(store))
 }
 
-export function placeHolderBlock (blockNumber) {
+export function placeHolderBlock(blockNumber) {
   return `
     <div
       class="col-12 mb-3 d-flex fade-up-blocks-chain"
@@ -385,7 +385,7 @@ export function placeHolderBlock (blockNumber) {
       data-selector="place-holder"
     >
       <div class="tile tile-type-block n-p w-100 row">
-        <div class="col-lg-2">
+        <div class="col-3 col-lg-2">
           <div class="icon-block">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16">
                 <path fill="#D2DAE9" fill-rule="evenodd" d="M7 0L-.007 3.498 7 6.996l7.007-3.498L7 0z"/>
@@ -394,7 +394,7 @@ export function placeHolderBlock (blockNumber) {
               </svg>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-9 col-lg-6">
           <span class="loading-spinner-small ml-1 mr-4">
             <span class="loading-spinner-block-1"></span>
             <span class="loading-spinner-block-2"></span>
@@ -402,12 +402,12 @@ export function placeHolderBlock (blockNumber) {
           <div>
             <span class="tile-title pr-0 pl-0">${blockNumber}</span>
             <div class="tile-transactions">${
-              // @ts-ignore
-              window.localized['Block Processing']
-            }</div>
+    // @ts-ignore
+    window.localized['Block Processing']
+    }</div>
           </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-12 col-lg-4">
             <div>
               <div>
                 Miner: Awaiting ...
@@ -420,7 +420,7 @@ export function placeHolderBlock (blockNumber) {
   `
 }
 
-function loadBlocks (store) {
+function loadBlocks(store) {
   const url = store.getState().blocksPath
 
   store.dispatch({ type: 'START_BLOCKS_FETCH' })
@@ -433,7 +433,7 @@ function loadBlocks (store) {
     .always(() => store.dispatch({ type: 'BLOCKS_FINISH_REQUEST' }))
 }
 
-function bindBlockErrorMessage (store) {
+function bindBlockErrorMessage(store) {
   $('[data-selector="chain-block-list"] [data-selector="error-message"]').on('click', _event => loadBlocks(store))
 }
 

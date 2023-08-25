@@ -153,7 +153,7 @@
             </div>
           </li>
         <% end %>-->
-        <li class="nav-item dropdown">
+        <!--<li class="nav-item dropdown">
           <a class="nav-link topnav-nav-link active-icon <%= if dropdown_nets() != [], do: "dropdown-toggle" %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="nav-link-icon">
               <%= render BlockScoutWeb.IconsView, "_active_icon.html" %>
@@ -180,7 +180,7 @@
               <% end %>
             <% end %>
           </div>
-        </li>
+        </li>-->
         <!-- Dark mode changer -->
         <%= unless Application.get_env(:block_scout_web, :permanent_light_mode_enabled) || Application.get_env(:block_scout_web, :permanent_dark_mode_enabled) do %>
           <button class="dark-mode-changer" id="dark-mode-changer">

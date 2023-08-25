@@ -1,16 +1,19 @@
-.input-group-text{
+.input-group-text {
     background-color: transparent;
     border: none;
 }
-.search-form{
+.search-form {
     border-radius: 12px;
-    background: #FFF;
-    box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.17);
+}
+.dashboard-banner-network-stats-label {
+    font-size: 18px !important;
 }
 .form-control {
-    &.search-control{
+    &.search-control {
         border: none;
-        &:focus{
+        &:focus {
             border: none;
         }
     }

@@ -110,7 +110,7 @@
         <%= @inner_content %>
       </main>
       <%= render BlockScoutWeb.LayoutView, "_new_footer.html", assigns %>
-      <div class="d-flex justify-content-center align-items-center w-100 py-4">Copyright ©2023 Pools Chain. All Right Reserved.</div>
+      <div class="footer-coppy-right d-flex justify-content-center align-items-center w-100 py-4">Copyright ©2023 Pools Chain. All Right Reserved.</div>
     </div>
     <%= if (
       @view_module != Elixir.BlockScoutWeb.ChainView &&

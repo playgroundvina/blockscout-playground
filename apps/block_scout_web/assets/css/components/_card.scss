@@ -155,6 +155,9 @@ $card-tab-icon-color-active: #fff !default;
 
 .card-body {
   padding: $card-horizontal-padding;
+  @media (max-width: 576px) {
+    padding: 20px 10px;
+  }
 }
 
 .card-body-flex-column-space-between {

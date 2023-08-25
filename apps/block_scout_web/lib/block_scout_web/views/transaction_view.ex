@@ -501,10 +501,27 @@ defmodule BlockScoutWeb.TransactionView do
  def value(%mod{value: value}, opts \\ []) when is_transaction_type(mod) do
     include_label? = Keyword.get(opts, :include_label, true)
     formatted_value = format_wei_value(value, :ether, include_unit_label: include_label?)
-    rounded_value = Decimal.round(formatted_value, 8)
-    rounded_value
+    #rounded_value = Decimal.round(formatted_value, 8)
+    #rounded_value
   end
 
+ def valueFormat(%mod{value: value}, opts \\ []) when is_transaction_type(mod) do
+    include_label? = Keyword.get(opts, :include_label, true)
+    formatted_value = format_wei_value(value, :ether, include_unit_label: include_label?)
+
+    if formatted_value == 0 do
+      0
+    else
+      rounded_value =
+        if String.match?(formatted_value, ~r/^\d+\.\d{5,}$/) do
+          Decimal.round(formatted_value, 4)
+        else
+          formatted_value
+        end
+
+      rounded_value
+    end
+  end
 
   def format_wei_value(value) do
     format_wei_value(value, :ether, include_unit_label: false)

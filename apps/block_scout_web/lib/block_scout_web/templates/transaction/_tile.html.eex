@@ -25,9 +25,9 @@
       </span>
     </div>-->
     <!-- Content -->
-    <div class=" col-md-4 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
+    <div class="col-12 col-md-4 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
       <div class="d-flex align-items-center">
-         <div class="icon-block mr-2">
+         <div class="icon-block icon-block mr-2">
             <%= render BlockScoutWeb.IconsView, "_transaction-icon.html" %>
           </div>
           <div class="text-truncate d-flex flex-column">
@@ -44,7 +44,7 @@
             </div>
             </div>
           </div>
-         <div class=" col-md-5 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
+         <div class="col-6  col-md-5 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
           <div class="transaction-address">
             <span>From: </span>
             <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:from, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
@@ -54,9 +54,9 @@
           <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:to, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-6 col-md-3">
           <div class="pool-transaction">
-              <%= value(@transaction, include_label: false) %> <%= Explorer.coin_name() %>
+              <%= valueFormat(@transaction, include_label: false) %> <%= Explorer.coin_name() %>
           </div>
            <!--<span class="d-flex flex-md-row flex-column mt-3 mt-md-0">
             <span class="tile-title">

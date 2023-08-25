@@ -1,5 +1,5 @@
 <!-- Search navbar -->
-<div class="search-form d-lg-flex d-inline-block <%= if assigns[:additional_classes] do @additional_classes |> Enum.join(" ") end %>">
+<div class="mt-2 mt-md-0 search-form d-lg-flex d-inline-block <%= if assigns[:additional_classes] do @additional_classes |> Enum.join(" ") end %>">
 	<div class="input-group" style="width: 100%;" title='<%= gettext("Search by address, token symbol name, transaction hash, or block number") %>'>
 		<div class="input-group-append left">
 			<button class="input-group-text" id="search-icon">

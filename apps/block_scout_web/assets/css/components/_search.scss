@@ -22,14 +22,14 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
     @media screen and (max-width: 992px) {
         height: 33px !important;
     }
-    &.focused-field {
-      border: 1px solid $secondary !important;
-    }
+    // &.focused-field {
+    //   border: 1px solid $secondary !important;
+    // }
 }
 
 .autoComplete_wrapper {
     width: 100% !important;
-    input{
+    input {
         background-color: unset !important;
     }
 }
@@ -45,7 +45,8 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
     }
 }
 
-.main-search-autocomplete, .main-search-autocomplete-mobile {
+.main-search-autocomplete,
+.main-search-autocomplete-mobile {
     font-size: 14px !important;
     color: #828ba0 !important;
 }
@@ -56,7 +57,7 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
     font-size: 13px;
     font-weight: 100;
     text-transform: uppercase;
-    color: rgb(33,33,33);
+    color: rgb(33, 33, 33);
     margin-left: auto;
 }
 
@@ -65,13 +66,13 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
     color: #212121 !important;
 }
 
-ul[id^='autoComplete_list_'] {
+ul[id^="autoComplete_list_"] {
     margin-left: -39px !important;
     border-radius: 0px !important;
     padding: 5px !important;
 }
 
-li[id^='autoComplete_result_'] {
+li[id^="autoComplete_result_"] {
     font-size: 12px !important;
     border-radius: 0 !important;
 }
