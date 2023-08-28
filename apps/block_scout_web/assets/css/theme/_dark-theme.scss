@@ -60,15 +60,16 @@ $header-links-background-color-dark-mode: $dark-light !default;
 .text-truncate {
   color: #aeaeae !important;
 }
-.btn-view-all {
-  border: 0.75px solid #fff;
-  background: transparent;
-  color: #fff !important;
-}
+
 .dark-theme-applied {
   color: #fff;
   background-color: $body-dark !important;
   // navbar
+  .btn-view-all {
+    border: 0.75px solid #fff;
+    background: transparent;
+    color: #fff !important;
+  }
   .icon-block {
     svg {
       filter: invert(1);
