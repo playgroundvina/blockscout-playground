@@ -1,15 +1,15 @@
 <script>
   function ShowLayoutContainer() {
-
     document.getElementsByClassName("layout-container")[0].style.visibility = "visible";
   }
   window.onload = ShowLayoutContainer()
 </script>
+
 <section class="container" data-page="transaction-list">
   <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
   <div class="card">
     <div class="card-body" data-async-listing="<%= @current_path %>">
-      <h1 class="card-title list-title-description"><%= gettext "Validated Transactions" %></h1>
+      <h1 class="card-title list-title-description"><%= gettext "Transactions" %></h1>
       <div class="list-top-pagination-container-wrapper">
         <%= render BlockScoutWeb.CommonComponentsView, "_rap_pagination_container.html", position: "top", showing_limit: if Chain.transactions_available_count() == Chain.limit_showing_transactions(), do: Chain.limit_showing_transactions(), else: nil %>
       </div>
@@ -32,9 +32,41 @@
           </span>
         </div>
       </div>
-
-      <div data-selector="transactions-list" data-items>
-        <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
+      <div>
+        <table  class="table table-borderless">
+          <thead>
+            <tr>
+              <th>
+                TXN HASH
+              </th>
+              <th>
+              METHOD
+              </th>
+              <th>
+                BLOCK
+              </th>
+              <th>
+                AGE
+              </th>
+              <th>
+                FROM
+              </th>
+              <th>
+                TO
+              </th>
+                <th>
+                Value
+              </th>
+              </th>
+              <th>
+                TxN Fee
+              </th>
+            </tr>
+          </thead>
+          <tbody data-selector="transactions-list" data-items>
+            <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
+          </tbody>
+        </table>
       </div>
 
       <%= render BlockScoutWeb.CommonComponentsView, "_rap_pagination_container.html", position: "bottom" %>

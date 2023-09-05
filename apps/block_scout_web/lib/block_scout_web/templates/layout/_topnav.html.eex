@@ -55,14 +55,17 @@
               <%= link(gettext("Uncles"),
                     to: uncle_path(@conn, :uncle),
                     class: "dropdown-item #{tab_status("uncles", @conn.request_path)}")%>
+
               <%= link(gettext("Forked Blocks (Reorgs)"),
                     to: reorg_path(@conn, :reorg),
                     class: "border-bottom dropdown-item #{tab_status("reorgs", @conn.request_path)}")%>
+
               <div class="nav-submenu">
                 <span>
                   <%= gettext("Transactions") %>
                 </span>
               </div>
+
               <% json_rpc_named_arguments = Application.fetch_env!(:indexer, :json_rpc_named_arguments) %>
               <% variant = Keyword.fetch!(json_rpc_named_arguments, :variant) %>
               <% show_withdrawals? = not Application.get_env(:indexer, Indexer.Fetcher.Withdrawal.Supervisor)[:disabled?] %>

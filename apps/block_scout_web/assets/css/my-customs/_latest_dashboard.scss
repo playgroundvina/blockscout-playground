@@ -185,3 +185,28 @@
 //     border: unset !important;
 //   }
 // }
+.transaction-list {
+  .list-title-description {
+    font-family: Sora;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.96px;
+    color: #282828;
+  }
+  .page-item {
+    &.active {
+      .page-link {
+        background-color: transparent;
+        color: #e6cb82;
+        font-family: Sora;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.18px;
+      }
+    }
+  }
+}

@@ -320,7 +320,31 @@ $card-tab-icon-color-active: #fff !default;
     display: inline-block;
   }
 }
-
+.list-title-description {
+  font-family: Sora;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.96px;
+  color: #282828;
+}
+.page-item {
+  .page-link {
+    font-family: Sora;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.18px;
+    border: none !important;
+  }
+  &.active {
+    .page-link {
+      color: #e6cb82 !important;
+    }
+  }
+}
 .list-top-pagination-container-wrapper {
   @media (min-width: 992px) {
     float: right;
