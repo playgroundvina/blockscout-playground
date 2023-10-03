@@ -1,12 +1,13 @@
 import Cookies from 'js-cookie'
-// @ts-ignore
-const darkModeChangerEl = document.getElementsByClassName('dark-mode-changer')[0]
 
-darkModeChangerEl && darkModeChangerEl.addEventListener('click', function () {
-  if (Cookies.get('chakra-ui-color-mode') === 'dark') {
-    Cookies.set('chakra-ui-color-mode', 'light')
-  } else {
+// @ts-ignore
+const darkModeChangerEl = document.getElementById('dark-mode-changer-switch')
+
+darkModeChangerEl && darkModeChangerEl.addEventListener('change', (event) => {
+  if (event.currentTarget.checked) {
     Cookies.set('chakra-ui-color-mode', 'dark')
+  } else {
+    Cookies.set('chakra-ui-color-mode', 'light')
   }
   document.location.reload()
 })

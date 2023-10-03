@@ -1,6 +1,19 @@
 import { isDarkMode } from './lib/dark_mode'
+import Cookies from 'js-cookie'
 
-function applyDarkMode () {
+function applyDarkMode() {
+  const darkModeChangerEl = document.getElementById('dark-mode-changer-switch')
+  if (Cookies.get('chakra-ui-color-mode') === 'dark' && darkModeChangerEl) {
+    darkModeChangerEl.checked = true;
+  } else {
+    darkModeChangerEl.checked = false;
+  }
+  setTimeout(() => {
+    const modeChangerEl = document.getElementById('mode-changer')
+    if (modeChangerEl) {
+      modeChangerEl.style.visibility = "visible"
+    }
+  }, 1000);
   if (isDarkMode()) {
     document.body.className += ' ' + 'dark-theme-applied'
     document.body.style.backgroundColor = '#1c1d31'
@@ -19,6 +32,12 @@ if (isDarkMode()) {
   if (modeChanger) {
     modeChanger.className += ' ' + 'dark-mode-changer--dark'
   }
+
+  const modeChangerSun = document.getElementById('dark-mode-changer-sun')
+  if (modeChangerSun) {
+    modeChangerSun.className += ' ' + 'dark-mode-changer--dark'
+  }
+
 
   const search = document.getElementById('main-search-autocomplete')
   const searchMobile = document.getElementById('main-search-autocomplete-mobile')
