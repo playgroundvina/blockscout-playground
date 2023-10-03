@@ -195,7 +195,7 @@
         <!-- Dark mode changer -->
 
       </ul>
-      <div id="mode-changer" style="display: flex; visibility: hidden;">
+      <div id="mode-changer" style="display: flex;">
           <%= unless Application.get_env(:block_scout_web, :permanent_light_mode_enabled) || Application.get_env(:block_scout_web, :permanent_dark_mode_enabled) do %>
            <button class="dark-mode-changer" id="dark-mode-changer-sun">
           <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -217,9 +217,15 @@
             </defs>
           </svg>
         </button>
-        <span  class="dark-mode-changer" >
+        <span  class="dark-mode-changer" id="mode-changer-checked" >
           <label  class="switch">
             <input type="checkbox" id="dark-mode-changer-switch" checked>
+            <span class="slider round"></span>
+          </label>
+        </span>
+        <span  class="dark-mode-changer"  id="mode-changer-no-checked" style="display: none;" >
+          <label  class="switch">
+            <input type="checkbox" id="light-mode-changer-switch">
             <span class="slider round"></span>
           </label>
         </span>

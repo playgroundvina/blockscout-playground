@@ -7,13 +7,16 @@ function applyDarkMode() {
     darkModeChangerEl.checked = true;
   } else {
     darkModeChangerEl.checked = false;
-  }
-  setTimeout(() => {
-    const modeChangerEl = document.getElementById('mode-changer')
+    const modeChangerEl = document.getElementById('mode-changer-checked')
     if (modeChangerEl) {
-      modeChangerEl.style.visibility = "visible"
+      modeChangerEl.style.display = "none"
     }
-  }, 1000);
+    const modeChangerElNoChecked = document.getElementById('mode-changer-no-checked')
+    if (modeChangerElNoChecked) {
+      modeChangerElNoChecked.style.display = ""
+    }
+  }
+
   if (isDarkMode()) {
     document.body.className += ' ' + 'dark-theme-applied'
     document.body.style.backgroundColor = '#1c1d31'
