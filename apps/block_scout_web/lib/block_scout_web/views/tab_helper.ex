@@ -20,7 +20,7 @@ defmodule BlockScoutWeb.TabHelper do
   nil
   """
   def tab_status(tab_name, request_path, show_token_transfers \\ false) do
-    if tab_active?(tab_name, request_path) do
+    if tab_active?(tab_name, request_path) || tab_name == request_path do
       "active"
     else
       case request_path do

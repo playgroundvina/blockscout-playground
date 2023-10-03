@@ -1,3 +1,4 @@
+$primary: #E6CB82;
 $body-dark: #242424; // body background
 $dark-bg: #22223a; // hero shade
 $dark-light-bg: #0a0a0a; // pills bg shade
@@ -128,7 +129,9 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
         fill: $labels-dark;
       }
     }
-    &.active,
+    &.active{
+      color:$primary
+    }
     &:hover {
       .nav-link-icon {
         svg path {

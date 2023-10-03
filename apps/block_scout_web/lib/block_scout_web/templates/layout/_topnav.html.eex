@@ -6,7 +6,7 @@
   <div class="container-fluid navbar-container">
     <%= link to: webapp_url(@conn), class: "navbar-brand", "data-test": "header_logo" do %>
       <%= if logo() do %>
-        <img class="navbar-logo" id="navbar-logo" src="/images/logo.png" alt="<%= subnetwork_title() %>" />
+        <img class="navbar-logo" id="navbar-logo" src="<%= static_path(@conn, logo()) %>" alt="<%= subnetwork_title() %>" />
       <% end %>
       <%= if logo_text() do %>
         <span class="logo-text <%= unless logo(), do: "no-logo" %>"> <%= logo_text() %> </span>
@@ -22,18 +22,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item dropdown"
-        style=" align-items: center;
-                  color: #828ba0;
-                  display: flex;
-                  font-size: 14px;
-                  outline: none;
-                  position: relative;"
-        >
-          <a href="/" className="nav-link topnav-nav-link dropdown-toggle"
-            style="  color: #828ba0"
-          >Home</a>
-        <li>
+      <%= content_tag :li, class: "nav-item dropdown" do %>
+        <%= link(
+              gettext("Home"),
+              to: "/",
+              class: "nav-link topnav-nav-link dropdown-toggle #{tab_status("/", @conn.request_path)}")%>
+        <% end %>
         <%= if Application.get_env(:block_scout_web, BlockScoutWeb.WebRouter)[:enabled] do %>
           <li class="nav-item dropdown">
             <a class="nav-link topnav-nav-link dropdown-toggle" href="#" id="navbarBlocksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
