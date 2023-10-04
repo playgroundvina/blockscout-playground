@@ -7,9 +7,30 @@
     background: #fff;
     box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.17);
 }
+
 .dashboard-banner-network-stats-label {
     font-size: 18px !important;
+    text-transform: uppercase;
+    @media (max-width: 960px) {
+        font-size: 14px !important;
+    }
+    @media (max-width: 480px) {
+        font-size: 12px;
+    }
 }
+
+
+.dashboard-banner-network-stats-value {
+    font-size: 20px;
+    @media (max-width: 960px) {
+      font-size: 16px;
+    }
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+
+
 .form-control {
     &.search-control {
         border: none;
@@ -18,3 +39,4 @@
         }
     }
 }
+

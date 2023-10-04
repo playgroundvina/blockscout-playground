@@ -1,5 +1,5 @@
 <div class="dashboard-banner-chart-legend-item gas-price-oracle">
-    <span class="dashboard-banner-chart-legend-label">
+    <span class="dashboard-banner-chart-legend-label dashboard-banner-network-stats-label">
     <%= gettext "Gas tracker" %>
     </span>
     <div class="dashboard-banner-chart-legend-value-container">
@@ -30,7 +30,7 @@
         </span>
         <% else %>
         <%= if @gas_price do %>
-            <span class="dashboard-banner-chart-legend-value inline ml-2">
+            <span class="dashboard-banner-chart-legend-value inline ml-2 dashboard-banner-network-stats-value">
             <span class="gas-price-icon">
                 <%= render BlockScoutWeb.IconsView, "_gas_price_icon.html" %>
             </span>
