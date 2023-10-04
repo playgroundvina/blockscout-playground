@@ -13,8 +13,8 @@ $dashboard-banner-chart-legend-label-color: #262626 !default;
 $dashboard-banner-chart-legend-value-color: $dashboard-stats-item-value-color !default;
 $dashboard-stats-item-border-color: #fff;
 $dashboard-banner-network-plain-container-height: 205px;
-$dashboard-banner-chart-axis-font-color: $dashboard-stats-item-value-color !default;
-$dashboard-banner-chart-axis-font-color-alt: #333;
+$dashboard-banner-chart-axis-font-color:#FFF !default;
+$dashboard-banner-chart-axis-font-color-alt: #FFF;
 
 .dashboard-banner-container {
   // @include gradient-container();
