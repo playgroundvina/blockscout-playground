@@ -1,8 +1,20 @@
 $dashboard-banner-gradient-start: $primary !default;
-$dashboard-banner-gradient-end: lighten($dashboard-banner-gradient-start, 5%) !default;
-$dashboard-banner-network-plain-container-background-color: lighten($dashboard-banner-gradient-end, 5%) !default;
-$dashboard-line-color-price: lighten($dashboard-banner-gradient-end, 5%) !default;
-$dashboard-line-color-price-dark-theme: lighten($dashboard-banner-gradient-end, 5%) !default;
+$dashboard-banner-gradient-end: lighten(
+  $dashboard-banner-gradient-start,
+  5%
+) !default;
+$dashboard-banner-network-plain-container-background-color: lighten(
+  $dashboard-banner-gradient-end,
+  5%
+) !default;
+$dashboard-line-color-price: lighten(
+  $dashboard-banner-gradient-end,
+  5%
+) !default;
+$dashboard-line-color-price-dark-theme: lighten(
+  $dashboard-banner-gradient-end,
+  5%
+) !default;
 $dashboard-line-color-market: $secondary !default;
 $dashboard-line-color-market-dark-theme: $secondary !default;
 $dashboard-line-color-transactions: $warning !default;
@@ -13,8 +25,9 @@ $dashboard-banner-chart-legend-label-color: #262626 !default;
 $dashboard-banner-chart-legend-value-color: $dashboard-stats-item-value-color !default;
 $dashboard-stats-item-border-color: #fff;
 $dashboard-banner-network-plain-container-height: 205px;
-$dashboard-banner-chart-axis-font-color:#FFF !default;
-$dashboard-banner-chart-axis-font-color-alt: #FFF;
+$dashboard-banner-chart-axis-font-color: #262626;
+$dashboard-banner-chart-axis-font-color-drak-theme: #fff;
+$dashboard-banner-chart-axis-font-color-alt: #fff;
 
 .dashboard-banner-container {
   // @include gradient-container();
@@ -87,8 +100,8 @@ $dashboard-banner-chart-axis-font-color-alt: #FFF;
   flex-grow: 1;
   // margin: 15px 0 20px 0;
   position: relative;
-  min-height: 100px;
-  height: calc(100% - 86px);
+  min-height: 150px;
+  height: calc(100%);
 
   @include media-breakpoint-down(md) {
     flex-grow: 0;

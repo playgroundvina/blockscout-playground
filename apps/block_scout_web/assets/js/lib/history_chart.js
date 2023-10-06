@@ -35,6 +35,14 @@ function getTxChartColor () {
   }
 }
 
+function getAxisFontColor () {
+  if ((isDarkMode())) {
+    return sassVariables.dashboardBannerChartAxisFontColorDarkTheme
+  } else {
+    return sassVariables.dashboardBannerChartAxisFontColor
+  }
+}
+
 function getPriceChartColor () {
   if ((isDarkMode())) {
     return sassVariables.dashboardLineColorPriceDarkTheme
@@ -94,7 +102,7 @@ const config = {
       mode: 'index'
     },
     scales: {
-      x: xAxe(sassVariables.dashboardBannerChartAxisFontColor),
+      x: xAxe(getAxisFontColor()),
       price: {
         position: 'left',
         grid,
@@ -102,7 +110,7 @@ const config = {
           beginAtZero: true,
           callback: (value, _index, _values) => `$${numeral(value).format('0,0.00')}`,
           maxTicksLimit: 4,
-          color: sassVariables.dashboardBannerChartAxisFontColor
+          color: getAxisFontColor()
         }
       },
       marketCap: {
@@ -112,7 +120,7 @@ const config = {
           callback: (_value, _index, _values) => '',
           maxTicksLimit: 6,
           drawOnChartArea: false,
-          color: sassVariables.dashboardBannerChartAxisFontColor
+          color: getAxisFontColor()
         }
       },
       numTransactions: {
@@ -122,7 +130,7 @@ const config = {
           beginAtZero: true,
           callback: (value, _index, _values) => formatValue(value),
           maxTicksLimit: 4,
-          color: sassVariables.dashboardBannerChartAxisFontColor
+          color: getAxisFontColor()
         }
       }
     },
@@ -130,7 +138,7 @@ const config = {
       legend,
       title: {
         display: true,
-        color: sassVariables.dashboardBannerChartAxisFontColor
+        color: getAxisFontColor()
       },
       tooltip: {
         mode: 'index',
