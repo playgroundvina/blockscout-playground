@@ -21,7 +21,7 @@
                   <%# They wont just access @chart_config.x w/o first checking if x exists %>
                   <% market_chart_config = Map.has_key?(@chart_config, :market) && @chart_config.market%>
                   <%= if price_chart_legend_enabled? || Enum.member?(market_chart_config, :price) do %>
-                  <div class=" col-lg-12 col-md-6 col-sm-6 col-6 banner-one">
+                  <div class=" col-lg-12 col-md-6 col-sm-6 col-6 banner-one b-banner">
                      <span class="dashboard-banner-network-stats-label">
                      <%= Explorer.coin_name() %> <%= gettext "Price" %>
                      </span>
@@ -32,7 +32,7 @@
                   </div>
                   <% end %>
                   <%= if price_chart_legend_enabled? || Enum.member?(@chart_config.market, :market_cap) do %>
-                  <div class="col-lg-12 col-md-6 col-sm-6 col-6 banner-two">
+                  <div class="col-lg-12 col-md-6 col-sm-6 col-6 banner-two b-banner">
                      <span class="dashboard-banner-network-stats-label">
                      <%= gettext "Market Cap" %>
                      </span>
@@ -73,10 +73,10 @@
             </div>
             <div class="col-lg-4" style="padding: 0px;">
                <div class="" style="width: calc(100% + 13px);">
-                  <div class="container row w-100 banner-three">
+                  <div class="container row w-100 banner-three b-banner">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 ">
                            <span class="dashboard-banner-network-stats-label">
-                           <%= gettext "Total transactions" %>
+                           <%= gettext "Transactions" %>
                            </span>
                            <div class="d-flex">
                               <span class="dashboard-banner-network-stats-value" data-selector="transaction-count">
@@ -107,7 +107,7 @@
                            <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
                         </div>
                   </div>
-                  <div class="container row w-100 banner-four">
+                  <div class="container row w-100 banner-four b-banner">
                      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                         <span class="dashboard-banner-network-stats-label">
                         <%= gettext "Total blocks" %>
@@ -132,7 +132,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-lg-4 banner-five">
+            <div class="col-lg-4 banner-five b-banner">
                <!-- Graph -->
 
                <div>

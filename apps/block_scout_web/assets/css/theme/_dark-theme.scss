@@ -1,15 +1,12 @@
-$primary: #E6CB82;
+$primary: #e6cb82;
 $body-dark: #242424; // body background
 $dark-bg: #22223a; // hero shade
 $dark-light-bg: #0a0a0a; // pills bg shade
 $dark-light: #313355; // tile light top share
-$labels-dark: #8F8F8F; // header nav, labels
+$labels-dark: #8f8f8f; // header nav, labels
 $dark-stakes-banned-background: #3e314c;
 $dashboard-banner-network-stats-item-before-background-color-dark-mode: $dark-secondary !default;
 $header-links-background-color-dark-mode: $dark-light-bg !default;
-
-
-
 
 .dark-mode-changer {
   display: inline-flex;
@@ -109,7 +106,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
   .dashboard-banner {
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.0);
+    background: rgba(255, 255, 255, 0);
     box-shadow: unset;
   }
   .dashboard-banner-network-stats-item:before {
@@ -132,11 +129,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
         fill: $labels-dark;
       }
     }
-    &.active{
-      color:$primary
+    &.active {
+      color: $primary;
     }
-    &.active:before{
-      background-color:$primary
+    &.active:before {
+      background-color: $primary;
     }
     &:hover {
       .nav-link-icon {
@@ -197,7 +194,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   // }
   .dashboard-banner-network-stats-label,
   .dashboard-banner-chart-legend .dashboard-banner-chart-legend-label {
-    color: #E0BA75;
+    color: #e0ba75;
   }
   // .dashboard-banner-network-stats-item::before {
   //   background-color: $dashboard-banner-network-stats-item-before-background-color-dark-mode !important;
@@ -570,7 +567,9 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       color: $labels-dark;
     }
   }
-  .token-balance-dropdown[aria-labelledby="dropdown-tokens"] .dropdown-items .dropdown-item:hover {
+  .token-balance-dropdown[aria-labelledby="dropdown-tokens"]
+    .dropdown-items
+    .dropdown-item:hover {
     color: #fff !important;
   }
   .dropdown-header {
@@ -631,7 +630,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   // Contract Verification
   .new-smart-contract-container {
     background-color: $dark-light-bg;
-    background-image: linear-gradient(to bottom right, $dark-light 100%, $dark-light 100%);
+    background-image: linear-gradient(
+      to bottom right,
+      $dark-light 100%,
+      $dark-light 100%
+    );
     @media (max-width: 991.98px) {
       background-image: none;
     }
@@ -696,7 +699,9 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
   }
 
-  .input-group:not(.input-status-error) .form-control:focus ~ .input-group-prepend.last {
+  .input-group:not(.input-status-error)
+    .form-control:focus
+    ~ .input-group-prepend.last {
     .input-group-text {
       border-color: $dark-primary;
     }
@@ -732,7 +737,12 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .table-content-loader {
     background-color: $dark-bg !important;
     &:before {
-      background: linear-gradient(to right, $dark-bg 2%, lighten($dark-bg, 3) 18%, $dark-bg 33%);
+      background: linear-gradient(
+        to right,
+        $dark-bg 2%,
+        lighten($dark-bg, 3) 18%,
+        $dark-bg 33%
+      );
     }
   }
 
@@ -1159,7 +1169,8 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .tooltip-inversed-color.bs-tooltip-bottom .arrow::before,
-  .tooltip-inversed-color.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+  .tooltip-inversed-color.bs-tooltip-auto[x-placement^="bottom"]
+    .arrow::before {
     border-bottom-color: $btn-line-color !important;
   }
 
@@ -1244,7 +1255,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     color: $dark-primary;
     position: relative;
   }
-  .dark-theme-applied .navbar.navbar-primary .navbar-nav .nav-link:hover:before {
+  .dark-theme-applied
+    .navbar.navbar-primary
+    .navbar-nav
+    .nav-link:hover:before {
     content: "|";
     height: 50px;
     width: 50%;
@@ -1267,3 +1281,4 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   border-color: $dark-primary;
   color: $dark-primary;
 }
+

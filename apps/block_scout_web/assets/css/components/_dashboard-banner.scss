@@ -64,13 +64,6 @@ $dashboard-banner-chart-axis-font-color-alt: #FFF;
 }
 
 .dashboard-banner {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  z-index: 9;
-  background: #ffffff;
-  box-shadow: 0 0 30px 0 rgba(202, 199, 226, 1);
-  border-radius: 16px;
   @include media-breakpoint-between(lg, xl) {
     height: 249px;
   }

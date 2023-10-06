@@ -7,11 +7,11 @@
         <%= if gas_prices_from_oracle do %>
         <span class="dashboard-banner-chart-legend-value inline">
             <div>
-            <div class="d-flex flex-row dashboard-banner-network-stats-value" style="height: 20px; line-height: 20px;">
+            <div class="d-flex flex-row dashboard-banner-network-stats-value" style="justify-content: flex-end" >
                 <div class="flex-column "><%= "#{gas_prices_from_oracle["average"]}" <> " " %><%= gettext "Gwei" %></div>
                 <span
                 data-toggle="tooltip"
-                data-placement="top"
+                data-placement="bottom"
                 data-html="true"
                 data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-tracker' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
                 title="
@@ -23,7 +23,7 @@
                 </div>
                 "
                 >
-                <span style="display: inline-block; height: 20px; width: 12px;" class="fontawesome-icon info-circle ml-1"></span>
+                <span style="display: inline-block; width: 12px;" class="fontawesome-icon info-circle ml-1"></span>
                 </span>
             </div>
             </div>
