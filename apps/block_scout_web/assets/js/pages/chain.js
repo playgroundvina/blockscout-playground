@@ -13,6 +13,7 @@ import { batchChannel, showLoader } from '../lib/utils'
 import listMorph from '../lib/list_morph'
 import '../app'
 import { openErrorModal, openSuccessModal, openWarningModal } from '../lib/modals'
+import { createMarketHistoryChart } from '../lib/history_chart'
 
 const BATCH_THRESHOLD = 6
 const BLOCKS_PER_PAGE = 4
@@ -173,13 +174,24 @@ function withMissingBlocks(reducer) {
 }
 
 let chart
+let chartMobile
 const elements = {
   '[data-chart="historyChart"]': {
     load() {
       // @ts-ignore
       chart = window.dashboardChart
+      if (!chart) {
+        const dashboardChartElement = document.querySelectorAll('[data-chart="historyChart"]')
+        if (dashboardChartElement) {
+          // @ts-ignore
+          chart = window.dashboardChart = createMarketHistoryChart(dashboardChartElement[0])
+        }
+      }
     },
     render(_$el, state, oldState) {
+      const doashBoardPc = $(".dashboard-banner-pc");
+      const isMobile = doashBoardPc.css('display') === "none"
+      if (isMobile) return
       if (!chart || (oldState.availableSupply === state.availableSupply && oldState.marketHistoryData === state.marketHistoryData) || !state.availableSupply) return
 
       chart.updateMarketHistory(state.availableSupply, state.marketHistoryData)
@@ -189,7 +201,41 @@ const elements = {
       chart.updateTransactionHistory(state.transactionStats)
     }
   },
+  '[data-chart="historyChartMobile"]': {
+    load() {
+      // @ts-ignore
+      chartMobile = window.dashboardChartMobile
+      if (!chartMobile) {
+        const dashboardChartElementMobile = document.querySelectorAll('[data-chart="historyChartMobile"]')
+        if (dashboardChartElementMobile) {
+          // @ts-ignore
+          chartMobile = window.dashboardChartElementMobile = createMarketHistoryChart(dashboardChartElementMobile[0])
+        }
+      }
+    },
+    render(_$el, state, oldState) {
+      const doashBoardPc = $(".dashboard-banner-pc");
+      const isMobile = doashBoardPc.css('display') === "none"
+      if (!isMobile) return
+      if (!chartMobile || (oldState.availableSupply === state.availableSupply && oldState.marketHistoryData === state.marketHistoryData) || !state.availableSupply) return
+
+      chartMobile.updateMarketHistory(state.availableSupply, state.marketHistoryData)
+
+      if (!chartMobile || (JSON.stringify(oldState.transactionStats) === JSON.stringify(state.transactionStats))) return
+
+      chartMobile.updateTransactionHistory(state.transactionStats)
+    }
+  },
   '[data-selector="transaction-count"]': {
+    load($el) {
+      return { transactionCount: numeral($el.text()).value() }
+    },
+    render($el, state, oldState) {
+      if (oldState.transactionCount === state.transactionCount) return
+      $el.empty().append(numeral(state.transactionCount).format())
+    }
+  },
+  '[data-selector="transaction-count-mobile"]': {
     load($el) {
       return { transactionCount: numeral($el.text()).value() }
     },
@@ -208,6 +254,15 @@ const elements = {
     }
   },
   '[data-selector="block-count"]': {
+    load($el) {
+      return { blockCount: numeral($el.text()).value() }
+    },
+    render($el, state, oldState) {
+      if (oldState.blockCount === state.blockCount) return
+      $el.empty().append(numeral(state.blockCount).format())
+    }
+  },
+  '[data-selector="block-count-mobile"]': {
     load($el) {
       return { blockCount: numeral($el.text()).value() }
     },

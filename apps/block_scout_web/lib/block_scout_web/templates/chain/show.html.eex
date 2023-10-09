@@ -47,7 +47,7 @@
                <%= gettext "Transactions" %>
                </span>
                <div class="d-flex">
-                  <span class="dashboard-banner-network-stats-value" data-selector="transaction-count">
+                  <span class="dashboard-banner-network-stats-value" data-selector="transaction-count-mobile">
                   <%= BlockScoutWeb.Cldr.Number.to_string!(@transaction_estimated_count, format: "#,###") %>
                   </span>
                   <%= if @total_gas_usage > 0 do %>
@@ -82,7 +82,7 @@
                <span class="dashboard-banner-network-stats-label">
                <%= gettext "Total blocks" %>
                </span>
-               <span class="dashboard-banner-network-stats-value" data-selector="block-count">
+               <span class="dashboard-banner-network-stats-value" data-selector="block-count-mobile">
                <%= BlockScoutWeb.Cldr.Number.to_string!(@block_count, format: "#,###") %>
                </span>
             </div>
@@ -114,7 +114,7 @@
                   <button data-chart-error-message class="" style="display: none;">
                   <span><%= gettext("There was a problem loading the chart.") %></span>
                   </button>
-                  <canvas data-chart="historyChart"
+                  <canvas data-chart="historyChartMobile"
                      data-history_chart_paths=
                      '{<%= for {{key, value}, x} <- Enum.with_index(@chart_data_paths) do %>
                      "<%= key %>":"<%= value %>"

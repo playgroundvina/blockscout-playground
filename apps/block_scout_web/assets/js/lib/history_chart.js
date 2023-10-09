@@ -27,7 +27,7 @@ const grid = {
   drawOnChartArea: false
 }
 
-function getTxChartColor () {
+function getTxChartColor() {
   if ((isDarkMode())) {
     return sassVariables.dashboardLineColorTransactionsDarkTheme
   } else {
@@ -35,7 +35,7 @@ function getTxChartColor () {
   }
 }
 
-function getAxisFontColor () {
+function getAxisFontColor() {
   if ((isDarkMode())) {
     return sassVariables.dashboardBannerChartAxisFontColorDarkTheme
   } else {
@@ -43,7 +43,7 @@ function getAxisFontColor () {
   }
 }
 
-function getPriceChartColor () {
+function getPriceChartColor() {
   if ((isDarkMode())) {
     return sassVariables.dashboardLineColorPriceDarkTheme
   } else {
@@ -51,7 +51,7 @@ function getPriceChartColor () {
   }
 }
 
-function getMarketCapChartColor () {
+function getMarketCapChartColor() {
   if ((isDarkMode())) {
     return sassVariables.dashboardLineColorMarketDarkTheme
   } else {
@@ -59,7 +59,7 @@ function getMarketCapChartColor () {
   }
 }
 
-function xAxe (fontColor) {
+function xAxe(fontColor) {
   return {
     grid,
     type: 'time',
@@ -83,7 +83,7 @@ const legend = {
   display: false
 }
 
-function formatValue (val) {
+function formatValue(val) {
   return `${numeral(val).format('0,0')}`
 }
 
@@ -163,16 +163,16 @@ const config = {
   }
 }
 
-function getDataFromLocalStorage (key) {
+function getDataFromLocalStorage(key) {
   const data = window.localStorage.getItem(key)
   return data ? JSON.parse(data) : []
 }
 
-function setDataToLocalStorage (key, data) {
+function setDataToLocalStorage(key, data) {
   window.localStorage.setItem(key, JSON.stringify(data))
 }
 
-function getPriceData (marketHistoryData) {
+function getPriceData(marketHistoryData) {
   if (marketHistoryData.length === 0) {
     return getDataFromLocalStorage(priceDataKey)
   }
@@ -181,7 +181,7 @@ function getPriceData (marketHistoryData) {
   return data
 }
 
-function getTxHistoryData (transactionHistory) {
+function getTxHistoryData(transactionHistory) {
   if (transactionHistory.length === 0) {
     return getDataFromLocalStorage(txHistoryDataKey)
   }
@@ -197,7 +197,7 @@ function getTxHistoryData (transactionHistory) {
   return data
 }
 
-function getMarketCapData (marketHistoryData) {
+function getMarketCapData(marketHistoryData) {
   if (marketHistoryData.length === 0) {
     return getDataFromLocalStorage(marketCapDataKey)
   }
@@ -213,7 +213,7 @@ const priceLineColor = getPriceChartColor()
 const mcapLineColor = getMarketCapChartColor()
 
 class MarketHistoryChart {
-  constructor (el, _marketHistoryData, dataConfig) {
+  constructor(el, _marketHistoryData, dataConfig) {
     const axes = config.options.scales
 
     let priceActivated = true
@@ -301,19 +301,19 @@ class MarketHistoryChart {
     this.chart = new Chart(el, config)
   }
 
-  updateMarketHistory (marketHistoryData) {
+  updateMarketHistory(marketHistoryData) {
     this.price.data = getPriceData(marketHistoryData)
     this.marketCap.data = getMarketCapData(marketHistoryData)
     this.chart.update()
   }
 
-  updateTransactionHistory (transactionHistory) {
+  updateTransactionHistory(transactionHistory) {
     this.numTransactions.data = getTxHistoryData(transactionHistory)
     this.chart.update()
   }
 }
 
-export function createMarketHistoryChart (el) {
+export function createMarketHistoryChart(el) {
   const dataPaths = $(el).data('history_chart_paths')
   const dataConfig = $(el).data('history_chart_config')
 
@@ -348,5 +348,11 @@ export function createMarketHistoryChart (el) {
 
 $('[data-chart-error-message]').on('click', _event => {
   $('[data-chart-error-message]').hide()
-  createMarketHistoryChart($('[data-chart="historyChart"]')[0])
+  const doashBoardPc = $(".dashboard-banner-pc");
+  const isMobile = doashBoardPc.css('display') === "none"
+  if (isMobile) {
+    createMarketHistoryChart($('[data-chart="historyChartMobile"]')[0])
+  } else {
+    createMarketHistoryChart($('[data-chart="historyChart"]')[0])
+  }
 })
