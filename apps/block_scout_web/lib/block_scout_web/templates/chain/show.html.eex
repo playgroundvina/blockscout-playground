@@ -7,7 +7,136 @@
    <div class='search-dashboard'>
       <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete", additional_classes: ["mobile-search-hide"] %>
    </div>
-   <div class="container">
+   <div class="dashboard-banner-mobile">
+      <div class="h-100  container-mobile flex-container pl-2 pr-2">
+         <% price_chart_legend_enabled? = Application.get_env(:block_scout_web, :chart)[:price_chart_legend_enabled?] %>
+         <%= if Map.has_key?(@chart_config, :market) || price_chart_legend_enabled? do %>
+         <%# THE FOLLOWING LINE PREVENTS COPY/PASTE ERRORS %>
+         <%# Explicitly put @chart_config.market in a variable %>
+         <%# This is done so that when people add a new chart source, x, %>
+         <%# They wont just access @chart_config.x w/o first checking if x exists %>
+         <% market_chart_config = Map.has_key?(@chart_config, :market) && @chart_config.market%>
+         <%= if price_chart_legend_enabled? || Enum.member?(market_chart_config, :price) do %>
+         <div class="banner-one-mobile b-banner text-left">
+            <span class="dashboard-banner-network-stats-label">
+            <%= Explorer.coin_name() %> <%= gettext "Price" %>
+            </span>
+            <div class="">
+               <span class="dashboard-banner-network-stats-value" data-selector="exchange-rate" data-wei-value="<%= Explorer.Chain.Wei.from(Decimal.new(1), :ether).value %>" data-usd-exchange-rate="<%= @exchange_rate.usd_value %>">
+               </span>
+            </div>
+         </div>
+         <% end %><% end %>
+         <%= if price_chart_legend_enabled? || Enum.member?(@chart_config.market, :market_cap) do %>
+         <div class="banner-two-mobile b-banner text-left">
+            <span class="dashboard-banner-network-stats-label">
+            <%= gettext "Market Cap" %>
+            </span>
+            <div class="d-flex" style="height: 20px; line-height: 20px;">
+               <% total_market_cap = market_cap(@market_cap_calculation, @exchange_rate) %>
+               <span style="display: contents;" class="dashboard-banner-network-stats-value" data-selector="market-cap" data-usd-value="<%= total_market_cap %>">
+               </span>
+            </div>
+         </div>
+         <% end %>
+      </div>
+      <div class="h-100 container-mobile flex-container pl-2 pr-2">
+         <div class="flex-container b-banner banner-three-mobile">
+            <div class="text-left ">
+               <span class="dashboard-banner-network-stats-label">
+               <%= gettext "Transactions" %>
+               </span>
+               <div class="d-flex">
+                  <span class="dashboard-banner-network-stats-value" data-selector="transaction-count">
+                  <%= BlockScoutWeb.Cldr.Number.to_string!(@transaction_estimated_count, format: "#,###") %>
+                  </span>
+                  <%= if @total_gas_usage > 0 do %>
+                  <span
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     data-html="true"
+                     data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-usage' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
+                     title="<div class='custom-tooltip-header'>Total gas used</div><div class='custom-tooltip-description'><b><%= BlockScoutWeb.Cldr.Number.to_string!(@total_gas_usage, format: "#,###") %><b></div>"
+                     class="custom-tooltip-total-transactions">
+                  <i style="color: #ffffff;" class="fa fa-info-circle ml-2"></i>
+                  </span>
+                  <% end %>
+               </div>
+            </div>
+            <div class="text-right ">
+               <!--
+                  <span class="dashboard-banner-network-stats-label">
+                  <%= gettext "Wallet addresses" %>
+                  </span>
+                  <span class="dashboard-banner-network-stats-value" data-selector="address-count">
+                  <%= BlockScoutWeb.Cldr.Number.to_string!(@address_count, format: "#,###") %>
+                  </span>
+                  -->
+               <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
+            </div>
+         </div>
+      </div>
+      <div class="h-100 container-mobile flex-container pl-2 pr-2">
+         <div class="flex-container b-banner banner-four-mobile">
+            <div class="text-left">
+               <span class="dashboard-banner-network-stats-label">
+               <%= gettext "Total blocks" %>
+               </span>
+               <span class="dashboard-banner-network-stats-value" data-selector="block-count">
+               <%= BlockScoutWeb.Cldr.Number.to_string!(@block_count, format: "#,###") %>
+               </span>
+            </div>
+            <%= case @average_block_time do %>
+            <% {:error, :disabled} -> %>
+            <%= nil %>
+            <% average_block_time -> %>
+            <div class="text-right">
+               <span class="dashboard-banner-network-stats-label">
+               <%= gettext "Average block time" %>
+               </span>
+               <span class="dashboard-banner-network-stats-value" data-selector="average-block-time">
+               <%= Timex.format_duration(average_block_time, Explorer.Counters.AverageBlockTimeDurationFormat) %>
+               </span>
+            </div>
+            <% end %>
+         </div>
+      </div>
+      <div class="h-100  container-mobile flex-container pl-2 pr-2">
+         <div class="b-banner  banner-five-mobile">
+            <!-- Graph -->
+            <div class="text-left" style>
+               <span class="dashboard-banner-network-stats-label">
+               <%= gettext "Transaction history in 14 days" %>
+               </span>
+            </div>
+            <div class="dashboard-banner-network-graph">
+               <div class="dashboard-banner-chart">
+                  <button data-chart-error-message class="" style="display: none;">
+                  <span><%= gettext("There was a problem loading the chart.") %></span>
+                  </button>
+                  <canvas data-chart="historyChart"
+                     data-history_chart_paths=
+                     '{<%= for {{key, value}, x} <- Enum.with_index(@chart_data_paths) do %>
+                     "<%= key %>":"<%= value %>"
+                     <%= if x<(map_size(@chart_data_paths)-1) do %>
+                     ,
+                     <% end %>
+                     <% end %>}'
+                     data-history_chart_config = '<%= @chart_config_json %>'
+                     width="424" height="150">
+                  </canvas>
+               </div>
+            </div>
+            <!-- Legend -->
+            <script>
+               numChartData = <%= Enum.reduce(@chart_config, 0, fn (source, acc) ->
+                  acc + length(elem(source, 1)) end) %>
+               document.documentElement.style.setProperty("--numChartData", numChartData);
+            </script>
+         </div>
+      </div>
+   </div>
+   <div class="dashboard-banner-pc">
       <div class="dashboard-banner">
          <!-- Stats -->
          <div class="container row w-100 h-100 dashboard-banner-network-plain-container">
@@ -74,38 +203,38 @@
             <div class="col-lg-4" style="padding: 0px;">
                <div class="" style="width: calc(100% + 13px);">
                   <div class="container row w-100 banner-three b-banner">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 ">
-                           <span class="dashboard-banner-network-stats-label">
-                           <%= gettext "Transactions" %>
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-6 ">
+                        <span class="dashboard-banner-network-stats-label">
+                        <%= gettext "Transactions" %>
+                        </span>
+                        <div class="d-flex">
+                           <span class="dashboard-banner-network-stats-value" data-selector="transaction-count">
+                           <%= BlockScoutWeb.Cldr.Number.to_string!(@transaction_estimated_count, format: "#,###") %>
                            </span>
-                           <div class="d-flex">
-                              <span class="dashboard-banner-network-stats-value" data-selector="transaction-count">
-                              <%= BlockScoutWeb.Cldr.Number.to_string!(@transaction_estimated_count, format: "#,###") %>
-                              </span>
-                              <%= if @total_gas_usage > 0 do %>
-                              <span
-                                 data-toggle="tooltip"
-                                 data-placement="top"
-                                 data-html="true"
-                                 data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-usage' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
-                                 title="<div class='custom-tooltip-header'>Total gas used</div><div class='custom-tooltip-description'><b><%= BlockScoutWeb.Cldr.Number.to_string!(@total_gas_usage, format: "#,###") %><b></div>"
-                                 class="custom-tooltip-total-transactions">
-                              <i style="color: #ffffff;" class="fa fa-info-circle ml-2"></i>
-                              </span>
-                              <% end %>
-                           </div>
+                           <%= if @total_gas_usage > 0 do %>
+                           <span
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              data-html="true"
+                              data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-usage' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
+                              title="<div class='custom-tooltip-header'>Total gas used</div><div class='custom-tooltip-description'><b><%= BlockScoutWeb.Cldr.Number.to_string!(@total_gas_usage, format: "#,###") %><b></div>"
+                              class="custom-tooltip-total-transactions">
+                           <i style="color: #ffffff;" class="fa fa-info-circle ml-2"></i>
+                           </span>
+                           <% end %>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right ">
-                           <!--
-                              <span class="dashboard-banner-network-stats-label">
-                              <%= gettext "Wallet addresses" %>
-                              </span>
-                              <span class="dashboard-banner-network-stats-value" data-selector="address-count">
-                              <%= BlockScoutWeb.Cldr.Number.to_string!(@address_count, format: "#,###") %>
-                              </span>
-                              -->
-                           <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
-                        </div>
+                     </div>
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right ">
+                        <!--
+                           <span class="dashboard-banner-network-stats-label">
+                           <%= gettext "Wallet addresses" %>
+                           </span>
+                           <span class="dashboard-banner-network-stats-value" data-selector="address-count">
+                           <%= BlockScoutWeb.Cldr.Number.to_string!(@address_count, format: "#,###") %>
+                           </span>
+                           -->
+                        <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
+                     </div>
                   </div>
                   <div class="container row w-100 banner-four b-banner">
                      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
@@ -134,11 +263,10 @@
             </div>
             <div class="col-lg-4 banner-five b-banner">
                <!-- Graph -->
-
                <div>
-               <span class="dashboard-banner-network-stats-label">
-               <%= gettext "Transaction history in 14 days" %>
-               </span>
+                  <span class="dashboard-banner-network-stats-label">
+                  <%= gettext "Transaction history in 14 days" %>
+                  </span>
                </div>
                <div class="dashboard-banner-network-graph">
                   <div class="dashboard-banner-chart">

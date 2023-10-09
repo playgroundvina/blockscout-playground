@@ -1283,3 +1283,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   color: $dark-primary;
 }
 
+.dark-theme-applied .b-banner {
+  background: rgba(255, 255, 255, 0.1);
+}
