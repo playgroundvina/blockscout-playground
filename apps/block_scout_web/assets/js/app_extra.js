@@ -2,6 +2,13 @@ import { isDarkMode } from './lib/dark_mode'
 import Cookies from 'js-cookie'
 
 function applyDarkMode() {
+  if (isDarkMode()) {
+    var isMobileVersion = document.getElementsByClassName('dark-theme-applied');
+    if (isMobileVersion.length <= 0) {
+      document.body.className += ' ' + 'dark-theme-applied'
+      document.body.style.backgroundColor = '#242424'
+    }
+  }
   const darkModeChangerEl = document.getElementById('dark-mode-changer-switch')
   if (Cookies.get('chakra-ui-color-mode') === 'dark' && darkModeChangerEl) {
     darkModeChangerEl.checked = true;
@@ -15,11 +22,6 @@ function applyDarkMode() {
     if (modeChangerElNoChecked) {
       modeChangerElNoChecked.style.display = ""
     }
-  }
-
-  if (isDarkMode()) {
-    document.body.className += ' ' + 'dark-theme-applied'
-    document.body.style.backgroundColor = '#242424'
   }
 }
 window.onload = applyDarkMode()

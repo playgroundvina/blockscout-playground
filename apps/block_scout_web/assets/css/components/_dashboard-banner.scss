@@ -92,7 +92,6 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
   @include media-breakpoint-down(md) {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
   }
 }
 
@@ -105,7 +104,7 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
 
   @include media-breakpoint-down(md) {
     flex-grow: 0;
-    margin-top: 20px;
+    // margin-top: 20px;
     margin-bottom: auto;
     max-width: 100%;
   }
