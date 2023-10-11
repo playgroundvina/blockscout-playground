@@ -111,13 +111,10 @@
   border: none;
 }
 .pool-transaction {
-  width: 128px;
-  height: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  background: rgba(119, 131, 143, 0.1);
 }
 .transaction-address {
   display: flex;
@@ -139,6 +136,22 @@
   align-items: center;
   border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
 }
+
+.tile.tile-type-block .tile-title {
+  color: $dashboard-stats-item-label-color;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.08px;
+}
+
+
+.tile.tile-type-contract-call {
+  min-height: 87px;
+  border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
+}
+
 .tile.tile-type-transaction,
 .tile-type-token-transfer {
   min-height: 87px;
@@ -209,4 +222,15 @@
       }
     }
   }
+}
+
+
+
+.tile .tile-body a, .tile a[data-test="transaction_hash_link"] {
+  color: $dashboard-stats-item-label-color !important;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.08px;
 }
