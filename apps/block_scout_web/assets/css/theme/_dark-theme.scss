@@ -1,6 +1,6 @@
 $primary: #e6cb82;
 $body-dark: #242424; // body background
-$dark-bg: #22223a; // hero shade
+$dark-bg: #222222; // hero shade
 $dark-light-bg: #0a0a0a; // pills bg shade
 $dark-light: #313355; // tile light top share
 $labels-dark: #8f8f8f; // header nav, labels
@@ -1284,4 +1284,8 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
 .dark-theme-applied .b-banner {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme-applied .tile-type-loading {
+  background-color: rgba(119, 131, 143, 0.05);
 }
