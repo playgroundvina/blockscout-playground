@@ -9,11 +9,15 @@ $card-tab-icon-color: #20b760 !default;
 $card-tab-icon-color-active: #fff !default;
 
 .card {
-  background-color: $card-background-color;
-  border-radius: $card-default-border-radius;
-  border: none;
-  box-shadow: 0 0 30px 0 rgba(202, 199, 226, 0.5);
+  border-radius: 24px;
+  background: var(--gray-scale-white, #fff);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
   margin-bottom: $common-container-margin;
+
+  @include media-breakpoint-down(md) {
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;  
+  }
 
   .block-details-row {
     flex-direction: row;

@@ -84,7 +84,7 @@ blockscout:
     MICROSERVICE_SIG_PROVIDER_ENABLED:
       _default: 'true'
     INDEXER_MEMORY_LIMIT:
-      _default: 7
+      _default: 1
     ACCOUNT_ENABLED:
       _default: 'true'
     API_V2_ENABLED:

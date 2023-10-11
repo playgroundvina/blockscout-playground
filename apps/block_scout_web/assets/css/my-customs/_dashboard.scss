@@ -4,8 +4,8 @@
 }
 .search-form {
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.17);
+  background: var(--gray-scale-white, #fff);
+  box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.05);
 }
 
 .dashboard-banner-network-stats-label {
@@ -46,20 +46,31 @@
 .dashboard-banner-mobile {
   display: none;
   @include media-breakpoint-down(md) {
+    padding-right: 25px;
+    padding-left: 20px;
     display: block;
   }
 }
 
 .dashboard-banner-pc {
   width: 100%;
-  max-width: 1440px!important;
+  max-width: 1440px !important;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 30px;
-  padding-right: 0px;
+  padding-left: 45px;
+  padding-right: 15px;
   @include media-breakpoint-down(md) {
     display: none;
   }
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1440px !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 45px;
+  padding-right: 15px;
 }
 
 .banner-one {
@@ -153,4 +164,7 @@
 
 .banner-five-mobile {
   padding: 20px 14px;
+  @include media-breakpoint-down(md) {
+    border-radius: 0px 0px 12px 12px;
+  }
 }

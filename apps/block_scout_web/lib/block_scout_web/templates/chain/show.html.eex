@@ -300,8 +300,8 @@
 </div>
 </div>
 </div>
-<section class="container" style="padding-top:50px">
-   <div class="container row">
+<section class="container-body" style="padding-top:50px">
+   <div class="row" style="padding: 15px">
       <div class="col-lg-6">
          <div class="card card-chain-blocks js-ad-dependant-mb-3">
             <div class="card-body">

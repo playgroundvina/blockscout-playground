@@ -33,7 +33,7 @@ $dashboard-banner-network-plain-container-background-color: $secondary; // stats
 
 // navigation
 .navbar {
-  box-shadow: 0px 0px 30px 0px rgba(21, 53, 80, 0.12);
+  background: var(--gray-scale-white, #FFF); 
 } // header shadow
 
 // Logo Size

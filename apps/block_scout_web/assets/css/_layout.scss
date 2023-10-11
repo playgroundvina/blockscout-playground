@@ -1,9 +1,8 @@
-@import '~@tarekraafat/autocomplete.js/dist/css/autoComplete.01.css';
+@import "~@tarekraafat/autocomplete.js/dist/css/autoComplete.01.css";
 
 .layout-container {
   display: flex;
   flex-direction: column;
-
 
   main {
     flex-grow: 1;
@@ -13,4 +12,13 @@
 
 .logs-hash {
   line-height: 24px !important;
+}
+
+.container-body {
+  max-width: 1440px !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
 }

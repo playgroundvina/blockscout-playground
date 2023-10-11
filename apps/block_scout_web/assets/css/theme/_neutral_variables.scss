@@ -32,10 +32,10 @@ $dashboard-banner-gradient-end: lighten($primary, 5); // gradient end
 
 $dashboard-banner-network-plain-container-background-color: #8258cd; // stats bg
 
-// navigation
-.navbar {
-  box-shadow: 0px 0px 30px 0px rgba(21, 53, 80, 0.12);
-} // header shadow
+// // navigation
+// .navbar {
+//   box-shadow: 0px 0px 30px 0px rgba(21, 53, 80, 0.12);
+// } // header shadow
 $dropdown-menu-item-hover-color: $primary !default;
 $dropdown-menu-item-hover-background: rgba($primary, 0.1) !default;
 $header-icon-color-hover: $primary;
