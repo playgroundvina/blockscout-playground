@@ -146,35 +146,21 @@ const autoCompleteJSMobile = document.querySelector('#main-search-autocomplete-m
 
 
 
-/* Search */
-function searchFocusOut() {
-  let x = document.getElementById("navBar");
-  let y = document.getElementById("showSearch");
-  x.style.display = 'none'
-  y.style.display = 'inline'
-}
-
-function showSearch() {
-  let x = document.getElementById("navBar");
-  let y = document.getElementById("showSearch");
-  x.style.display = 'inline'
-  y.style.display = 'none'
-  x.focus()
-}
-
 window.addEventListener("load", function () {
-  const navBar = document.getElementById("navBar");
-  const showSearch = document.getElementById("showSearch");
-  const searchBar = document.getElementById("searchBar");
   const autoComplete = document.querySelector('#main-search-autocomplete');
-  showSearch.onclick = function () {
-    searchBar.style.display = 'inline'
-    navBar.style.display = 'none'
+  $("#search-icon").on("click", function () {
+    $('.search-hide').hide()
+    document.getElementById("searchBar").style.width = "500px";
+    autoComplete.focus()
+  });
+  autoComplete.onfocus = function () {
+    $('.search-hide').hide()
+    document.getElementById("searchBar").style.width = "500px";
     autoComplete.focus()
   };
   autoComplete.onfocusout = function () {
-    searchBar.style.display = 'none'
-    navBar.style.display = 'flex'
+    document.getElementById("searchBar").style.width = "100px";
+    $('.search-hide').delay(300).fadeIn(100)
   };
 }, false);
 

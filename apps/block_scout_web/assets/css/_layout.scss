@@ -3,11 +3,6 @@
 .layout-container {
   display: flex;
   flex-direction: column;
-
-  main {
-    flex-grow: 1;
-    background-color: #fbfafc;
-  }
 }
 
 .logs-hash {
@@ -25,17 +20,20 @@
 
 /* Top menu */
 
-#searchBar {
-  margin-bottom: 5px;
-  min-width: 68%;
-  margin-right: 60px;
-}
-
 .search-form {
   border-radius: 12px;
   border: 1px solid var(--gray-scale-40, #575757);
   background: var(--gray-scale-white, #fff);
   box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.05);
+}
+
+#searchBar {
+  width: 100px;
+  -webkit-transition: 300ms linear;
+  -moz-transition: 300ms linear;
+  -o-transition: 300ms linear;
+  -ms-transition: 300ms linear;
+  transition: 300ms linear;
 }
 
 /* Footer */
