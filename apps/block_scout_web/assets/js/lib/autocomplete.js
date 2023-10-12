@@ -8,6 +8,7 @@ import { escapeHtml } from './utils'
 import { commonPath } from './path_helper'
 import xss from 'xss'
 
+
 const placeHolder = 'Search by address, token symbol, name, transaction hash, or block number'
 const dataSrc = async (query, id) => {
   try {
@@ -55,10 +56,10 @@ export const searchEngine = (query, record) => {
   const queryLowerCase = query.toLowerCase()
   if (record && (
     (record.name && record.name.toLowerCase().includes(queryLowerCase)) ||
-      (record.symbol && record.symbol.toLowerCase().includes(queryLowerCase)) ||
-      (record.address_hash && record.address_hash.toLowerCase().includes(queryLowerCase)) ||
-      (record.tx_hash && record.tx_hash.toLowerCase().includes(queryLowerCase)) ||
-      (record.block_hash && record.block_hash.toLowerCase().includes(queryLowerCase))
+    (record.symbol && record.symbol.toLowerCase().includes(queryLowerCase)) ||
+    (record.address_hash && record.address_hash.toLowerCase().includes(queryLowerCase)) ||
+    (record.tx_hash && record.tx_hash.toLowerCase().includes(queryLowerCase)) ||
+    (record.block_hash && record.block_hash.toLowerCase().includes(queryLowerCase))
   )
   ) {
     let searchResult = '<div>'
@@ -142,6 +143,45 @@ const config = (id) => {
 const autoCompleteJS = document.querySelector('#main-search-autocomplete') && new AutoComplete(config('main-search-autocomplete'))
 // eslint-disable-next-line
 const autoCompleteJSMobile = document.querySelector('#main-search-autocomplete-mobile') && new AutoComplete(config('main-search-autocomplete-mobile'))
+
+
+
+/* Search */
+function searchFocusOut() {
+  let x = document.getElementById("navBar");
+  let y = document.getElementById("showSearch");
+  x.style.display = 'none'
+  y.style.display = 'inline'
+}
+
+function showSearch() {
+  let x = document.getElementById("navBar");
+  let y = document.getElementById("showSearch");
+  x.style.display = 'inline'
+  y.style.display = 'none'
+  x.focus()
+}
+
+window.addEventListener("load", function () {
+  const navBar = document.getElementById("navBar");
+  const showSearch = document.getElementById("showSearch");
+  const searchBar = document.getElementById("searchBar");
+  const autoComplete = document.querySelector('#main-search-autocomplete');
+  showSearch.onclick = function () {
+    searchBar.style.display = 'inline'
+    navBar.style.display = 'none'
+    autoComplete.focus()
+  };
+  autoComplete.onfocusout = function () {
+    searchBar.style.display = 'none'
+    navBar.style.display = 'flex'
+  };
+}, false);
+
+
+
+
+
 
 const selection = (event) => {
   const selectionValue = event.detail.selection.value

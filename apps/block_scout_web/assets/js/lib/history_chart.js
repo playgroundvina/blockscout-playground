@@ -27,7 +27,7 @@ const grid = {
   drawOnChartArea: false
 }
 
-function getTxChartColor() {
+export function getTxChartColor() {
   if ((isDarkMode())) {
     return sassVariables.dashboardLineColorTransactionsDarkTheme
   } else {
@@ -35,7 +35,7 @@ function getTxChartColor() {
   }
 }
 
-function getAxisFontColor() {
+export function getAxisFontColor() {
   if ((isDarkMode())) {
     return sassVariables.dashboardBannerChartAxisFontColorDarkTheme
   } else {

@@ -40,13 +40,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   // }
 }
 
-.dark-mode-changer:not(.dark-mode-changer--dark) {
-  svg * {
-    fill: #000;
-    stroke: #000;
-  }
-}
-
 // .icon-block {
 //   svg {
 //     filter: invert(1);
@@ -116,9 +109,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     background: unset;
     background: rgba(255, 255, 255, 0.1);
   }
-  .form-control {
-    background-color: transparent;
-  }
   .navbar-brand .navbar-logo {
     filter: brightness(0) invert(1);
   }
@@ -148,7 +138,8 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
   .navbar.navbar-primary .form-control {
     background-color: transparent;
-    border-color: $dark-bg;
+    border: 0;
+    border-width: 0;
     color: #fff;
     &::placeholder {
       color: $labels-dark;
@@ -673,7 +664,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   // Form Controlls
   .form-control {
     background-color: transparent;
-    border-color: $dark-light;
     color: #fff;
     transition: border-color 0.15s ease-in-out;
 
@@ -1286,6 +1276,32 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* Latest block and transaction */
+
 .dark-theme-applied .tile-type-loading {
   background-color: rgba(119, 131, 143, 0.05);
+}
+
+.dark-theme-applied .tile span[data-address-hash] {
+  color: #a3a9b5;
+}
+
+/* menu */
+
+.dark-theme-applied .search-form {
+  border: none;
+}
+
+.dark-mode-changer {
+  svg * {
+    fill: #000;
+    stroke: #000;
+  }
+}
+
+.dark-theme-applied .dark-mode-changer {
+  svg * {
+    fill: #fff;
+    stroke: #fff;
+  }
 }

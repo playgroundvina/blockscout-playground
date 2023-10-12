@@ -122,7 +122,7 @@ $header-logo-text-color: #333 !default;
     display: flex;
 
     @include media-breakpoint-up(xl) {
-      height: 57px;
+      height: 50px;
       margin-bottom: -8px;
       margin-top: -8px;
     }
@@ -138,8 +138,7 @@ $header-logo-text-color: #333 !default;
   }
 
   .form-control {
-    background: $header-textfield-background-color;
-    border-color: $header-textfield-background-color;
+    background-color: transparent;
     color: $header-textfield-text-color;
     font-size: 14px;
     height: 100%;
@@ -205,10 +204,6 @@ $header-logo-text-color: #333 !default;
       @include media-breakpoint-down(md) {
         display: none;
       }
-    }
-
-    * {
-      fill: $header-textfield-magnifier-color;
     }
   }
   .input-group-text {

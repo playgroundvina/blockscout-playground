@@ -2,7 +2,7 @@ import { formatAllUsdValues, updateAllCalculatedUsdValues } from './lib/currency
 import { createMarketHistoryChart } from './lib/history_chart'
 import $ from 'jquery'
 
-(function () {
+function renderHistoryChart() {
   const doashBoardPc = $(".dashboard-banner-pc");
   const isMobile = doashBoardPc.css('display') === "none"
   if (isMobile) {
@@ -20,4 +20,9 @@ import $ from 'jquery'
   }
   formatAllUsdValues()
   updateAllCalculatedUsdValues()
+}
+
+
+(function () {
+  renderHistoryChart()
 })()

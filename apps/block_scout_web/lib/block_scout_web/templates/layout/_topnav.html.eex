@@ -21,7 +21,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" id="navBar">
       <%= content_tag :li, class: "nav-item dropdown" do %>
         <%= link(
               gettext("Home"),
@@ -193,8 +193,14 @@
           </div>
         </li>-->
         <!-- Dark mode changer -->
-
+        <li>
+          <button id="showSearch">show</button>
+        </li>
       </ul>
+      <div class='search-dashboard' id="searchBar" style="display: none">
+        <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete", additional_classes: ["mobile-search-hide"] %>
+      </div>
+
       <div id="mode-changer" style="display: flex;">
           <%= unless Application.get_env(:block_scout_web, :permanent_light_mode_enabled) || Application.get_env(:block_scout_web, :permanent_dark_mode_enabled) do %>
            <button class="dark-mode-changer" id="dark-mode-changer-sun">
@@ -219,13 +225,7 @@
         </button>
         <span  class="dark-mode-changer" id="mode-changer-checked" >
           <label  class="switch">
-            <input type="checkbox" id="dark-mode-changer-switch" checked>
-            <span class="slider round"></span>
-          </label>
-        </span>
-        <span  class="dark-mode-changer"  id="mode-changer-no-checked" style="display: none;" >
-          <label  class="switch">
-            <input type="checkbox" id="light-mode-changer-switch">
+            <input type="checkbox" id="dark-mode-changer-switch" checked style="display: none;">
             <span class="slider round"></span>
           </label>
         </span>
