@@ -31,10 +31,18 @@ $header-logo-text-color: #333 !default;
   .network {
     border-radius: 1000px;
     background: #e6cb82;
-    font-size: 14px;
-    color: #262626;
     padding: 12px 32px;
     border: none;
+    color: #262626;
+    /* H5 */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    @include media-breakpoint-down(md) {
+      font-size: 14px;
+    }
   }
   .navbar-nav {
     .nav-submenu {
@@ -48,9 +56,17 @@ $header-logo-text-color: #333 !default;
       align-items: center;
       color: $header-links-color;
       display: flex;
-      font-size: 14px;
       position: relative;
       transition: $transition-cont;
+      color: #262626;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.2px;
+      @include media-breakpoint-down(md) {
+        font-size: 14px;
+      }
 
       &:before {
         background-color: $header-icon-border-color-hover;
@@ -64,7 +80,9 @@ $header-logo-text-color: #333 !default;
         top: -10px;
         transform: translateX(-50%);
         transition: $transition-cont;
-        width: calc(100% - #{$header-link-horizontal-padding} - #{$header-link-horizontal-padding});
+        width: calc(
+          100% - #{$header-link-horizontal-padding} - #{$header-link-horizontal-padding}
+        );
       }
 
       &.active,

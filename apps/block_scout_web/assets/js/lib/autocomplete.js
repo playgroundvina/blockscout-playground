@@ -14,8 +14,8 @@ const dataSrc = async (query, id) => {
   try {
     // Loading placeholder text
     const searchInput = document
-      .getElementById(id)
 
+      .getElementById(id)
     searchInput && searchInput.setAttribute('placeholder', 'Loading...')
 
     // Fetch External Data Source
@@ -144,30 +144,31 @@ const autoCompleteJS = document.querySelector('#main-search-autocomplete') && ne
 // eslint-disable-next-line
 const autoCompleteJSMobile = document.querySelector('#main-search-autocomplete-mobile') && new AutoComplete(config('main-search-autocomplete-mobile'))
 
-
-
 window.addEventListener("load", function () {
-  const autoComplete = document.querySelector('#main-search-autocomplete');
+  const autoComplete = $("#main-search-autocomplete")
+  const searchBar = $("#searchBar")
+  autoComplete.on("input", function () {
+    if ($(this).val().length <= 1) {
+      autoComplete.attr('autocomplete', 'on')
+    } else {
+      autoComplete.attr('autocomplete', 'off')
+    }
+  });
   $("#search-icon").on("click", function () {
     $('.search-hide').hide()
-    document.getElementById("searchBar").style.width = "500px";
-    autoComplete.focus()
+    searchBar.width(800)
+    autoComplete.trigger('focus')
   });
-  autoComplete.onfocus = function () {
+  autoComplete.on("focus", function () {
     $('.search-hide').hide()
-    document.getElementById("searchBar").style.width = "500px";
-    autoComplete.focus()
-  };
-  autoComplete.onfocusout = function () {
-    document.getElementById("searchBar").style.width = "100px";
+    searchBar.width(800)
+    autoComplete.trigger('focus')
+  });
+  autoComplete.on("focusout", function () {
+    searchBar.width(120)
     $('.search-hide').delay(300).fadeIn(100)
-  };
+  });
 }, false);
-
-
-
-
-
 
 const selection = (event) => {
   const selectionValue = event.detail.selection.value
