@@ -156,12 +156,16 @@ window.addEventListener("load", function () {
   });
   $("#search-icon").on("click", function () {
     $('.search-hide').hide()
-    searchBar.width(800)
+    let widthSearchBar = 800;
+    if (screen.width < 1200) widthSearchBar = 500
+    searchBar.width(widthSearchBar)
     autoComplete.trigger('focus')
   });
   autoComplete.on("focus", function () {
     $('.search-hide').hide()
-    searchBar.width(800)
+    let widthSearchBar = 800;
+    if (screen.width < 1200) widthSearchBar = 500
+    searchBar.width(widthSearchBar)
     autoComplete.trigger('focus')
   });
   autoComplete.on("focusout", function () {
