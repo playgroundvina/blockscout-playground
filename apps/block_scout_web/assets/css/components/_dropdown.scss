@@ -86,6 +86,21 @@ $dropdown-menu-item-hover-background: rgba($secondary, 0.1) !default;
 
 .navbar .dropdown-menu {
   border: none;
+  @include media-breakpoint-down(md) {
+    border: none;
+    box-shadow: none;
+    border-radius: 0px;
+    border-left: 1px solid #dea131 !important;
+    width: 100%;
+  }
+}
+
+.dropdown-item {
+  @include media-breakpoint-down(md) {
+    padding-left: 0px;
+    margin-left: 20px;
+    width: 95%;
+  }
 }
 
 .dropdown-search-icon {

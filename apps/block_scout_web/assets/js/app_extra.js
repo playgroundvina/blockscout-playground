@@ -45,15 +45,4 @@ if (isDarkMode()) {
     modeChangerSun.className += ' ' + 'dark-mode-changer--dark'
   }
 
-
-  const search = document.getElementById('main-search-autocomplete')
-  const searchMobile = document.getElementById('main-search-autocomplete-mobile')
-  if (search && search.style) {
-    search.style.backgroundColor = '#22223a'
-    search.style.borderColor = '#22223a'
-  }
-  if (searchMobile && searchMobile.style) {
-    searchMobile.style.backgroundColor = '#22223a'
-    searchMobile.style.borderColor = '#22223a'
-  }
 }

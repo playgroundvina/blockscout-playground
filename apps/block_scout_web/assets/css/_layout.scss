@@ -28,12 +28,22 @@
 }
 
 #searchBar {
-  width: 120px;
+  width: 115px;
   -webkit-transition: 300ms linear;
   -moz-transition: 300ms linear;
   -o-transition: 300ms linear;
   -ms-transition: 300ms linear;
   transition: 300ms linear;
+}
+
+.navbar-nav {
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
+}
+
+.navbar-nav .nav-link .nav-link-icon {
+  display: none !important;
 }
 
 /* Footer */

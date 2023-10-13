@@ -138,12 +138,6 @@ $header-logo-text-color: #333 !default;
   }
   .search-form {
     display: flex;
-
-    @include media-breakpoint-up(xl) {
-      height: 50px;
-      margin-bottom: -8px;
-      margin-top: -8px;
-    }
   }
 
   .form-inline {
@@ -158,6 +152,7 @@ $header-logo-text-color: #333 !default;
   .form-control {
     background-color: transparent;
     color: $header-textfield-text-color;
+    border:none !important;
     font-size: 14px;
     height: 100%;
     padding-left: 38px;

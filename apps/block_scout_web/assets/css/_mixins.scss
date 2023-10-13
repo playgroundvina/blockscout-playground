@@ -173,9 +173,9 @@
   &[disabled] {
     &,
     &:hover {
-      background-color: $bg-color!important;
-      border-color: $primary!important;
-      color: $primary!important;
+      background-color: $bg-color !important;
+      border-color: $primary !important;
+      color: $primary !important;
       cursor: default;
       opacity: 0.5;
     }
@@ -228,7 +228,7 @@
   }
 
   svg {
-    vertical-align: text-bottom;   
+    vertical-align: text-bottom;
     margin-bottom: -1.1px;
   }
 
@@ -243,11 +243,21 @@
 
 @mixin image-2x($image, $width: 100%, $height: 100%) {
   @media (min--moz-device-pixel-ratio: 1.3),
-         (-o-min-device-pixel-ratio: 2.6/2),
-         (-webkit-min-device-pixel-ratio: 1.3),
-         (min-device-pixel-ratio: 1.3),
-         (min-resolution: 1.3dppx) {
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
     background-image: url($image);
     background-size: $width $height;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #23232329;
 }
