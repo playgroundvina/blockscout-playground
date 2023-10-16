@@ -129,6 +129,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     filter: invert(1);
   }
   .footer-coppy-right {
+    font-size: 20px;
     height: 100px;
     border-top: 1px solid var(--gray-scale-40, #575757);
     background: rgba(255, 255, 255, 0.03);
@@ -147,7 +148,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
   .footer-social-icon:hover,
   .footer-link:hover {
-    color: #fff;
+    color: #262626;
   }
   .footer-list ul li::before {
     background-color: $dark-secondary;
@@ -239,7 +240,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     color: $dark-primary;
   }
 
-
   // .tile,
   // .tile-code {
   //   border-top-color: $dark-light;
@@ -273,7 +273,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .tile.tile-type-block .tile-bottom-contents a {
     color: #fff;
   }
-  
+
   .fade-up-blocks-chain .tile-type-block-animation {
     background-color: $dark-light;
     border-top-color: $dark-light;

@@ -15,7 +15,12 @@ $footer-logo-width: auto !default;
   margin: 0;
   padding: 40px 0;
   position: relative;
-  
+  .contact-us {
+    @include media-breakpoint-down(md) {
+      margin-top: 15px;
+      align-items: start !important;
+    }
+  }
   .add-chain-btn {
     border-radius: 6px;
     background: #f5f5f5;
@@ -23,6 +28,9 @@ $footer-logo-width: auto !default;
     padding: 8px 16px;
     align-items: center;
     gap: 12px;
+    @include media-breakpoint-down(md) {
+      margin-top: 30px;
+    }
     a {
       color: #262626;
       font-family: Sora;
@@ -35,6 +43,13 @@ $footer-logo-width: auto !default;
   }
 }
 
+.footer-coppy-right {
+  text-align: center;
+  font-size: 20px;
+  height: 100px;
+  background: var(--gray-scale-white, #FFF); 
+}
+
 .footer-logo-row {
   margin-bottom: 30px;
 }
@@ -44,7 +59,6 @@ $footer-logo-width: auto !default;
   width: 100%;
   padding: 60px 30px;
   justify-content: space-between;
-  align-items: center;
   border-radius: 15px;
   background: #fff;
   box-shadow: 0px 8px 120px 0px rgba(0, 0, 0, 0.05);

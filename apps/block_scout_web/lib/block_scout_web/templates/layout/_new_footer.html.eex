@@ -3,7 +3,7 @@
         <div class="footer-body row w-100">
             <div class="col-lg-6">
                  <div>
-                            <div class="footer-text-1 mb-2" >
+                            <div class="footer-text-1 mb-3" >
                                 Powered by Pools
                             </div>
                             <div class="footer-logo-new">
@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 </div>
-                            <div class="footer-text-1 mt-2">
+                            <div class="footer-text-1 mt-3">
                             PoolsScan is a Block Explorer and Analytics Platform for Pools Chain
                             </div>
                         </div>
@@ -35,8 +35,8 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                    <div class="d-flex justify-content-end align-items-end flex-column w-100 h-100">
-                            <div class="title-contact-us mb-1">Contact us</div>
+                    <div class="d-flex justify-content-end align-items-end flex-column w-100 h-100 contact-us">
+                            <div class="title-contact-us mb-2">Contact us</div>
                             <div class="footer-sns">
                                 <a href="#">
                                     <img src="/images/mdi_twitter.png"/>
