@@ -1310,16 +1310,30 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   border: none;
 }
 
-.dark-mode-changer {
+#dark-mode-changer {
+  svg * {
+    stroke: #000;
+    fill: none;
+  }
+}
+
+.dark-theme-applied #dark-mode-changer {
+  svg * {
+    fill: #fff;
+    stroke: #fff;
+  }
+}
+
+#dark-mode-changer-sun {
   svg * {
     fill: #000;
     stroke: #000;
   }
 }
 
-.dark-theme-applied .dark-mode-changer {
+.dark-theme-applied #dark-mode-changer-sun {
   svg * {
-    fill: #fff;
+    fill: none;
     stroke: #fff;
   }
 }
