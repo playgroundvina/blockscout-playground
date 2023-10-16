@@ -1,44 +1,48 @@
 <div class="col-12 mb-3 fade-up-blocks-chain"  data-block-number="<%= @block.number %>">
-  <div class="tile tile-type-block n-p row w-100">
-  <div class="col-3 col-lg-2">
-      <div class="icon-block">
-        <%= render BlockScoutWeb.IconsView, "_block_latest_icon.html" %>
+   <div class="tile tile-type-block n-p row w-100">
+      <div class="col-12 col-md-4 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
+         <div class="d-flex align-items-center">
+            <div class="icon-block mr-3">
+               <%= render BlockScoutWeb.IconsView, "_block_latest_icon.html" %>
+            </div>
+            <div class="d-flex flex-column" style="gap: 8px;">
+               <%= link(
+                  @block,
+                  class: "tile-title",
+                  to: block_path(BlockScoutWeb.Endpoint, :show, @block),
+                  "data-selector": "block-number"
+                  ) %>
+               <div class="text-nowrap time-block" data-from-now="<%= @block.timestamp %>"> </div>
+            </div>
+         </div>
       </div>
-  </div>
-  <div class="col-9 col-lg-6">
-    <div class="d-flex flex-column">
-      <%= link(
-            @block,
-            class: "tile-title",
-            to: block_path(BlockScoutWeb.Endpoint, :show, @block),
-            "data-selector": "block-number"
-          ) %>
-      <div class="text-nowrap time-block" data-from-now="<%= @block.timestamp %>"> </div>
-    </div>
-  </div>
-  <div class="col-12 col-lg-4">
-    <div class="tile-bottom-contents">
-      <%= if !Application.get_env(:block_scout_web, :hide_block_miner) do %>
-        <div class="text-truncate">
-          <%= gettext "Miner" %>
-          <%= render BlockScoutWeb.AddressView,
-            "_link.html",
-            address: @block.miner,
-            contract: false,
-            use_custom_tooltip: false,
-            custom_classes_tooltip: ["miner-address-tooltip"] %>
-        </div>
-      <% end %>
-      <%= if BlockScoutWeb.BlockView.show_reward?(@block.rewards) do %>
-        <div class="text-truncate">
-          <%= gettext "Reward" %> <%= BlockScoutWeb.BlockView.combined_rewards_value(@block) %>
-        </div>
-      <% end %>
-       <div class="tile-transactions">
-        <span class="mr-2"><%= gettext("%{count} Transactions", count: Enum.count(@block.transactions)) %></span>
-
+      <div class="col-6 col-md-5 col-lg-4 mt-3 mb-3 mt-lg-0 mb-lg-0">
+         <div class="tile-bottom-contents">
+            <%= if !Application.get_env(:block_scout_web, :hide_block_miner) do %>
+            <div class="text-truncate">
+               <%= gettext "Miner" %>
+               <%= render BlockScoutWeb.AddressView,
+                  "_link.html",
+                  address: @block.miner,
+                  contract: false,
+                  use_custom_tooltip: false,
+                  custom_classes_tooltip: ["miner-address-tooltip"] %>
+            </div>
+            <% end %>
+            <%= if BlockScoutWeb.BlockView.show_reward?(@block.rewards) do %>
+            <div class="text-truncate">
+               <%= gettext "Reward" %> <%= BlockScoutWeb.BlockView.combined_rewards_value(@block) %>
+            </div>
+            <% end %>
+            <div class="tile-transactions">
+               <span class="mr-2"><%= gettext("%{count} Transactions", count: Enum.count(@block.transactions)) %></span>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
-  </div>
+            <div class="col-6 col-md-3" style="margin:auto;">
+          <div class="pool-transaction">
+              0 <%= Explorer.coin_name() %>
+          </div>
+        </div>
+   </div>
 </div>

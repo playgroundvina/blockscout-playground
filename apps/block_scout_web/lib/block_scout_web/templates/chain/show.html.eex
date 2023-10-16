@@ -310,8 +310,8 @@
          <div class="card card-chain-blocks js-ad-dependant-mb-3">
             <div class="card-body">
                <h2 class="card-title text-center"><%= gettext "Latest blocks" %></h2>
-               <div class="container">
-                  <div class="container row" data-selector="chain-block-list" data-url="<%= chain_blocks_path(@conn, :chain_blocks) %>">
+               <div class="">
+                  <div class="" data-selector="chain-block-list" data-url="<%= chain_blocks_path(@conn, :chain_blocks) %>">
                      <button data-selector="error-message" class="alert alert-danger col-12 text-left" style="display: none;">
                      <span class="alert-link">
                      <%= gettext "Something went wrong, click to reload." %>
@@ -373,7 +373,7 @@
                         </div>
                         </div>-->
                   </div>
-                  <div class="container row d-flex justify-content-center align-items-center">
+                  <div class=" d-flex justify-content-center align-items-center">
                      <%= link(gettext("View All Blocks"), to: blocks_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right btn-view-all" ) %>
                   </div>
                </div>
@@ -399,7 +399,7 @@
                      <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
                   </div>
                </span>
-               <div class="mt-3 container row d-flex justify-content-center align-items-center">
+               <div class="mt-3 d-flex justify-content-center align-items-center">
                   <%= link(gettext("View All Transactions"), to: transaction_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right btn-view-all") %>
                </div>
             </div>

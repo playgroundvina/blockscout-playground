@@ -7,8 +7,8 @@
 
 <section class="container" data-page="transaction-list">
   <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
-  <div class="card">
-    <div class="card-body" data-async-listing="<%= @current_path %>">
+  <div class="card card-table">
+    <div class="card-body card-body-table" data-async-listing="<%= @current_path %>">
       <h1 class="card-title list-title-description"><%= gettext "Transactions" %></h1>
       <div class="list-top-pagination-container-wrapper">
         <%= render BlockScoutWeb.CommonComponentsView, "_rap_pagination_container.html", position: "top", showing_limit: if Chain.transactions_available_count() == Chain.limit_showing_transactions(), do: Chain.limit_showing_transactions(), else: nil %>
@@ -32,7 +32,7 @@
           </span>
         </div>
       </div>
-      <div>
+      <div class="container-table">
         <table  class="table table-borderless">
           <thead>
             <tr>

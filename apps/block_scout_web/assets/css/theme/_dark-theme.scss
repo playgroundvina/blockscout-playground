@@ -1,6 +1,6 @@
 $primary: #e6cb82;
-$body-dark: #242424; // body background
-$dark-bg: #222222; // hero shade
+$body-dark: #111111; // body background
+$dark-bg: #111111; // hero shade
 $dark-light-bg: #0a0a0a; // pills bg shade
 $dark-light: #313355; // tile light top share
 $labels-dark: #8f8f8f; // header nav, labels
@@ -26,12 +26,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       filter: invert(1);
     }
   }
-  .transaction-address {
-    color: #ffff !important;
-    span {
-      color: #ffff !important;
-    }
-  }
   &:hover {
     opacity: 0.8;
   }
@@ -45,15 +39,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 //     filter: invert(1);
 //   }
 // }
-.transaction-address {
-  color: #aeaeae !important;
-  span {
-    color: #aeaeae !important;
-  }
-}
-.text-truncate {
-  color: #aeaeae !important;
-}
 
 .dark-theme-applied {
   color: #fff;
@@ -81,12 +66,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       background-color: $header-links-background-color-dark-mode;
     }
   }
-  .transaction-address {
-    color: #fff;
-    span {
-      color: #fff;
-    }
-  }
+
   // svg path {
   //   fill: #ffff !important;
   // }
@@ -259,6 +239,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     color: $dark-primary;
   }
 
+
   // .tile,
   // .tile-code {
   //   border-top-color: $dark-light;
@@ -288,6 +269,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .tile.tile-type-block .tile-transaction-type-block a {
     color: #fff;
   }
+
+  .tile.tile-type-block .tile-bottom-contents a {
+    color: #fff;
+  }
+  
   .fade-up-blocks-chain .tile-type-block-animation {
     background-color: $dark-light;
     border-top-color: $dark-light;
@@ -1283,9 +1269,41 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 
 .dark-theme-applied .tile span[data-address-hash] {
-  color: #a3a9b5;
+  color: #ffffff;
 }
 
+.dark-theme-applied .tile span[data-address-hash] {
+  color: #ffffff;
+}
+.time-transaction {
+  color: #9e9e9e;
+}
+.dark-theme-applied .time-transaction {
+  color: #aeaeae;
+}
+.tile-transactions {
+  color: #282828;
+}
+.dark-theme-applied .tile-transactions {
+  color: #ffffff;
+}
+.text-truncate {
+  color: #282828;
+}
+.dark-theme-applied .text-truncate {
+  color: #ffffff;
+}
+
+.dark-theme-applied .transaction-address {
+  color: #fff;
+  span {
+    color: #aeaeae;
+  }
+}
+
+.dark-theme-applied .tile .time-block {
+  color: #aeaeae;
+}
 /* menu */
 
 .dark-theme-applied .search-form {

@@ -27,10 +27,10 @@
     <!-- Content -->
     <div class="col-12 col-md-4 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
       <div class="d-flex align-items-center">
-         <div class="icon-block icon-block mr-2">
+         <div class="icon-block mr-3">
             <%= render BlockScoutWeb.IconsView, "_transaction-icon.html" %>
           </div>
-          <div class="text-truncate d-flex flex-column">
+          <div class="text-truncate d-flex flex-column" style="gap: 8px;">
             <%= render "_link.html", transaction_hash: @transaction.hash, data_test: "address_hash_link" %>
             <% method_name = Transaction.get_method_name(@transaction) %>
           <div class="mr-2 mr-md-0 order-2 time-transaction" in-tile data-from-now="<%= block_timestamp(@transaction) %>"></div>
@@ -44,17 +44,17 @@
             </div>
             </div>
           </div>
-         <div class="col-6  col-md-5 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
+         <div class="col-6  col-md-5 d-flex flex-column pr-2 pr-sm-2 pr-md-0 mt-3 mb-3 mt-lg-0 mb-lg-0" style="gap: 12px;">
           <div class="transaction-address">
-            <span>From: </span>
+            From:
             <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:from, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
           </div>
           <div  class="transaction-address">
-            <span>To: </span>
+            To:
           <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:to, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
           </div>
       </div>
-      <div class="col-6 col-md-3">
+      <div class="col-6 col-md-3" style="margin:auto;">
           <div class="pool-transaction">
               <%= valueFormat(@transaction, include_label: false) %> <%= Explorer.coin_name() %>
           </div>
