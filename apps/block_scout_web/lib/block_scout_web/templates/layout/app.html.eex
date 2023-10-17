@@ -122,7 +122,7 @@
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <% end %>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <main class="js-ad-dependant-pt">
+      <main class="js-ad-dependant-pt mt-5">
         <%= @inner_content %>
       </main>
       <%= render BlockScoutWeb.LayoutView, "_new_footer.html", assigns %>
