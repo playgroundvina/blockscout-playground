@@ -60,7 +60,7 @@
 /* table */
 
 .container-table {
-  @include media-breakpoint-down(md) {
+  @media (max-width: 1200px) {
     overflow: scroll;
   }
 }
