@@ -1337,3 +1337,15 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     stroke: #fff;
   }
 }
+
+/* title dashboard */
+
+.dark-theme-applied .title-dashboard {
+  background: radial-gradient(
+    ellipse at center,
+    #cbcb821a,
+    #cbcb8211,
+    #111111aa,
+    #111111ff
+  );
+}

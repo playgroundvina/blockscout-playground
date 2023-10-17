@@ -40,7 +40,6 @@
 }
 
 .dashboard-banner-mobile {
-  margin-top: 50px;
   display: none;
   @include media-breakpoint-down(md) {
     padding-right: 25px;
@@ -50,7 +49,6 @@
 }
 
 .dashboard-banner-pc {
-  margin-top: 50px;
   width: 100%;
   max-width: 1440px !important;
   margin-left: auto;
