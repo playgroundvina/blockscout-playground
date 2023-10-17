@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container-body" style="padding:30px;">
 
   <% is_proxy = BlockScoutWeb.AddressView.smart_contract_is_proxy?(@address) %>
 

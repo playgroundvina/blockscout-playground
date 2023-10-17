@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container-body" style="padding:30px;">
     <div class="card">
         <div class="card-body fs-14" data-async-contract-svg="<%= @get_svg_path %>">
             <div class="card-title lg-card-title mb-2">

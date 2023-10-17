@@ -1,11 +1,11 @@
-<section class="container">
+<section class="container-body" style="padding:30px;">
 
   <%= render BlockScoutWeb.BlockView, "overview.html", assigns %>
 
   <section>
     <div class="card mb-3">
       <%= render BlockScoutWeb.BlockView, "_tabs.html", assigns %>
-      
+
       <div class="card-body" data-async-load data-async-listing="<%= @current_path %>" id="txs">
 
       <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>

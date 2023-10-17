@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container-body" style="padding:30px;">
   <%= render BlockScoutWeb.TransactionView, "overview.html", assigns %>
   <div class="card">
     <%= render BlockScoutWeb.TransactionView, "_tabs.html", assigns %>

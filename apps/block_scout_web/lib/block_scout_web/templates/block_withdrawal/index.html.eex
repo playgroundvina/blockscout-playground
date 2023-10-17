@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container-body" style="padding:30px;">
 
   <%= render BlockScoutWeb.BlockView, "overview.html", assigns %>
 
@@ -13,7 +13,7 @@
         <button data-error-message class="alert alert-danger col-12 text-left" style="display: none;">
           <span href="#" class="alert-link"><%= gettext("Something went wrong, click to reload.") %></span>
         </button>
-        
+
         <div class="addresses-table-container">
           <div class="stakes-table-container">
             <table>
