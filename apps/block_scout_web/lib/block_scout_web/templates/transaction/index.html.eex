@@ -4,7 +4,7 @@
    }
    window.onload = ShowLayoutContainer()
 </script>
-<section class="container-body" style="padding:30px;" data-page="transaction-list">
+<section class="container-body container-table" style="padding:30px;" data-page="transaction-list">
    <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
    <div class="card-table">
    <div class="" data-async-listing="<%= @current_path %>">
@@ -28,8 +28,9 @@
             </span>
          </div>
       </div>
-      <div class="card card-body card-body-table container-table">
-         <table  class="table table-borderless">
+      <div class="card card-body card-body-table">
+      <div class="  container-table">
+         <table  class="table table-borderless table-transactions">
             <thead>
                <tr>
                   <th>
@@ -48,6 +49,8 @@
                      FROM
                   </th>
                   <th>
+                  </th>
+                  <th>
                      TO
                   </th>
                   <th>
@@ -59,10 +62,12 @@
                   </th>
                </tr>
             </thead>
+
             <tbody data-selector="transactions-list" data-items>
-               <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
+               <%= render BlockScoutWeb.CommonComponentsView, "_table-loader.html", columns_num: 9 %>
             </tbody>
          </table>
+      </div>
       </div>
       <%= render BlockScoutWeb.CommonComponentsView, "_rap_pagination_container.html", position: "bottom" %>
    </div>
