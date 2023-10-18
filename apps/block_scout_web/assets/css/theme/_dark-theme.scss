@@ -1388,20 +1388,80 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .td-age {
     .time-transaction {
-      color: #fff;
+      color: $text-dark;
     }
   }
   .td-from,
   .td-to {
     a,
     span {
-      color: $text-glow;
+      color: $text-glow-dark;
     }
   }
   .td-value {
-    color: #fff;
+    color: $text-dark;
   }
   .td-txn-fee {
     color: #aeaeae;
+  }
+  .txn-hash {
+    .text-truncate {
+      color: $text-glow-dark;
+    }
+  }
+  .method {
+    .bs-label {
+      background: #e6cb82;
+      color: #191919;
+    }
+  }
+  .td-block {
+    a {
+      color: $text-glow-dark;
+    }
+  }
+  .td-age {
+    .time-transaction {
+      color: $text-dark;
+    }
+  }
+  .td-from,
+  .td-to {
+    a,
+    span {
+      color: $text-glow-dark;
+    }
+  }
+  .td-value {
+    color: $text-dark;
+  }
+  .td-txn-fee {
+    color: #aeaeae;
+  }
+}
+
+.dark-theme-applied .table-blocks {
+  .td-blocks {
+    a {
+      color: $text-glow-dark !important;
+    }
+  }
+  .td-age {
+    .time-transaction {
+      color: $text-dark;
+    }
+  }
+  .td-transaction {
+    color: $text-glow-dark;
+  }
+  .td-hash {
+    .text-truncate {
+      color: $text-glow-dark !important;
+    }
+  }
+  .td-gas-used,
+  .td-gas-limit,
+  .td-tx-fee {
+    color: $text-dark;
   }
 }

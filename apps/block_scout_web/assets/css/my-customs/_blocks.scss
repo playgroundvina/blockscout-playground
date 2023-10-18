@@ -1,0 +1,54 @@
+.table-blocks {
+  .td-blocks {
+    a {
+      color: $text-glow !important;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.2px;
+    }
+  }
+  .td-age {
+    .time-transaction {
+      color: $text-light;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.2px;
+    }
+  }
+  .td-transaction {
+    color: $text-glow;
+    font-size: 20px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.2px;
+  }
+  .td-hash {
+    .text-truncate {
+      color: $text-glow !important;
+      text-align: center;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.2px;
+      margin: auto;
+    }
+  }
+  .td-gas-used,
+  .td-gas-limit,
+  .td-tx-fee {
+    color: $text-light;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.2px;
+  }
+}

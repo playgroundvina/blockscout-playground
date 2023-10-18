@@ -1,7 +1,7 @@
-<section class="container-body" style="padding:30px;" data-page="<%= String.downcase(@block_type) %>-list">
+<section class="container-body  container-table table-blocks" style="padding:30px;" data-page="<%= String.downcase(@block_type) %>-list">
   <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
-  <div class="card">
-    <div class="card-body" data-async-listing="<%= @current_path %>">
+  <div class="card-table">
+    <div class="" data-async-listing="<%= @current_path %>">
       <%= render BlockScoutWeb.CommonComponentsView, "_channel_disconnected_message.html", text: gettext("Connection Lost, click to load newer blocks") %>
 
       <h1 class="card-title list-title-description"><%= gettext("%{block_type}s", block_type: @block_type) %></h1>
@@ -9,12 +9,42 @@
       <div class="list-top-pagination-container-wrapper">
         <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
       </div>
-
-      <div data-items>
-        <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
-      </div>
       <div data-empty-response-message style="display: none;">
           <span><%= gettext "There are no blocks." %></span>
+      </div>
+        <div class="card card-body card-body-table">
+         <div class="  container-table">
+            <table  class="table table-borderless table-transactions">
+               <thead>
+                  <tr>
+                     <th>
+                        Blocks
+                     </th>
+                     <th>
+                        Age
+                     </th>
+                      <th style="text-align: center;">
+                        Transaction
+                     </th>
+                     <th style="text-align: center;">
+                        Hash
+                     </th>
+                     <th style="text-align: center;">
+                        Gas Used
+                     </th>
+                     <th style="text-align: center;">
+                      Gas Limit
+                     </th>
+                     <th style="text-align: center;">
+                        Tx Fee
+                     </th>
+                  </tr>
+               </thead>
+               <tbody data-items>
+                  <%= render BlockScoutWeb.CommonComponentsView, "_table-loader.html", columns_num: 7 %>
+               </tbody>
+            </table>
+         </div>
       </div>
 
       <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
