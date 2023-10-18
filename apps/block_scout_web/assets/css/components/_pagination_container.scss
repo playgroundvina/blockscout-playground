@@ -15,14 +15,14 @@ $pagination-page-link-color-active: #fff !default;
 
 .pagination-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   &[disabled] {
     display: none;
   }
 
   @include media-breakpoint-down(sm) {
-    flex-direction: column;
+    // flex-direction: column;
   }
 
   &.position-bottom {
