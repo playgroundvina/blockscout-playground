@@ -366,6 +366,43 @@ function renderPaginationElement (text, active, loading) {
 }
 
 function generateStub (size) {
-  const stub = '<div data-loading-message data-selector="loading-message" class="tile tile-type-loading"> <div class="row tile-body"> <div class="tile-transaction-type-block col-md-2 d-flex flex-row flex-md-column"> <span class="tile-label"> <span class="tile-loader tile-label-loader"></span> </span> <span class="tile-status-label ml-2 ml-md-0"> <span class="tile-loader tile-label-loader"></span> </span> </div> <div class="col-md-7 col-lg-8 d-flex flex-column pr-2 pr-sm-2 pr-md-0"> <span class="tile-loader tile-address-loader"></span> <span class="tile-loader tile-address-loader"></span> </div> <div class="col-md-3 col-lg-2 d-flex flex-row flex-md-column flex-nowrap justify-content-center text-md-right mt-3 mt-md-0 tile-bottom"> <span class="mr-2 mr-md-0 order-1"> <span class="tile-loader tile-label-loader"></span> </span> <span class="mr-2 mr-md-0 order-2"> <span class="tile-loader tile-label-loader"></span> </span> </div> </div> </div>'
+  const stub = `<tr class="table-content-pseudo">
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+
+  <td class="stakes-td">
+    <span class="table-content-loader"></span>
+  </td>
+</tr>`
+  // const stub = '<div data-loading-message data-selector="loading-message" class="tile tile-type-loading"> <div class="row tile-body"> <div class="tile-transaction-type-block col-md-2 d-flex flex-row flex-md-column"> <span class="tile-label"> <span class="tile-loader tile-label-loader"></span> </span> <span class="tile-status-label ml-2 ml-md-0"> <span class="tile-loader tile-label-loader"></span> </span> </div> <div class="col-md-7 col-lg-8 d-flex flex-column pr-2 pr-sm-2 pr-md-0"> <span class="tile-loader tile-address-loader"></span> <span class="tile-loader tile-address-loader"></span> </div> <div class="col-md-3 col-lg-2 d-flex flex-row flex-md-column flex-nowrap justify-content-center text-md-right mt-3 mt-md-0 tile-bottom"> <span class="mr-2 mr-md-0 order-1"> <span class="tile-loader tile-label-loader"></span> </span> <span class="mr-2 mr-md-0 order-2"> <span class="tile-loader tile-label-loader"></span> </span> </div> </div> </div>'
   return Array.from(Array(size > 10 ? 10 : 10), () => stub) // I decided to always put 10 lines in order to make page lighter
 }

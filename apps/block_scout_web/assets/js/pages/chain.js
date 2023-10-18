@@ -332,11 +332,11 @@ const elements = {
       $el.toggle(state.transactionsError)
     }
   },
-  '[data-selector="transactions-list"] [data-selector="loading-message"]': {
-    render($el, state, _oldState) {
-      showLoader(state.transactionsLoading, $el)
-    }
-  },
+  // '[data-selector="transactions-list"] [data-selector="loading-message"]': {
+  //   render($el, state, _oldState) {
+  //     showLoader(state.transactionsLoading, $el)
+  //   }
+  // },
   '[data-selector="transactions-list"]': {
     load($el) {
       return { transactionsPath: $el[0].dataset.transactionsPath }
