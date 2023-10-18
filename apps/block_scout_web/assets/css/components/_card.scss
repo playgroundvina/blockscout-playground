@@ -158,6 +158,7 @@ $card-tab-icon-color-active: #fff !default;
 }
 
 .card-body {
+  margin-bottom: 30px;
   // padding: $card-horizontal-padding;
   // @media (max-width: 576px) {
   //   padding: 20px 10px;
@@ -350,8 +351,9 @@ $card-tab-icon-color-active: #fff !default;
   }
 }
 .list-top-pagination-container-wrapper {
+  padding-bottom: 10px;
   @media (min-width: 992px) {
-    float: right;
+    // float: right;
   }
 }
 

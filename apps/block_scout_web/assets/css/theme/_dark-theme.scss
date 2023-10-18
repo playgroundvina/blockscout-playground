@@ -1465,3 +1465,19 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     color: $text-dark;
   }
 }
+
+.dark-theme-applied .pagination-container .pagination .page-link {
+  background: var(--gray-scale-80, #282828);
+}
+
+.dark-theme-applied .page-number {
+  background-color: #282828;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: transparent;
+}
+
+.dark-theme-applied .page-number:focus {
+  // border: none;
+}

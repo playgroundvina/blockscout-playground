@@ -5,7 +5,7 @@ data-pagination-container>
     </ul>
     <ul class="pagination fml5 go-to">
         <!-- Go to -->
-        <li class="page-link no-hover tb ml10" ><%= gettext("Go to Lest go")%></li>
+        <li class="page-link no-hover tb ml10" ><%= gettext("Go to")%></li>
         <li class="page-item"><form input-page-number-form><input class="page-number" id="page-number" type=text size=3><input class="d-none" type=submit input-page-number></form></li>
     </ul>
 </div>
