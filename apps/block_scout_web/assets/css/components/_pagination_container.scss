@@ -1,5 +1,7 @@
-$pagination-page-link-background: #fff !default;
-$pagination-page-link-color: #aeaeae !default;
+$pagination-page-link-background-new: #fff !default;
+$pagination-page-link-color-new: #aeaeae !default;
+$pagination-page-link-background: #f5f6fa !default;
+$pagination-page-link-color: #a3a9b5 !default;
 $pagination-page-link-background-active: $primary !default;
 $pagination-page-link-color-active: #fff !default;
 
@@ -15,22 +17,22 @@ $pagination-page-link-color-active: #fff !default;
 
 .pagination-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
   &[disabled] {
     display: none;
   }
 
   @include media-breakpoint-down(sm) {
-    // flex-direction: column;
+    flex-direction: column;
   }
 
   &.position-bottom {
-    padding-top: 0px;
+    padding-top: 30px;
   }
 
   &.position-top {
-    padding-bottom: 40px;
+    padding-bottom: 30px;
   }
 
   .pagination-limit {
@@ -93,22 +95,18 @@ $pagination-page-link-color-active: #fff !default;
         $pagination-page-link-color
       );
       align-items: center;
-      border-radius: 4px;
+      border-radius: 2px;
       display: flex;
-      height: 36px;
+      height: 24px;
       margin: 0;
-      padding: 0 15px;
+      padding: 0 8px;
       position: relative;
       user-select: none;
       white-space: nowrap;
       cursor: pointer;
       text-align: center;
-      font-family: Sora;
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.18px;
+      font-size: 12px;
+      font-weight: 600;
 
       &:not(.no-hover):hover {
         @include pagination-container-base(
@@ -145,6 +143,53 @@ $pagination-page-link-color-active: #fff !default;
         );
         background-color: rgba($pagination-page-link-background-active, 0.5);
         border-color: rgba($pagination-page-link-background-active, 0.5);
+      }
+    }
+  }
+}
+
+.container-table .pagination-container {
+  justify-content: center;
+  &.position-bottom {
+    padding-top: 0px;
+  }
+
+  &.position-top {
+    padding-bottom: 40px;
+  }
+  .pagination {
+    .page-link {
+      @include pagination-container-base(
+        $pagination-page-link-background-new,
+        $pagination-page-link-color-new
+      );
+      align-items: center;
+      border-radius: 4px;
+      display: flex;
+      height: 36px;
+      margin: 0;
+      padding: 0 15px;
+      position: relative;
+      user-select: none;
+      white-space: nowrap;
+      cursor: pointer;
+      text-align: center;
+      font-family: Sora;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.18px;
+
+      &[disabled] {
+        @include pagination-container-base(
+          $pagination-page-link-background-new,
+          $pagination-page-link-color-new
+        );
+        cursor: not-allowed;
+        opacity: 0.4;
+        outline: none;
+        pointer-events: none;
       }
     }
   }

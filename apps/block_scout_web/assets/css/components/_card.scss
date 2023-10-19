@@ -351,10 +351,13 @@ $card-tab-icon-color-active: #fff !default;
   }
 }
 .list-top-pagination-container-wrapper {
-  padding-bottom: 10px;
   @media (min-width: 992px) {
-    // float: right;
+    float: right;
   }
+}
+
+.container-table .list-top-pagination-container-wrapper {
+  padding-bottom: 10px;
 }
 
 .function-output {
