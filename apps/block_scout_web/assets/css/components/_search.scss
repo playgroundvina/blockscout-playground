@@ -1,7 +1,6 @@
 $main-search-autocomplete-background-color: #f5f6fa !default;
 
 .mobile-search-show {
-  margin-top: 20px;
   @media screen and (max-width: 992px) {
     width: 100%;
   }
@@ -10,12 +9,15 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
   }
 }
 
+.search-form.mobile-search-show {
+  margin-top: 20px;
+}
+
 .mobile-search-hide {
   @media screen and (max-width: 992px) {
     display: none !important;
   }
 }
-
 
 .autoComplete_wrapper {
   width: 100% !important;

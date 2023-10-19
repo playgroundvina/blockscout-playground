@@ -5,11 +5,11 @@
       </h3>
    </div>
 
-   <!--
+
    <div class='search-dashboard'>
-      <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
+      <%#= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
    </div>
-   -->
+
 
 
    <div class="dashboard-banner-mobile">
