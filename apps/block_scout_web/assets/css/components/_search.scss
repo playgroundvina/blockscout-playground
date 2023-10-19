@@ -1,6 +1,7 @@
 $main-search-autocomplete-background-color: #f5f6fa !default;
 
 .mobile-search-show {
+  margin-top: 20px;
   @media screen and (max-width: 992px) {
     width: 100%;
   }
