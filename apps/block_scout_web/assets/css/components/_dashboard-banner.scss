@@ -37,22 +37,15 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
   padding: 0;
   position: relative;
   min-height: 300px;
-  @include media-breakpoint-down(sm) {
-    height: auto;
-  }
   @include media-breakpoint-down(md) {
     height: auto;
     min-height: 0;
     margin-bottom: 0;
   }
   .search-dashboard {
-    max-width: 876px;
     width: 100%;
     margin: 20px auto;
-    padding: 10px 0;
-    @media (max-width: 576px) {
-      display: none;
-    }
+    padding: 35px;
   }
   .title-dashboard {
     display: flex;
@@ -70,9 +63,18 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
       line-height: normal;
       letter-spacing: 1.44px;
       text-align: center;
-      @media (max-width: 768px) {
+    }
+
+    @include media-breakpoint-down(md) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      h3 {
+        text-align: center;
         font-size: 32px;
-        padding: 0;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 42px; /* 131.25% */
+        letter-spacing: 0.32px;
       }
     }
   }
