@@ -61,15 +61,18 @@ function getMarketCapChartColor() {
 
 function xAxe(fontColor) {
   return {
+    border: {
+      display: false,
+    },
     grid,
     type: 'time',
     time: {
       unit: 'day',
       tooltipFormat: 'DD',
-      stepSize: 14
     },
     ticks: {
-      color: fontColor
+      color: fontColor,
+      stepSize: 13,
     }
   }
 }
@@ -104,32 +107,43 @@ const config = {
     scales: {
       x: xAxe(getAxisFontColor()),
       price: {
+        border: {
+          display: false,
+        },
         position: 'left',
         grid,
         ticks: {
           beginAtZero: true,
           callback: (value, _index, _values) => `$${numeral(value).format('0,0.00')}`,
           maxTicksLimit: 4,
-          color: getAxisFontColor()
+          color: getAxisFontColor(),
+          display: false
         }
       },
       marketCap: {
+        border: {
+          display: false,
+        },
         position: 'right',
         grid,
         ticks: {
           callback: (_value, _index, _values) => '',
           maxTicksLimit: 6,
           drawOnChartArea: false,
-          color: getAxisFontColor()
+          color: getAxisFontColor(),
+          display: false
         }
       },
       numTransactions: {
-        position: 'right',
+        border: {
+          display: false,
+        },
+        position: 'left',
         grid,
         ticks: {
           beginAtZero: true,
           callback: (value, _index, _values) => formatValue(value),
-          maxTicksLimit: 4,
+          maxTicksLimit: 2,
           color: getAxisFontColor()
         }
       }

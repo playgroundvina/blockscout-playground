@@ -111,7 +111,7 @@
             <!-- Graph -->
             <div class="text-left" style>
                <span class="dashboard-banner-network-stats-label">
-               <%= gettext "Transaction history in 14 days" %>
+               <%= gettext "Transaction history in 30 days" %>
                </span>
             </div>
             <div class="dashboard-banner-network-graph">
@@ -270,7 +270,7 @@
                <!-- Graph -->
                <div>
                   <span class="dashboard-banner-network-stats-label">
-                  <%= gettext "Transaction history in 14 days" %>
+                  <%= gettext "Transaction history in 30 days" %>
                   </span>
                </div>
                <div class="dashboard-banner-network-graph">
