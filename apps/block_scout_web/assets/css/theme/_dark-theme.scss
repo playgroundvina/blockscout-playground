@@ -1481,3 +1481,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 .dark-theme-applied .page-number:focus {
   // border: none;
 }
+.dark-theme-applied table {
+  color: #fff;
+}

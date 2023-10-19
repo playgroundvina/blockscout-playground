@@ -1,50 +1,49 @@
 <section
-	class="container-body" style="padding:30px;"
+	class="container-body container-table" style="padding:30px;"
 	data-page="tokens"
 	data-chain-id="<%= Application.get_env(:block_scout_web, :chain_id) %>"
 	data-display-token-icons="<%= Application.get_env(:block_scout_web, :display_token_icons) %>"
 >
   <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
-  <div class="card">
-    <div class="card-body" data-async-load data-async-listing="<%= @current_path %>" data-no-self-calls>
+  <div class="">
+    <div class="" data-async-load data-async-listing="<%= @current_path %>" data-no-self-calls>
 	  <h1 class="card-title list-title-description"><%= gettext "Tokens" %></h1>
 
-	<div class="list-top-pagination-container-wrapper tokens-list-search-input-outer-container d-flex" style="float: right;">
+	<div class="list-top-pagination-container-wrapper tokens-list-search-input-outer-container d-flex" >
 		<label class="tokens-list-search-input-container tokens mr-3">
 			<input data-search-field="" class="form-control tokens-list-search-input search-input" type="text" name="filter" placeholder="Token name or symbol" id="search-text-input" />
 		</label>
     	<%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
 	</div>
-
-    <div class="addresses-table-container">
-      <div class="stakes-table-container">
-	<table>
+      <div class="card card-body card-body-table">
+      <div class="  container-table">
+    <table  class="table table-borderless table-transactions">
 	  <thead>
 	    <tr>
-	      <th class="stakes-table-th">
-			<div class="stakes-table-th-content">&nbsp;</div>
+	      <th class="">
+			<div class="">&nbsp;</div>
 	      </th>
-		  <th class="stakes-table-th">
+		  <th class="">
 			<div>&nbsp;</div>
 		  </th>
-	      <th class="stakes-table-th">
-			<div class="stakes-table-th-content"><%= gettext "Token" %></div>
+	      <th class="">
+			<div class=""><%= gettext "Token" %></div>
 	      </th>
-	      <th class="stakes-table-th">
-			<div class="stakes-table-th-content"><%= gettext "Address" %></div>
+	      <th class="">
+			<div class=""><%= gettext "Address" %></div>
 	      </th>
-		  <th class="stakes-table-th">
-			<div class="stakes-table-th-content">
+		  <th class="">
+			<div class="">
 			<%= gettext "Circulating Market Cap" %>
 			</div>
 	      </th>
-	      <th class="stakes-table-th">
-			<div class="stakes-table-th-content">
+	      <th class="">
+			<div class="">
 			<%= gettext "Total Supply" %>
 			</div>
 	      </th>
-	      <th class="stakes-table-th">
-			<div class="stakes-table-th-content">
+	      <th class="">
+			<div class="">
 			<%= gettext "Holders Count" %>
 			</div>
 	      </th>
