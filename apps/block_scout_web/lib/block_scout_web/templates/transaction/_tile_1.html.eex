@@ -3,7 +3,7 @@
 <% current_user = AuthController.current_user(@conn) %>
 <% tx_tags = BlockScoutWeb.Models.GetTransactionTags.get_transaction_with_addresses_tags(@transaction, current_user) %>
 
-<tr class="tile line-break tile-type-<%= type_suffix(@transaction) %> fade-in <%= status_class(@transaction ) %>" data-test="<%= type_suffix(@transaction) %>" data-identifier-hash="<%= @transaction.hash %>">
+<tr class="line-break tile-type-<%= type_suffix(@transaction) %> fade-in <%= status_class(@transaction ) %>" data-test="<%= type_suffix(@transaction) %>" data-identifier-hash="<%= @transaction.hash %>">
     <td class="txn-hash">
         <div class="text-truncate" style="max-width:100px;">
              <%= render "_link.html", transaction_hash: @transaction.hash, data_test: "address_hash_link" %>
