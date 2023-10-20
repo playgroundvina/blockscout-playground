@@ -145,6 +145,18 @@
   min-height: 87px;
   border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
 }
+.card-chain-transactions
+  span[data-selector="transactions-list"]
+  div:last-child {
+  border-bottom: none;
+}
+
+.card-chain-blocks
+  div[data-selector="chain-block-list"]
+  div:last-child
+  .tile.tile-type-block {
+  border-bottom: none;
+}
 
 .tile.tile-type-transaction,
 .tile-type-token-transfer {

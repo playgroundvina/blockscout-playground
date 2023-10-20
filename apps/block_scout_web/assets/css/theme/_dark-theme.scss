@@ -142,6 +142,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       filter: invert(1);
     }
   }
+
+  .footer .add-chain-btn a {
+    color: var(--gray-scale-white, #fff);
+  }
+  .footer .add-chain-btn{
+    background: rgba(255, 255, 255, 0.10); 
+  }
+  
   .footer-social-icon,
   .footer-link {
     color: $labels-dark;
@@ -1347,6 +1355,9 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     #111111aa,
     #111111ff
   );
+  h3 {
+    color: $text-glow-dark;
+  }
 }
 
 /* Transactions */
@@ -1465,7 +1476,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 }
 
-.dark-theme-applied .container-table .pagination-container .pagination .page-link {
+.dark-theme-applied
+  .container-table
+  .pagination-container
+  .pagination
+  .page-link {
   background: var(--gray-scale-80, #282828);
 }
 

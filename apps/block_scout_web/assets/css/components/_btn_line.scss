@@ -14,3 +14,9 @@ $btn-line-color: $secondary !default;
   color: $btn-line-bg;
   text-decoration: none;
 }
+
+.btn-line.float-right.btn-view-all {
+  padding: 12px 30px;
+  height: auto !important;
+  
+}
