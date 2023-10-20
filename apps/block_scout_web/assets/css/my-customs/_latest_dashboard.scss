@@ -146,7 +146,7 @@
   border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
 }
 .card-chain-transactions
-  span[data-selector="transactions-list"]
+  div[data-selector="transactions-list"]
   div:last-child {
   border-bottom: none;
 }
