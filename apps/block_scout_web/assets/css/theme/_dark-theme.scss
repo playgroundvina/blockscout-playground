@@ -146,10 +146,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .footer .add-chain-btn a {
     color: var(--gray-scale-white, #fff);
   }
-  .footer .add-chain-btn{
-    background: rgba(255, 255, 255, 0.10); 
+  .footer .add-chain-btn {
+    background: rgba(255, 255, 255, 0.1);
   }
-  
+
   .footer-social-icon,
   .footer-link {
     color: $labels-dark;
@@ -1494,4 +1494,12 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 .dark-theme-applied table {
   color: #fff;
+}
+
+/* fix other */
+
+.dark-theme-applied {
+  .tile-muted {
+    background-color: transparent;
+  }
 }
