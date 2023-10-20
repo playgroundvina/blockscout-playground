@@ -358,6 +358,9 @@ $card-tab-icon-color-active: #fff !default;
 
 .container-table .list-top-pagination-container-wrapper {
   padding-bottom: 10px;
+  @media (min-width: 992px) {
+    float: unset;
+  }
 }
 
 .function-output {
