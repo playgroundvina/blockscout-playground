@@ -1416,7 +1416,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
   .txn-hash {
     .text-truncate {
-      color: $text-glow-dark;
+      color: $text-glow-dark !important;
     }
   }
   .method {
