@@ -3,7 +3,6 @@
   border: none;
 }
 
-
 .dashboard-banner-network-stats-label {
   text-wrap: wrap;
   font-size: 18px !important;
@@ -55,6 +54,7 @@
   margin-right: auto;
   padding-left: 45px;
   padding-right: 15px;
+  margin-top: -40px;
   @include media-breakpoint-down(md) {
     display: none;
   }
