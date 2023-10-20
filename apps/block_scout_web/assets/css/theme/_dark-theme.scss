@@ -1290,7 +1290,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   color: #282828;
 }
 .dark-theme-applied .text-truncate {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .dark-theme-applied .transaction-address {
