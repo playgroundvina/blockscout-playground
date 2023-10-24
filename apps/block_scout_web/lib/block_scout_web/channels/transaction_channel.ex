@@ -52,7 +52,7 @@ defmodule BlockScoutWeb.TransactionChannel do
     rendered_transaction =
       View.render_to_string(
         TransactionView,
-        "_tile.html",
+        "_tile_1.html",
         transaction: transaction,
         burn_address_hash: @burn_address_hash,
         conn: socket
@@ -91,7 +91,7 @@ defmodule BlockScoutWeb.TransactionChannel do
     rendered_transaction =
       View.render_to_string(
         TransactionView,
-        "_tile.html",
+        "_tile_1.html",
         transaction: transaction,
         burn_address_hash: @burn_address_hash,
         conn: socket
