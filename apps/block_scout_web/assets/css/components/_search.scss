@@ -4,6 +4,7 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
   @media screen and (max-width: 992px) {
     width: 100%;
   }
+
   @media screen and (min-width: 992px) {
     display: none !important;
   }
@@ -21,8 +22,10 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
 
 .autoComplete_wrapper {
   width: 100% !important;
+
   input {
     background-color: transparent !important;
+    height: 30px;
   }
 }
 
@@ -33,6 +36,7 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
   border: none !important;
   border-radius: 0 !important;
   background: none !important;
+
   // background-color: $main-search-autocomplete-background-color !important;
   @media screen and (max-width: 992px) {
     height: auto !important;
@@ -43,6 +47,7 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
 .main-search-autocomplete-mobile {
   font-size: 20px !important;
   color: #828ba0 !important;
+
   @include media-breakpoint-down(md) {
     font-size: 14px;
   }
