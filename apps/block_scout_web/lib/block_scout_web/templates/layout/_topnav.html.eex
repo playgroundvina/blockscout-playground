@@ -3,188 +3,182 @@
 <% test_nets = test_nets(dropdown_nets()) %>
 <% main_nets = dropdown_head_main_nets() %>
 <nav class="navbar navbar-dark navbar-expand-lg navbar-primary" data-selector="navbar" id="top-navbar">
-  <div class="container-fluid navbar-container">
-    <%= link to: webapp_url(@conn), class: "navbar-brand", "data-test": "header_logo" do %>
+   <div class="container-fluid navbar-container">
+      <%= link to: webapp_url(@conn), class: "navbar-brand", "data-test": "header_logo" do %>
       <%= if logo() do %>
-        <img class="navbar-logo" id="navbar-logo" src="<%= static_path(@conn, logo()) %>" alt="<%= subnetwork_title() %>" />
+      <img class="navbar-logo" id="navbar-logo" src="<%= static_path(@conn, logo()) %>" alt="<%= subnetwork_title() %>" />
       <% end %>
       <%= if logo_text() do %>
-        <span class="logo-text <%= unless logo(), do: "no-logo" %>"> <%= logo_text() %> </span>
+      <span class="logo-text <%= unless logo(), do: "no-logo" %>"> <%= logo_text() %> </span>
       <% end %>
-
       <%= if Application.get_env(:block_scout_web, BlockScoutWeb.Chain)[:enable_testnet_label] do %>
-        <%= render BlockScoutWeb.FormView, "_tag.html", text: Application.get_env(:block_scout_web, BlockScoutWeb.Chain)[:testnet_label_text], additional_classes: ["testnet-label", "ml-2"] %>
-
+      <%= render BlockScoutWeb.FormView, "_tag.html", text: Application.get_env(:block_scout_web, BlockScoutWeb.Chain)[:testnet_label_text], additional_classes: ["testnet-label", "ml-2"] %>
       <% end %>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<%= gettext("Toggle navigation") %>">
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<%= gettext("Toggle navigation") %>">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav" id="navBar">
-        <%= content_tag :li, class: "nav-item dropdown search-hide" do %>
-        <%= link(
-              gettext("Home"),
-              to: "/",
-              class: "nav-link topnav-nav-link #{tab_status("/", @conn.request_path)}")%>
-        <% end %>
-        <%= if Application.get_env(:block_scout_web, BlockScoutWeb.WebRouter)[:enabled] do %>
-          <li class="nav-item dropdown search-hide">
-            <a class="nav-link topnav-nav-link dropdown-toggle" href="#" id="navbarBlocksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="nav-link-icon">
-                <%= render BlockScoutWeb.IconsView, "_blockchain_icon.html" %>
-              </span>
-              <%= gettext("Blockchain") %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarBlockchainDropdown">
-              <div class="nav-submenu">
-                <span>
-                  <%= gettext("Blocks") %>
-                </span>
-              </div>
-              <%= link(
-                    gettext("Blocks"),
-                    to: blocks_path(@conn, :index),
-                    class: "dropdown-item #{tab_status("blocks", @conn.request_path)}")%>
-              <%= link(gettext("Uncles"),
-                    to: uncle_path(@conn, :uncle),
-                    class: "dropdown-item #{tab_status("uncles", @conn.request_path)}")%>
-
-              <%= link(gettext("Forked Blocks (Reorgs)"),
-                    to: reorg_path(@conn, :reorg),
-                    class: "border-bottom dropdown-item #{tab_status("reorgs", @conn.request_path)}")%>
-
-              <div class="nav-submenu">
-                <span>
-                  <%= gettext("Transactions") %>
-                </span>
-              </div>
-
-              <% json_rpc_named_arguments = Application.fetch_env!(:indexer, :json_rpc_named_arguments) %>
-              <% variant = Keyword.fetch!(json_rpc_named_arguments, :variant) %>
-              <% show_withdrawals? = not Application.get_env(:indexer, Indexer.Fetcher.Withdrawal.Supervisor)[:disabled?] %>
-              <%= link(
-                    gettext("Validated"),
-                    to: transaction_path(@conn, :index),
-                    class: "#{if variant == EthereumJSONRPC.Besu, do: "border-bottom", else: ""} dropdown-item #{tab_status("txs", @conn.request_path)}"
-                  ) %>
-
-              <%= if variant !== EthereumJSONRPC.Besu do %>
-                <%= link(
-                      gettext("Pending"),
-                      class: "border-bottom dropdown-item #{tab_status("pending-transactions", @conn.request_path)}",
-                      "data-test": "pending_transactions_link",
-                      to: pending_transaction_path(@conn, :index)
-                    ) %>
-              <% end %>
-              <%= link(gettext("Verified contracts"),
-                    to: verified_contracts_path(@conn, :index),
-                    class: "dropdown-item border-bottom #{tab_status("verified-contracts", @conn.request_path)}")%>
-              <%= if show_withdrawals? do %>
-                <%= link(gettext("Withdrawals"),
-                    to: withdrawal_path(@conn, :index),
-                    class: "dropdown-item #{tab_status("reorgs", @conn.request_path)}")%>
-              <% end %>
-            </div>
-          </li>
-          <li class="nav-item dropdown search-hide">
-            <a href="#" role="button" id="navbarTokensDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="nav-link-icon">
-                <%= render BlockScoutWeb.IconsView, "_tokens_icon.html" %>
-              </span>
-              <%= gettext("Tokens") %>
-            </a>
-            <div class="dropdown-menu" aria-labeledby="navbarTransactionsDropdown">
-              <%= link(
-                    gettext("All"),
-                    class: "dropdown-item #{tab_status("tokens", @conn.request_path)}",
-                    to: tokens_path(@conn, :index)
-                  ) %>
-              <%= link(
-                    Explorer.coin_name(),
-                    class: "dropdown-item #{tab_status("accounts", @conn.request_path)}",
-                    to: address_path(@conn, :index)
-                  ) %>
-            </div>
-          </li>
-        <% end %>
-        <%= if Application.get_env(:block_scout_web, BlockScoutWeb.ApiRouter)[:reading_enabled] || Application.get_env(:block_scout_web, :api_url) do %>
-          <li class="nav-item dropdown search-hide">
-            <a href="#" role="button" id="navbarAPIsDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="nav-link-icon">
-                <%= render BlockScoutWeb.IconsView, "_api_icon.html" %>
-              </span>
-              <%= gettext("APIs") %>
-            </a>
-            <div class="dropdown-menu" aria-labeledby="navbarTransactionsDropdown">
-              <%= link(
-                    gettext("GraphQL"),
-                    class: "dropdown-item #{tab_status("graphiql", @conn.request_path)}",
-                    to: api_url() <> "/graphiql"
-                  ) %>
-              <%= link(
-                    gettext("RPC"),
-                    class: "dropdown-item #{tab_status("api-docs", @conn.request_path)}",
-                    to: api_url() <> api_docs_path(@conn, :index)
-                  ) %>
-              <%= link(
-                    gettext("Eth RPC"),
-                    class: "dropdown-item #{tab_status("eth-rpc-api-docs", @conn.request_path)}",
-                    to: api_url() <> api_docs_path(@conn, :eth_rpc)
-                  ) %>
-            </div>
-          </li>
-        <% end %>
-        <li class="nav-item">
-          <div class='search-dashboard' id="searchBar" >
-            <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete", additional_classes: ["mobile-search-hide"] %>
-          </div>
-        </li>
-      <li style="margin-top: 2px" class = "nav-item dropdown" >
-      <div id="mode-changer" style="display: flex;">
-          <%= unless Application.get_env(:block_scout_web, :permanent_light_mode_enabled) || Application.get_env(:block_scout_web, :permanent_dark_mode_enabled) do %>
-           <button class="dark-mode-changer" id="dark-mode-changer-sun">
-          <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_620_88)">
-            <path d="M12 17.5C14.7614 17.5 17 15.2614 17 12.5C17 9.73858 14.7614 7.5 12 7.5C9.23858 7.5 7 9.73858 7 12.5C7 15.2614 9.23858 17.5 12 17.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 1.5V3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 21.5V23.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4.21973 4.71973L5.63973 6.13973" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18.3604 18.8604L19.7804 20.2804" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M1 12.5H3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 12.5H23" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4.21973 20.2804L5.63973 18.8604" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18.3604 6.13973L19.7804 4.71973" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_620_88">
-            <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-            </clipPath>
-            </defs>
-          </svg>
-          </button>
-          <span  class="dark-mode-changer" id="mode-changer-checked">
-            <label  class="switch">
-              <input type="checkbox" id="dark-mode-changer-switch" checked >
-              <span class="slider round" id="sliderAnimation"></span>
-            </label>
-          </span>
-          <button class="dark-mode-changer" id="dark-mode-changer">
-            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.9999 11.29C18.8426 12.9922 18.2038 14.6144 17.1581 15.9668C16.1125 17.3192 14.7034 18.3458 13.0956 18.9265C11.4878 19.5073 9.74789 19.6181 8.0794 19.2461C6.41092 18.8741 4.8829 18.0345 3.67413 16.8258C2.46536 15.617 1.62584 14.089 1.25381 12.4205C0.881777 10.752 0.992617 9.01208 1.57336 7.4043C2.15411 5.79651 3.18073 4.38737 4.53311 3.34175C5.8855 2.29614 7.5077 1.65731 9.2099 1.5C8.21331 2.84827 7.73375 4.50945 7.85843 6.18141C7.98312 7.85338 8.70376 9.42506 9.8893 10.6106C11.0748 11.7961 12.6465 12.5168 14.3185 12.6415C15.9905 12.7662 17.6516 12.2866 18.9999 11.29Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        <% end %>
-        <%= render BlockScoutWeb.LayoutView, "_account_menu_item.html", conn: @conn, current_user: @current_user %>
-      </div>
-      </li>
-        <li>
-      <button class="network">
-      Testnet
       </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav" id="navBar">
+            <%= content_tag :li, class: "nav-item dropdown search-hide" do %>
+            <%= link(
+               gettext("Home"),
+               to: "/",
+               class: "nav-link topnav-nav-link #{tab_status("/", @conn.request_path)}")%>
+            <% end %>
+            <%= if Application.get_env(:block_scout_web, BlockScoutWeb.WebRouter)[:enabled] do %>
+            <li class="nav-item dropdown search-hide">
+               <a class="nav-link topnav-nav-link dropdown-toggle" href="#" id="navbarBlocksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <span class="nav-link-icon">
+               <%= render BlockScoutWeb.IconsView, "_blockchain_icon.html" %>
+               </span>
+               <%= gettext("Blockchain") %>
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarBlockchainDropdown">
+                  <div class="nav-submenu">
+                     <span>
+                     <%= gettext("Blocks") %>
+                     </span>
+                  </div>
+                  <%= link(
+                     gettext("Blocks"),
+                     to: blocks_path(@conn, :index),
+                     class: "dropdown-item #{tab_status("blocks", @conn.request_path)}")%>
+                  <%= link(gettext("Uncles"),
+                     to: uncle_path(@conn, :uncle),
+                     class: "dropdown-item #{tab_status("uncles", @conn.request_path)}")%>
+                  <%= link(gettext("Forked Blocks (Reorgs)"),
+                     to: reorg_path(@conn, :reorg),
+                     class: "border-bottom dropdown-item #{tab_status("reorgs", @conn.request_path)}")%>
+                  <div class="nav-submenu">
+                     <span>
+                     <%= gettext("Transactions") %>
+                     </span>
+                  </div>
+                  <% json_rpc_named_arguments = Application.fetch_env!(:indexer, :json_rpc_named_arguments) %>
+                  <% variant = Keyword.fetch!(json_rpc_named_arguments, :variant) %>
+                  <% show_withdrawals? = not Application.get_env(:indexer, Indexer.Fetcher.Withdrawal.Supervisor)[:disabled?] %>
+                  <%= link(
+                     gettext("Validated"),
+                     to: transaction_path(@conn, :index),
+                     class: "#{if variant == EthereumJSONRPC.Besu, do: "border-bottom", else: ""} dropdown-item #{tab_status("txs", @conn.request_path)}"
+                     ) %>
+                  <%= if variant !== EthereumJSONRPC.Besu do %>
+                  <%= link(
+                     gettext("Pending"),
+                     class: "border-bottom dropdown-item #{tab_status("pending-transactions", @conn.request_path)}",
+                     "data-test": "pending_transactions_link",
+                     to: pending_transaction_path(@conn, :index)
+                     ) %>
+                  <% end %>
+                  <%= link(gettext("Verified contracts"),
+                     to: verified_contracts_path(@conn, :index),
+                     class: "dropdown-item border-bottom #{tab_status("verified-contracts", @conn.request_path)}")%>
+                  <%= if show_withdrawals? do %>
+                  <%= link(gettext("Withdrawals"),
+                     to: withdrawal_path(@conn, :index),
+                     class: "dropdown-item #{tab_status("reorgs", @conn.request_path)}")%>
+                  <% end %>
+               </div>
+            </li>
+            <li class="nav-item dropdown search-hide">
+               <a href="#" role="button" id="navbarTokensDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <span class="nav-link-icon">
+               <%= render BlockScoutWeb.IconsView, "_tokens_icon.html" %>
+               </span>
+               <%= gettext("Tokens") %>
+               </a>
+               <div class="dropdown-menu" aria-labeledby="navbarTransactionsDropdown">
+                  <%= link(
+                     gettext("All"),
+                     class: "dropdown-item #{tab_status("tokens", @conn.request_path)}",
+                     to: tokens_path(@conn, :index)
+                     ) %>
+                  <%= link(
+                     Explorer.coin_name(),
+                     class: "dropdown-item #{tab_status("accounts", @conn.request_path)}",
+                     to: address_path(@conn, :index)
+                     ) %>
+               </div>
+            </li>
+            <% end %>
+            <%= if Application.get_env(:block_scout_web, BlockScoutWeb.ApiRouter)[:reading_enabled] || Application.get_env(:block_scout_web, :api_url) do %>
+            <li class="nav-item dropdown search-hide">
+               <a href="#" role="button" id="navbarAPIsDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <span class="nav-link-icon">
+               <%= render BlockScoutWeb.IconsView, "_api_icon.html" %>
+               </span>
+               <%= gettext("APIs") %>
+               </a>
+               <div class="dropdown-menu" aria-labeledby="navbarTransactionsDropdown">
+                  <%= link(
+                     gettext("GraphQL"),
+                     class: "dropdown-item #{tab_status("graphiql", @conn.request_path)}",
+                     to: api_url() <> "/graphiql"
+                     ) %>
+                  <%= link(
+                     gettext("RPC"),
+                     class: "dropdown-item #{tab_status("api-docs", @conn.request_path)}",
+                     to: api_url() <> api_docs_path(@conn, :index)
+                     ) %>
+                  <%= link(
+                     gettext("Eth RPC"),
+                     class: "dropdown-item #{tab_status("eth-rpc-api-docs", @conn.request_path)}",
+                     to: api_url() <> api_docs_path(@conn, :eth_rpc)
+                     ) %>
+               </div>
+            </li>
+            <% end %>
+            <li class="nav-item">
+               <div class='search-dashboard' id="searchBar" >
+                  <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete", additional_classes: ["mobile-search-hide"] %>
+               </div>
+            </li>
+            <li style="margin-top: 2px" class = "nav-item dropdown" >
+               <div id="mode-changer" style="display: flex;">
+                  <%= unless Application.get_env(:block_scout_web, :permanent_light_mode_enabled) || Application.get_env(:block_scout_web, :permanent_dark_mode_enabled) do %>
+                  <button class="dark-mode-changer" id="dark-mode-changer-sun">
+                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_620_88)">
+                           <path d="M12 17.5C14.7614 17.5 17 15.2614 17 12.5C17 9.73858 14.7614 7.5 12 7.5C9.23858 7.5 7 9.73858 7 12.5C7 15.2614 9.23858 17.5 12 17.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M12 1.5V3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M12 21.5V23.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M4.21973 4.71973L5.63973 6.13973" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M18.3604 18.8604L19.7804 20.2804" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M1 12.5H3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M21 12.5H23" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M4.21973 20.2804L5.63973 18.8604" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M18.3604 6.13973L19.7804 4.71973" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                           <clipPath id="clip0_620_88">
+                              <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+                           </clipPath>
+                        </defs>
+                     </svg>
+                  </button>
+                  <span  class="dark-mode-changer" id="mode-changer-checked">
+                  <label  class="switch">
+                  <input type="checkbox" id="dark-mode-changer-switch" checked >
+                  <span class="slider round" id="sliderAnimation"></span>
+                  </label>
+                  </span>
+                  <button class="dark-mode-changer" id="dark-mode-changer">
+                     <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.9999 11.29C18.8426 12.9922 18.2038 14.6144 17.1581 15.9668C16.1125 17.3192 14.7034 18.3458 13.0956 18.9265C11.4878 19.5073 9.74789 19.6181 8.0794 19.2461C6.41092 18.8741 4.8829 18.0345 3.67413 16.8258C2.46536 15.617 1.62584 14.089 1.25381 12.4205C0.881777 10.752 0.992617 9.01208 1.57336 7.4043C2.15411 5.79651 3.18073 4.38737 4.53311 3.34175C5.8855 2.29614 7.5077 1.65731 9.2099 1.5C8.21331 2.84827 7.73375 4.50945 7.85843 6.18141C7.98312 7.85338 8.70376 9.42506 9.8893 10.6106C11.0748 11.7961 12.6465 12.5168 14.3185 12.6415C15.9905 12.7662 17.6516 12.2866 18.9999 11.29Z" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                     </svg>
+                  </button>
+                  <% end %>
+                  <%= render BlockScoutWeb.LayoutView, "_account_menu_item.html", conn: @conn, current_user: @current_user %>
+               </div>
+            </li>
+            <li>
+               <button class="network">
+                  <%= Application.get_env(:block_scout_web, :net_type) %>
+               </button>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
 </nav>
