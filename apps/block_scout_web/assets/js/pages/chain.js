@@ -344,7 +344,10 @@ const elements = {
     render($el, state, oldState) {
       if (oldState.transactions === state.transactions) return
       const container = $el[0]
-      const newElements = map(state.transactions, ({ transactionHtml }) => $(transactionHtml)[0])
+      const newElements = map(state.transactions, ({ transactionHtml, transactionChainHtml }) => {
+        if (transactionChainHtml) return $(transactionChainHtml)[0]
+        return $(transactionHtml)[0]
+      })
       listMorph(container, newElements, { key: 'dataset.identifierHash', horizontal: null })
     }
   },

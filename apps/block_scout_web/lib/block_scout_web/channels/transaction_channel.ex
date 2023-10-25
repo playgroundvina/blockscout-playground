@@ -58,9 +58,19 @@ defmodule BlockScoutWeb.TransactionChannel do
         conn: socket
       )
 
+      rendered_chain_transaction =
+        View.render_to_string(
+          TransactionView,
+          "_tile.html",
+          transaction: transaction,
+          burn_address_hash: @burn_address_hash,
+          conn: socket
+        )
+
     push(socket, "pending_transaction", %{
       transaction_hash: Hash.to_string(transaction.hash),
-      transaction_html: rendered_transaction
+      transaction_html: rendered_transaction,
+      rendered_chain_transaction: rendered_chain_transaction
     })
 
     {:noreply, socket}
@@ -97,9 +107,19 @@ defmodule BlockScoutWeb.TransactionChannel do
         conn: socket
       )
 
+      rendered_chain_transaction =
+        View.render_to_string(
+          TransactionView,
+          "_tile.html",
+          transaction: transaction,
+          burn_address_hash: @burn_address_hash,
+          conn: socket
+        )
+
     push(socket, "transaction", %{
       transaction_hash: Hash.to_string(transaction.hash),
-      transaction_html: rendered_transaction
+      transaction_html: rendered_transaction,
+      transaction_chain_html: rendered_chain_transaction
     })
 
     {:noreply, socket}
