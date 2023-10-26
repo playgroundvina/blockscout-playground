@@ -172,7 +172,7 @@
                   <%= render BlockScoutWeb.LayoutView, "_account_menu_item.html", conn: @conn, current_user: @current_user %>
                </div>
             </li>
-            <li class="">
+            <li class="nav-item">
               <button class="network">
                   <%= subnetwork_title() %>
                </button>
