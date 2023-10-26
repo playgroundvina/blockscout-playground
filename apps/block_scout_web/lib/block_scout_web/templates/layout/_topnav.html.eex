@@ -172,11 +172,42 @@
                   <%= render BlockScoutWeb.LayoutView, "_account_menu_item.html", conn: @conn, current_user: @current_user %>
                </div>
             </li>
-            <li>
-               <button class="network">
-                  <%= Application.get_env(:block_scout_web, :net_type) %>
+            <li class="">
+              <button class="network">
+                  <%= subnetwork_title() %>
                </button>
-            </li>
+                             <!--
+               <a class="nav-link topnav-nav-link active-icon <%= if dropdown_nets() != [], do: "dropdown-toggle" %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="nav-link-icon">
+                  <%= render BlockScoutWeb.IconsView, "_active_icon.html" %>
+                  </span>
+                  <button class="network">
+                     <%= subnetwork_title() %>
+                  </button>
+               </a>
+
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <%= if Enum.count(main_nets) > 0 do %>
+                  <a class="dropdown-item header division">Mainnets</a>
+                  <%= for %{url: url, title: title} <- main_nets do %>
+                     <a class="dropdown-item" href="<%= url %>"><%= title %></a>
+                  <% end %>
+                  <% end %>
+                  <%= if Enum.count(test_nets) > 0 do %>
+                  <a class="dropdown-item header division">Testnets</a>
+                  <%= for %{url: url, title: title} <- test_nets do %>
+                     <a class="dropdown-item" href="<%= url %>"><%= title %></a>
+                  <% end %>
+                  <% end %>
+                  <%= if Enum.count(other_nets) > 0 do %>
+                  <a class="dropdown-item header division">Other Networks</a>
+                  <%= for %{url: url, title: title} <- other_nets do %>
+                     <a class="dropdown-item" href="<%= url %>"><%= title %></a>
+                  <% end %>
+                  <% end %>
+               </div>
+               -->
+         </li>
          </ul>
       </div>
    </div>
