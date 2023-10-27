@@ -161,30 +161,32 @@
 }
 
 .tile.tile-type-contract-call {
-  min-height: 87px;
   border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
 }
 
-.card-chain-transactions div[data-selector="transactions-list"] div:last-child {
-  border-bottom: none;
-}
 
-.card-chain-transactions div[data-selector="transactions-list"] div {
+
+.card-chain-transactions div[data-selector="transactions-list"]>div {
+  border-bottom: 0.75px solid rgba(119, 131, 143, .25);
   height: 105px;
 }
 
-.card-chain-blocks div[data-selector="chain-block-list"] div:last-child {
+.card-chain-transactions div[data-selector="transactions-list"]>div:last-child {
   border-bottom: none;
 }
 
-.card-chain-blocks div[data-selector="chain-block-list"] div {
+
+.card-chain-blocks div[data-selector="chain-block-list"]>div {
+  border-bottom: 0.75px solid rgba(119, 131, 143, .25);
   height: 105px;
+}
+
+.card-chain-blocks div[data-selector="chain-block-list"]>div:last-child {
   border-bottom: none;
 }
 
 .tile.tile-type-transaction,
 .tile-type-token-transfer {
-  min-height: 87px;
   border-left: none;
 
   .text-truncate {
