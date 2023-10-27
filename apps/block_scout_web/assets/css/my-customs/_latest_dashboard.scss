@@ -2,6 +2,7 @@
   border: none;
   border-radius: 0;
   border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
+
   .tile-title {
     text-align: left;
     margin-bottom: 0px !important;
@@ -14,8 +15,10 @@
     line-height: normal;
     letter-spacing: 0.08px;
   }
+
   .tile.tile-type-transaction {
     border-left: none;
+
     .text-truncate {
       color: #dea131;
       font-family: Sora;
@@ -25,6 +28,7 @@
       line-height: normal;
       letter-spacing: 0.08px;
     }
+
     .transaction-address {
       a.span {
         color: #282828;
@@ -35,6 +39,7 @@
         line-height: normal;
         letter-spacing: 0.07px;
       }
+
       color: #9e9e9e;
       font-family: Sora;
       font-size: 14px;
@@ -44,6 +49,7 @@
       letter-spacing: 0.07px;
     }
   }
+
   .time-block {
     font-size: 12px;
     color: #9e9e9e;
@@ -51,6 +57,7 @@
     line-height: normal;
     letter-spacing: 0.06px;
   }
+
   .icon-block {
     display: flex;
     width: 42px;
@@ -61,24 +68,30 @@
     border-radius: 4px;
     background: rgba(119, 131, 143, 0.1);
   }
+
   .tile-bottom-contents {
     display: flex;
     flex-direction: column;
   }
+
   .text-truncate {
     max-width: 350px;
   }
+
   .tile-transactions {
     margin-top: 12px;
     margin-bottom: 0;
   }
+
   &.tile-type-block {
     border: none;
   }
+
   .tile-bottom-contents {
     background-color: transparent;
   }
 }
+
 .btn-view-all {
   border-radius: 100px;
   border: 0.75px solid #282828;
@@ -90,12 +103,15 @@
   line-height: normal;
   letter-spacing: 0.08px;
 }
+
 .dark-theme-applied .tile-title {
   color: #dea131 !important;
 }
+
 .tile.tile-type-contract-call {
   border: none;
 }
+
 .pool-transaction {
   word-break: break-all;
   padding: 5px;
@@ -107,10 +123,12 @@
   border-radius: 4px;
   background: rgba(119, 131, 143, 0.1);
 }
+
 .dark-theme-applied .pool-transaction {
   background: var(--gray-scale-60, #3d3d3d);
   color: #8b8b8b;
 }
+
 .transaction-address {
   display: flex;
   color: #282828;
@@ -121,15 +139,16 @@
   line-height: normal;
   letter-spacing: 0.07px;
   gap: 5px;
+
   span {
     color: #9e9e9e;
   }
 }
+
 .tile.tile-type-block {
-  min-height: 87px;
   display: flex;
   align-items: center;
-  border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
+  // border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
 }
 
 .tile.tile-type-block .tile-title {
@@ -145,16 +164,21 @@
   min-height: 87px;
   border-bottom: 0.75px solid rgba(119, 131, 143, 0.25);
 }
-.card-chain-transactions
-  div[data-selector="transactions-list"]
-  div:last-child {
+
+.card-chain-transactions div[data-selector="transactions-list"] div:last-child {
   border-bottom: none;
 }
 
-.card-chain-blocks
-  div[data-selector="chain-block-list"]
-  div:last-child
-  .tile.tile-type-block {
+.card-chain-transactions div[data-selector="transactions-list"] div {
+  height: 105px;
+}
+
+.card-chain-blocks div[data-selector="chain-block-list"] div:last-child {
+  border-bottom: none;
+}
+
+.card-chain-blocks div[data-selector="chain-block-list"] div {
+  height: 105px;
   border-bottom: none;
 }
 
@@ -162,6 +186,7 @@
 .tile-type-token-transfer {
   min-height: 87px;
   border-left: none;
+
   .text-truncate {
     color: #dea131 !important;
     font-family: Sora;
@@ -171,6 +196,7 @@
     line-height: normal;
     letter-spacing: 0.08px;
   }
+
   .time-transaction {
     color: #9e9e9e;
     font-size: 12px;
@@ -179,6 +205,7 @@
     line-height: normal;
     letter-spacing: 0.06px;
   }
+
   .transaction-address {
     span {
       color: #282828;
@@ -189,6 +216,7 @@
       line-height: normal;
       letter-spacing: 0.07px;
     }
+
     color: #9e9e9e;
     font-family: Sora;
     font-size: 14px;
@@ -198,6 +226,7 @@
     letter-spacing: 0.07px;
   }
 }
+
 // .main-search-autocomplete {
 //   &:focus {
 //     border: unset !important;
@@ -213,6 +242,7 @@
     letter-spacing: 0.96px;
     color: #282828;
   }
+
   .page-item {
     &.active {
       .page-link {
@@ -228,6 +258,7 @@
     }
   }
 }
+
 .tile a[data-test="transaction_hash_link"] {
   color: $dashboard-stats-item-label-color !important;
   font-size: 16px;

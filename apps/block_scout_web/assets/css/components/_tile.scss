@@ -437,6 +437,7 @@ $tile-body-a-color: #5959d8 !default;
 }
 
 .fade-up-blocks-chain {
+  border-bottom: 0.75px solid rgba(119,131,143,.25);
   .tile-type-block {
     position: relative;
   }
