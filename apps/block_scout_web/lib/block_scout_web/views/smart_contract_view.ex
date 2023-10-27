@@ -114,7 +114,7 @@ defmodule BlockScoutWeb.SmartContractView do
     do: render_type_value("bool", Helper.sanitize_input(to_string(value)), fetch_name(names, index))
 
   def values_with_type(value, type, names, index, _components),
-    do: render_type_value(type, Helper.sanitize_input(binary_to_utf_string(value)), fetch_name(names, index))
+    do: render_type_value(type, Helper.sanitize_input(value), fetch_name(names, index))
 
   def values_with_type(value, :error, _components),
     do: render_type_value("error", Helper.sanitize_input(value), "error")
