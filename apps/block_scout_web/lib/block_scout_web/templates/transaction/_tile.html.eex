@@ -45,11 +45,11 @@
             </div>
           </div>
          <div class="col-6  col-md-5 d-flex flex-column pr-2 pr-sm-2 pr-md-0 mt-3 mb-3 mt-lg-0 mb-lg-0" style="gap: 12px;">
-          <div class="transaction-address">
+          <div class="transaction-address txs-from-to">
             From:
             <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:from, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
           </div>
-          <div  class="transaction-address">
+          <div  class="transaction-address txs-from-to">
             To:
           <%= @transaction |> BlockScoutWeb.AddressView.address_partial_selector(:to, assigns[:current_address]) |> BlockScoutWeb.RenderHelper.render_partial() %>
           </div>

@@ -1417,6 +1417,17 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 }
 
+.dark-theme-applied .transaction-address .txs-from-to {
+
+  color: var(--gray-scale-white, #FFF);
+
+  a.span {
+    color: var(--gray-scale-20, #AEAEAE);
+  }
+}
+
+
+
 .dark-theme-applied .tile .time-block {
   color: #aeaeae;
 }

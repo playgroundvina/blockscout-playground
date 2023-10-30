@@ -7,20 +7,29 @@
   text-wrap: wrap;
   font-size: 18px !important;
   text-transform: uppercase;
+
   @media (max-width: 960px) {
     font-size: 14px !important;
   }
+
   @media (max-width: 480px) {
     font-size: 12px;
   }
 }
 
 .dashboard-banner-network-stats-value {
-  color: var(--gray-scale-80, #282828);
+  color: var(--gray-scale-80, #262626);
+
+  @include media-breakpoint-down(md) {
+    color: var(--gray-scale-80, #282828);
+  }
+
   font-size: 20px;
+
   @media (max-width: 960px) {
     font-size: 16px;
   }
+
   @media (max-width: 480px) {
     font-size: 14px;
   }
@@ -29,6 +38,7 @@
 .form-control {
   &.search-control {
     border: none;
+
     &:focus {
       border: none;
     }
@@ -41,6 +51,7 @@
 
 .dashboard-banner-mobile {
   display: none;
+
   @include media-breakpoint-down(md) {
     padding-right: 25px;
     padding-left: 20px;
@@ -56,6 +67,7 @@
   padding-left: 45px;
   padding-right: 15px;
   margin-top: -40px;
+
   @include media-breakpoint-down(md) {
     display: none;
   }
@@ -71,6 +83,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 8px;
+
   @include media-breakpoint-down(md) {
     border-radius: 12px 0px 0px 0px;
     margin-bottom: 2px;
@@ -88,6 +101,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 8px;
+
   @include media-breakpoint-down(md) {
     border-radius: 0px 12px 0px 0px;
     margin-top: 0px;
@@ -124,7 +138,7 @@
   justify-content: space-between;
 }
 
-.flex-container > div {
+.flex-container>div {
   width: 100%;
   margin: 1px;
   text-align: center;
@@ -152,6 +166,7 @@
 
 .banner-five-mobile {
   padding: 20px 14px;
+
   @include media-breakpoint-down(md) {
     border-radius: 0px 0px 12px 12px;
   }
