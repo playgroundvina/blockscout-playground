@@ -1376,6 +1376,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 .dark-theme-applied .btn-no-border-link-to-tems {
   border-color: $dark-primary;
   color: $dark-primary;
+  background: none;
 }
 
 .dark-theme-applied .b-banner {

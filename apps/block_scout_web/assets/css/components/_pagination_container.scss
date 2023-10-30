@@ -56,10 +56,10 @@ $pagination-page-link-color-active: #fff !default;
     margin: 0 0 0 auto;
     padding: 0;
 
-    @include media-breakpoint-down(sm) {
-      justify-content: space-between;
-      margin: 0;
-    }
+    // @include media-breakpoint-down(sm) {
+    //   justify-content: space-between;
+    //   margin: 0;
+    // }
 
     .page-item {
       margin: 0 5px 0 0;
