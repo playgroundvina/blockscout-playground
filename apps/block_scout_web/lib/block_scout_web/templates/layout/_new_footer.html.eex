@@ -22,7 +22,7 @@
                                 </div>
                                 </div>
                             <div class="footer-text-1 mt-3">
-                            PoolsScan is a Block Explorer and Analytics Platform for Pools Chain
+                                <%= gettext("Copyright ©2023 Pools Chain. All Right Reserved.") %>
                             </div>
                         </div>
                 </div>
