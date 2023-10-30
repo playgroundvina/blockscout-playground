@@ -168,7 +168,12 @@
 
 .card-chain-transactions div[data-selector="transactions-list"]>div {
   border-bottom: 0.75px solid rgba(119, 131, 143, .25);
-  height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  height: 120px;
+  margin-top: 0px;
 }
 
 .card-chain-transactions div[data-selector="transactions-list"]>div:last-child {
@@ -178,7 +183,11 @@
 
 .card-chain-blocks div[data-selector="chain-block-list"]>div {
   border-bottom: 0.75px solid rgba(119, 131, 143, .25);
-  height: 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  height: 120px;
 }
 
 .card-chain-blocks div[data-selector="chain-block-list"]>div:last-child {

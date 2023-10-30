@@ -1,6 +1,6 @@
-<div class="col-12 mb-3 fade-up-blocks-chain"  data-block-number="<%= @block.number %>">
+<div class="col-12 fade-up-blocks-chain"  data-block-number="<%= @block.number %>">
    <div class="tile tile-type-block n-p row w-100">
-      <div class="col-12 col-md-4 d-flex flex-column pr-2 pr-sm-2 pr-md-0">
+      <div class="col-12 col-md-4 d-flex flex-column ">
          <div class="d-flex align-items-center">
             <div class="icon-block mr-3">
                <%= render BlockScoutWeb.IconsView, "_block_latest_icon.html" %>
@@ -39,10 +39,10 @@
             </div>
          </div>
       </div>
-            <div class="col-6 col-md-3" style="margin:auto;">
+      <div class="col-6 col-md-3" style="padding: 0px; margin-left: auto;">
           <div class="pool-transaction">
               0 <%= Explorer.coin_name() %>
           </div>
-        </div>
+      </div>
    </div>
 </div>
