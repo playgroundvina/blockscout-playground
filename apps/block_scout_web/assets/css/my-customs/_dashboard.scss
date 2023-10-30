@@ -16,6 +16,7 @@
 }
 
 .dashboard-banner-network-stats-value {
+  color: var(--gray-scale-80, #282828);
   font-size: 20px;
   @media (max-width: 960px) {
     font-size: 16px;
