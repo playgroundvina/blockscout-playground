@@ -1,6 +1,6 @@
 <div class="col-12 fade-up-blocks-chain"  data-block-number="<%= @block.number %>">
    <div class="tile tile-type-block n-p row w-100">
-      <div class="col-12 col-md-4 d-flex flex-column ">
+      <div class="col-12 col-md-4 d-flex flex-column" style="padding:0px">
          <div class="d-flex align-items-center">
             <div class="icon-block mr-3">
                <%= render BlockScoutWeb.IconsView, "_block_latest_icon.html" %>
