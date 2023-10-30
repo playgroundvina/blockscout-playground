@@ -38,22 +38,22 @@
                     <div class="d-flex justify-content-end align-items-start flex-column w-100 h-100 contact-us">
                             <div class="title-contact-us mb-2">Contact us</div>
                             <div class="footer-sns">
-                                <a href="#">
+                                <a href="https://twitter.com/pools_club">
                                     <img src="/images/mdi_twitter.png"/>
                                 </a>
-                                <a href="#">
+                                <a href=" https://www.youtube.com/@poolscontact">
                                     <img src="/images/mdi_youtube.png"/>
                                 </a>
-                                <a href="#">
+                                <a href="https://www.facebook.com/bpoolsclub">
                                     <img src="/images/akar-icons_facebook-fill.png"/>
                                 </a>
-                                <a href="#">
-                                    <img src="/images/mdi_youtube.png"/>
+                                <a href="https://www.instagram.com/poolclubs123">
+                                    <img src="/images/mdi_instagram.png"/>
                                 </a>
-                                <a href="#">
+                                <a href="https://t.me/Poolsclub">
                                     <img src="/images/icon-park_telegram.png"/>
                                 </a>
-                                <a href="#">
+                                <a href="https://discord.com/invite/SVy65eh4aJ">
                                     <img src="/images/ic_baseline-discord.png"/>
                                 </a>
                             </div>
