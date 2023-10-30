@@ -65,6 +65,9 @@ export function createCoinBalanceHistoryChart (el) {
                 tooltipFormat: 'DD',
                 // @ts-ignore
                 stepSize
+              },
+              ticks: {
+                color: "#FF0000"
               }
             },
             y: {

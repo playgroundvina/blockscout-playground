@@ -90,6 +90,7 @@ $dropdown-menu-item-hover-background: rgba($secondary, 0.1) !default;
   border: none;
 
   @include media-breakpoint-down(md) {
+    padding-left: 2px;
     border: none;
     box-shadow: none;
     border-radius: 0px;
@@ -117,7 +118,22 @@ $dropdown-menu-item-hover-background: rgba($secondary, 0.1) !default;
   padding-left: 2rem;
 }
 
+.nav-link[aria-expanded="true"]:after {
+  transform: rotateX(180deg);
+  /* Legacy vendor prefixes that you probably don't need... */
+  /* Safari */
+  -webkit-transform: rotateX(180deg);
+  /* Firefox */
+  -moz-transform: rotateX(180deg);
+  /* IE */
+  -ms-transform: rotateX(180deg);
+  /* Opera */
+  -o-transform: rotateX(180deg);
+
+}
+
 .dropdown-toggle::after {
+  float: right;
   margin-left: 0.71em;
   font-size: 12px !important;
   border-bottom: 0;
@@ -125,8 +141,12 @@ $dropdown-menu-item-hover-background: rgba($secondary, 0.1) !default;
   border-right: 0.5em solid transparent;
   border-top: 0.5em solid;
   content: "";
-  display: inline-block;
   vertical-align: 0.255em;
+
+  @include media-breakpoint-down(md) {
+    border: none;
+    content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik00IDZMOCAxMEwxMiA2IiBzdHJva2U9IiMyODI4MjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPg0KPC9zdmc+IA==);
+  }
 }
 
 .token-balance-dropdown {

@@ -128,6 +128,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     &:hover {
+      color: var(--Primary, #E6CB82); 
       .nav-link-icon {
         svg path {
           fill: $primary;
@@ -153,6 +154,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .navbar.navbar-primary .navbar-toggler .navbar-toggler-icon {
     filter: invert(1);
+  }
+
+
+  .dropdown-toggle::after {
+    @include media-breakpoint-down(md) {
+      border: none;
+      content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik00IDZMOCAxMEwxMiA2IiBzdHJva2U9IndoaXRlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4NCjwvc3ZnPiA=);
+    }
   }
 
   .footer-coppy-right {
@@ -1338,12 +1347,12 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     background-image: none;
     width: 100%;
     // background-color: #35335d !important;
-    color: white;
+    // color: white;
+    color: var(--Primary, #E6CB82); 
     border: none;
   }
 
   .dark-theme-applied .dropdown-item:hover:before {
-    content: "|";
     height: 50px;
     width: 50%;
     opacity: 1;
@@ -1354,14 +1363,13 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .dark-theme-applied .navbar.navbar-primary .navbar-nav .nav-link:hover:before {
-    content: "|";
     height: 50px;
     width: 50%;
     opacity: 1;
     background: none;
     left: 24%;
     top: 14%;
-    color: $dark-primary;
+    color: var(--Primary, #E6CB82); 
   }
 }
 

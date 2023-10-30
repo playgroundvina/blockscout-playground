@@ -8,9 +8,6 @@
     @include media-breakpoint-down(md) {
       font-size: 14px;
     }
-    &:hover {
-      color: $primary;
-    }
     &.active {
       background-color: $primary;
       border-color: $primary;
@@ -23,8 +20,8 @@
 }
 
 .nav-tabs .nav-item.show .nav-link {
-  background-color: darken($primary, 10%);
-  border-color: darken($primary, 10%);
+  background-color: $primary;
+  border-color: $primary;
   color: $white;
 }
 

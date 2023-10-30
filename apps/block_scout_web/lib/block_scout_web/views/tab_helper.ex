@@ -33,6 +33,15 @@ defmodule BlockScoutWeb.TabHelper do
     end
   end
 
+
+  def tab_status_array(tab_names, request_path, show_token_transfers \\ false) do
+    Enum.find(tab_names, fn i -> tab_active?(i, request_path) || i == request_path end)
+    |> case do
+      nil -> "inactive"
+      _ -> "active"
+    end
+  end
+
   defp tab_status_selector(tab_name, show_token_transfers) do
     cond do
       tab_name == "token-transfers" && show_token_transfers ->
