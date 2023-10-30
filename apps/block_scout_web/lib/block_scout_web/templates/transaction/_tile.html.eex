@@ -31,7 +31,7 @@
             <%= render BlockScoutWeb.IconsView, "_transaction-icon.html" %>
           </div>
           <div class="text-truncate d-flex flex-column" style="gap: 8px;">
-            <%= render "_link.html", transaction_hash: @transaction.hash, data_test: "address_hash_link" %>
+            <%= render "_link.html",  additional_classes: ["tile-title"], transaction_hash: @transaction.hash, data_test: "address_hash_link" %>
             <% method_name = Transaction.get_method_name(@transaction) %>
           <div class="mr-2 mr-md-0 order-2 time-transaction" in-tile data-from-now="<%= block_timestamp(@transaction) %>"></div>
                 <!--<%= if method_name do %>

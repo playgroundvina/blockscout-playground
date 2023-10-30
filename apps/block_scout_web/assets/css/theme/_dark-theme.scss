@@ -307,8 +307,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   //   background-color: $dark-bg;
   // }
   a.tile-title {
-    color: #dea131 !important;
+    color: var(--Primary, #E6CB82) !important;
   }
+
+  .tile.tile-type-block .tile-title {
+    color: var(--Primary, #E6CB82) !important;
+  }
+
+
 
   .tile.tile-type-block .tile-transaction-type-block a {
     color: #fff;
