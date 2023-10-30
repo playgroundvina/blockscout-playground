@@ -1478,9 +1478,9 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 .dark-theme-applied .card-body-table {
   background-color: #282828;
   background-image: linear-gradient(#3d3d3d,
-      #3d3d3d 59px,
+      #3d3d3d,
       #282828,
-      #282828 59px);
+      #282828);
 }
 
 .dark-theme-applied .container-table {
