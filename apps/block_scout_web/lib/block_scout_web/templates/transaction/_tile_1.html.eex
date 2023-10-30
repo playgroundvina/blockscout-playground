@@ -22,7 +22,7 @@
     <td class="td-block">
           <%= @transaction |> block_number() |> BlockScoutWeb.RenderHelper.render_partial() %>
     </td>
-    <td class="td-age">
+    <td class="td-age"  style="min-width:145px;">
         <div class="mr-2 mr-md-0 order-2 time-transaction" in-tile data-from-now="<%= block_timestamp(@transaction) %>"></div>
     </td>
     <td class="transactions-from td-from">

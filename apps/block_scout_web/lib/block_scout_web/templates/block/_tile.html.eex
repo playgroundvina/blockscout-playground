@@ -22,7 +22,7 @@
       <% end %>
         </div>
     </td>
-    <td class="td-age">
+    <td class="td-age" style="min-width:145px;">
       <div class="mr-2 mr-md-0 order-2 time-transaction" in-tile data-from-now="<%= @block.timestamp %>"></div>
     </td>
     <td class="td-transaction">
