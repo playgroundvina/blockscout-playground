@@ -62,7 +62,8 @@ $card-tab-icon-color-active: #fff !default;
   line-height: 1.2rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
-
+  color: var(--gray-scale-80, #282828);
+  
   &.lg-card-title {
     @media (max-width: 374px) {
       font-size: 13px;
