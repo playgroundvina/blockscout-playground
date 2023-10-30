@@ -173,9 +173,9 @@
                </div>
             </li>
             <li class="nav-item">
-              <button class="network">
+              <div class="network">
                   <%= subnetwork_title() %>
-               </button>
+               </div>
                              <!--
                <a class="nav-link topnav-nav-link active-icon <%= if dropdown_nets() != [], do: "dropdown-toggle" %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="nav-link-icon">
