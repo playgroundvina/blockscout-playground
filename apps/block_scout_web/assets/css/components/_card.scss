@@ -21,12 +21,13 @@ $card-tab-icon-color-active: #fff !default;
 
   .block-details-row {
     flex-direction: row;
+
     @include media-breakpoint-down(sm) {
       flex-direction: column;
     }
 
     .block-detail-el {
-      & + .block-detail-el {
+      &+.block-detail-el {
         @include media-breakpoint-down(sm) {
           margin-top: 6px;
         }
@@ -38,6 +39,7 @@ $card-tab-icon-color-active: #fff !default;
 .card-background-1 {
   background-color: $card-background-1;
   color: $card-background-1-text-color;
+
   a:not(.dropdown-item),
   a:not(.dropdown-item):hover {
     color: $card-background-1-text-color;
@@ -58,7 +60,8 @@ $card-tab-icon-color-active: #fff !default;
   font-size: 24px;
   font-weight: normal;
   line-height: 1.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 
   &.lg-card-title {
     @media (max-width: 374px) {
@@ -179,6 +182,7 @@ $card-tab-icon-color-active: #fff !default;
 .card-chain-blocks {
   min-height: 233px;
   max-height: auto;
+
   [class*="col-"]:last-child {
     .tile {
       margin-bottom: 0;
@@ -304,6 +308,7 @@ $card-tab-icon-color-active: #fff !default;
 
 .contract-plus-btn-container {
   height: 31px !important;
+
   &:hover i {
     color: #fff !important;
   }
@@ -325,8 +330,9 @@ $card-tab-icon-color-active: #fff !default;
     display: inline-block;
   }
 }
+
 .list-title-description {
-  font-family: Sora;
+
   font-size: 64px;
   font-style: normal;
   font-weight: 500;
@@ -334,9 +340,10 @@ $card-tab-icon-color-active: #fff !default;
   letter-spacing: 0.96px;
   color: #282828;
 }
+
 .page-item {
   .page-link {
-    font-family: Sora;
+
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -344,12 +351,14 @@ $card-tab-icon-color-active: #fff !default;
     letter-spacing: 0.18px;
     border: none !important;
   }
+
   &.active {
     .page-link {
       color: #e6cb82 !important;
     }
   }
 }
+
 .list-top-pagination-container-wrapper {
   @media (min-width: 992px) {
     float: right;
@@ -358,6 +367,7 @@ $card-tab-icon-color-active: #fff !default;
 
 .container-table .list-top-pagination-container-wrapper {
   padding-bottom: 10px;
+
   @media (min-width: 992px) {
     float: unset;
   }
