@@ -1409,7 +1409,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   color: #ffffff !important;
 }
 
-.dark-theme-applied .tile.tile-type-transaction .transaction-address {
+.dark-theme-applied .tile .transaction-address {
   color: #fff;
 
   span {
