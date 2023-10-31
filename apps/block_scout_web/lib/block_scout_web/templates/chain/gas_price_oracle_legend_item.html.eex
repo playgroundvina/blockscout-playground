@@ -11,7 +11,7 @@
                 <div class="flex-column "><%= "#{gas_prices_from_oracle["average"]}" <> " " %><%= gettext "Gwei" %></div>
                 <span
                 data-toggle="tooltip"
-                data-placement="bottom"
+                data-placement="top"
                 data-html="true"
                 data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-tracker' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
                 title="
