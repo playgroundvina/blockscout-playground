@@ -468,6 +468,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     border-bottom-color: $dark-light-bg;
   }
 
+  .navbar .dropdown-menu {
+    border: none;
+  
+    @include media-breakpoint-down(md) {
+      border-left: 1px solid #E6CB82 !important;
+    }
+  }
+
   .dropdown-item {
     color: #fff;
 

@@ -93,7 +93,7 @@ $dropdown-menu-item-hover-background: rgba($secondary, 0.1) !default;
     padding-left: 2px;
     border: none;
     box-shadow: none;
-    border-radius: 0px;
+    border-radius: 0px !important;
     border-left: 1px solid #dea131 !important;
     width: 100%;
   }

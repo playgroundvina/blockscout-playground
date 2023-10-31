@@ -55,7 +55,7 @@ $header-logo-text-color: #333 !default;
 
     @include media-breakpoint-down(md) {
       font-size: 14px;
-      display: block;
+      display: none;
     }
   }
 
