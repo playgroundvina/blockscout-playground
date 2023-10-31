@@ -4,18 +4,27 @@ import $ from 'jquery'
 
 function reRenderChart() {
   const newColorAxis = getAxisFontColor()
-
-  window.dashboardChartElementMobile.chart.options.scales.x.ticks.color = newColorAxis
-  window.dashboardChartElementMobile.chart.options.scales.price.ticks.color = newColorAxis
-  window.dashboardChartElementMobile.chart.options.scales.marketCap.ticks.color = newColorAxis
-  window.dashboardChartElementMobile.chart.options.scales.numTransactions.ticks.color = newColorAxis
-  window.dashboardChartElementMobile.chart.update()
+  if (window.dashboardChartElementMobile) {
+    window.dashboardChartElementMobile.chart.options.scales.x.ticks.color = newColorAxis
+    window.dashboardChartElementMobile.chart.options.scales.price.ticks.color = newColorAxis
+    window.dashboardChartElementMobile.chart.options.scales.marketCap.ticks.color = newColorAxis
+    window.dashboardChartElementMobile.chart.options.scales.numTransactions.ticks.color = newColorAxis
+    window.dashboardChartElementMobile.chart.update()
+  }
   
-  window.dashboardChart.chart.options.scales.x.ticks.color = newColorAxis
-  window.dashboardChart.chart.options.scales.price.ticks.color = newColorAxis
-  window.dashboardChart.chart.options.scales.marketCap.ticks.color = newColorAxis
-  window.dashboardChart.chart.options.scales.numTransactions.ticks.color = newColorAxis
-  window.dashboardChart.chart.update()
+  if (window.dashboardChart) {
+    window.dashboardChart.chart.options.scales.x.ticks.color = newColorAxis
+    window.dashboardChart.chart.options.scales.price.ticks.color = newColorAxis
+    window.dashboardChart.chart.options.scales.marketCap.ticks.color = newColorAxis
+    window.dashboardChart.chart.options.scales.numTransactions.ticks.color = newColorAxis
+    window.dashboardChart.chart.update()
+  }
+
+  if (window.coinBalanceHistoryChart) {
+    window.coinBalanceHistoryChart.options.scales.x.ticks.color = newColorAxis
+    window.coinBalanceHistoryChart.options.scales.y.ticks.color = newColorAxis
+    window.coinBalanceHistoryChart.update()
+  }
 }
 
 // @ts-ignore
