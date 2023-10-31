@@ -3,8 +3,6 @@ import { getAxisFontColor } from '../../../../block_scout_web/assets/js/lib/hist
 import $ from 'jquery'
 
 function reRenderChart() {
-  const doashBoardPc = $(".dashboard-banner-pc");
-  const isMobile = doashBoardPc.css('display') === "none"
   const newColorAxis = getAxisFontColor()
 
   window.dashboardChartElementMobile.chart.options.scales.x.ticks.color = newColorAxis

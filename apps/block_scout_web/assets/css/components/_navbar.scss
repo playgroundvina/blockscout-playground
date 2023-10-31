@@ -98,6 +98,9 @@ $header-logo-text-color: #333 !default;
         transform: translateX(-50%);
         transition: $transition-cont;
         width: calc(100% - #{$header-link-horizontal-padding} - #{$header-link-horizontal-padding});
+        @include media-breakpoint-down(md) {
+          content: none;
+        }
       }
 
       &.active,

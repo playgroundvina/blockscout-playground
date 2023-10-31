@@ -128,7 +128,8 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     &:hover {
-      color: var(--Primary, #E6CB82); 
+      color: var(--Primary, #E6CB82);
+
       .nav-link-icon {
         svg path {
           fill: $primary;
@@ -316,6 +317,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   //   background-color: $dark-bg;
   // }
   a.tile-title {
+    color: var(--Primary, #E6CB82) !important;
+  }
+
+  .tile a[data-test=transaction_hash_link] {
     color: var(--Primary, #E6CB82) !important;
   }
 
@@ -1348,7 +1353,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     width: 100%;
     // background-color: #35335d !important;
     // color: white;
-    color: var(--Primary, #E6CB82); 
+    color: var(--Primary, #E6CB82);
     border: none;
   }
 
@@ -1369,7 +1374,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     background: none;
     left: 24%;
     top: 14%;
-    color: var(--Primary, #E6CB82); 
+    color: var(--Primary, #E6CB82);
   }
 }
 
