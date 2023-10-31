@@ -360,6 +360,36 @@ export function createMarketHistoryChart(el) {
   return chart
 }
 
+export function reloadDataChart(el, chart) {
+  const dataPaths = $(el).data('history_chart_paths')
+  const $chartError = $('[data-chart-error-message]')
+  Object.keys(dataPaths).forEach(function (historySource) {
+    $.getJSON(dataPaths[historySource], { type: 'JSON' })
+      .done(data => {
+        switch (historySource) {
+          case 'market': {
+            const marketHistoryData = humps.camelizeKeys(data.history_data)
+
+            $(el).show()
+            chart.updateMarketHistory(marketHistoryData)
+            break
+          }
+          case 'transaction': {
+            const txsHistoryData = JSON.parse(data.history_data)
+
+            $(el).show()
+            chart.updateTransactionHistory(txsHistoryData)
+            break
+          }
+        }
+      })
+      .fail(() => {
+        $chartError.show()
+      })
+  })
+  return chart
+}
+
 $('[data-chart-error-message]').on('click', _event => {
   $('[data-chart-error-message]').hide()
   const doashBoardPc = $(".dashboard-banner-pc");
