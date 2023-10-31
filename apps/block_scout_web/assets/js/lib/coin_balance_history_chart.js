@@ -102,6 +102,6 @@ export async function createCoinBalanceHistoryChart(el) {
 
   } else {
     $chartError.show()
-    return "error"
+    return null
   }
 }

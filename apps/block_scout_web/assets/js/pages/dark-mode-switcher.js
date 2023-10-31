@@ -4,15 +4,15 @@ import $ from 'jquery'
 
 function reRenderChart() {
   const newColorAxis = getAxisFontColor()
-  if (window.dashboardChartElementMobile) {
+  if (window.dashboardChartElementMobile && window.dashboardChartElementMobile.chart) {
     window.dashboardChartElementMobile.chart.options.scales.x.ticks.color = newColorAxis
     window.dashboardChartElementMobile.chart.options.scales.price.ticks.color = newColorAxis
     window.dashboardChartElementMobile.chart.options.scales.marketCap.ticks.color = newColorAxis
     window.dashboardChartElementMobile.chart.options.scales.numTransactions.ticks.color = newColorAxis
     window.dashboardChartElementMobile.chart.update()
   }
-  
-  if (window.dashboardChart) {
+
+  if (window.dashboardChart && window.dashboardChart.chart) {
     window.dashboardChart.chart.options.scales.x.ticks.color = newColorAxis
     window.dashboardChart.chart.options.scales.price.ticks.color = newColorAxis
     window.dashboardChart.chart.options.scales.marketCap.ticks.color = newColorAxis
