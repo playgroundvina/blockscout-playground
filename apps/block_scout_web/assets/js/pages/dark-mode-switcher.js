@@ -6,19 +6,18 @@ function reRenderChart() {
   const doashBoardPc = $(".dashboard-banner-pc");
   const isMobile = doashBoardPc.css('display') === "none"
   const newColorAxis = getAxisFontColor()
-  if (isMobile) {
-    window.dashboardChartElementMobile.chart.options.scales.x.ticks.color = newColorAxis
-    window.dashboardChartElementMobile.chart.options.scales.price.ticks.color = newColorAxis
-    window.dashboardChartElementMobile.chart.options.scales.marketCap.ticks.color = newColorAxis
-    window.dashboardChartElementMobile.chart.options.scales.x.numTransactions.color = newColorAxis
-    window.dashboardChartElementMobile.chart.update()
-  } else {
-    window.dashboardChart.chart.options.scales.x.ticks.color = newColorAxis
-    window.dashboardChart.chart.options.scales.price.ticks.color = newColorAxis
-    window.dashboardChart.chart.options.scales.marketCap.ticks.color = newColorAxis
-    window.dashboardChart.chart.options.scales.numTransactions.ticks.color = newColorAxis
-    window.dashboardChart.chart.update()
-  }
+
+  window.dashboardChartElementMobile.chart.options.scales.x.ticks.color = newColorAxis
+  window.dashboardChartElementMobile.chart.options.scales.price.ticks.color = newColorAxis
+  window.dashboardChartElementMobile.chart.options.scales.marketCap.ticks.color = newColorAxis
+  window.dashboardChartElementMobile.chart.options.scales.numTransactions.ticks.color = newColorAxis
+  window.dashboardChartElementMobile.chart.update()
+  
+  window.dashboardChart.chart.options.scales.x.ticks.color = newColorAxis
+  window.dashboardChart.chart.options.scales.price.ticks.color = newColorAxis
+  window.dashboardChart.chart.options.scales.marketCap.ticks.color = newColorAxis
+  window.dashboardChart.chart.options.scales.numTransactions.ticks.color = newColorAxis
+  window.dashboardChart.chart.update()
 }
 
 // @ts-ignore
