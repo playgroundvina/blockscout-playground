@@ -235,6 +235,14 @@
     line-height: normal;
     letter-spacing: 0.96px;
     color: #282828;
+
+    @include media-breakpoint-down(md) {
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 42px;
+      letter-spacing: 0.32px;
+    }
   }
 
   .page-item {
