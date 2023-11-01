@@ -90,7 +90,7 @@ $footer-logo-width: auto !default;
   .title-contact-us {
     color: #262626;
 
-    font-size: 15px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -224,4 +224,61 @@ $footer-logo-width: auto !default;
 
 .footer-brand {
   text-decoration: none !important;
+}
+
+.f-container {
+  @include media-breakpoint-down(md) {
+    border-top: 1px solid #E0E0E0;
+    background: var(--gray-scale-white, #FFF);
+    box-shadow: 0px -2px 15px 0px rgba(0, 0, 0, 0.05);
+
+    .footer-container {
+      padding-left: 16px;
+    }
+
+    .footer-body {
+      box-shadow: none;
+      padding: 0px;
+
+      .footer-text-1 {
+        font-size: 16px;
+      }
+
+      .footer-text-2 {
+        font-size: 14px;
+      }
+
+      .footer-logo-new>svg {
+        width: 75px;
+        height: 49px;
+      }
+
+      .text-logo>svg {
+        width: 146px;
+        height: 18px;
+      }
+
+      .logo-text-chain {
+        font-size: 13.218px;
+      }
+
+      .title-contact-us {
+        font-size: 16px;
+      }
+
+
+
+      .add-chain-btn a {
+        font-size: 14px;
+      }
+    }
+
+    .footer-coppy-right {
+      font-size: 14px;
+      border-top: 1px solid rgba(119, 131, 143, 0.25);
+      margin: auto;
+      width: 90% !important;
+      height: auto;
+    }
+  }
 }

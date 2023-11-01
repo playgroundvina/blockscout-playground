@@ -204,6 +204,28 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     background-color: $dark-secondary;
   }
 
+
+  .f-container {
+    @include media-breakpoint-down(md) {
+      border-top: 1px solid var(--gray-scale-40, #575757);
+      background: rgba(255, 255, 255, 0.03);
+
+      .footer-container {
+        padding-left: 16px;
+      }
+
+      .footer-body {
+        background: transparent;
+        border: none;
+      }
+
+      .footer-coppy-right {
+        border-top: 0.75px solid var(--gray-scale-40, #575757);
+      }
+    }
+  }
+
+
   // hero stats
 
   .layout-container .dashboard-banner-container {
@@ -394,7 +416,8 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     border: 1px solid #575757;
     background: rgba(255, 255, 255, 0.03);
 
-    .footer-text-1,  .footer-text-2,
+    .footer-text-1,
+    .footer-text-2,
     .title-contact-us,
     .logo-text-chain {
       color: #fff;
@@ -470,7 +493,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .navbar .dropdown-menu {
     border: none;
-  
+
     @include media-breakpoint-down(md) {
       border-left: 1px solid #E6CB82 !important;
     }

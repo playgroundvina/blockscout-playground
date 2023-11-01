@@ -298,7 +298,7 @@
 </div>
 </div>
 <section class="container-body" style="padding-top:50px">
-   <div class="row" style="padding: 15px">
+   <div class="row box-body">
       <div class="col-lg-6">
          <div class="card card-chain-blocks js-ad-dependant-mb-3">
             <div class="card-body">

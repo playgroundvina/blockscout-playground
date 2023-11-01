@@ -129,9 +129,11 @@
       <main class="js-ad-dependant-pt">
         <%= @inner_content %>
       </main>
+      <div class="f-container">
       <%= render BlockScoutWeb.LayoutView, "_new_footer.html", assigns %>
       <div class="footer-coppy-right d-flex justify-content-center align-items-center w-100 py-4">
         <%=DataRender.content_footer() %>
+      </div>
       </div>
     </div>
     <%= if (
