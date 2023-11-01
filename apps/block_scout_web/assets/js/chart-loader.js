@@ -8,19 +8,19 @@ function renderHistoryChart() {
   const isMobile = doashBoardPc.css('display') === "none"
   if (isMobile) {
     const dashboardChartElementMobile = document.querySelectorAll('[data-chart="historyChartMobile"]')
-    if (dashboardChartElementMobile && !window.dashboardChartElementMobile) {
+    if (dashboardChartElementMobile) {
       // @ts-ignore
-      window.dashboardChartElementMobile = createMarketHistoryChart(dashboardChartElementMobile[0])
-    } else {
-      reloadDataChart(dashboardChartElementMobile[0], window.dashboardChartElementMobile)
+      if (!window.dashboardChartElementMobile) { window.dashboardChartElementMobile = createMarketHistoryChart(dashboardChartElementMobile[0]) } else {
+        reloadDataChart(dashboardChartElementMobile[0], window.dashboardChartElementMobile)
+      }
     }
   } else {
     const dashboardChartElement = document.querySelectorAll('[data-chart="historyChart"]')
-    if (dashboardChartElement && !window.dashboardChart) {
+    if (dashboardChartElement) {
       // @ts-ignore
-      window.dashboardChart = createMarketHistoryChart(dashboardChartElement[0])
-    } else {
-      reloadDataChart(dashboardChartElement[0], window.dashboardChart)
+      if (!window.dashboardChart) { window.dashboardChart = createMarketHistoryChart(dashboardChartElement[0]) } else {
+        reloadDataChart(dashboardChartElement[0], window.dashboardChart)
+      }
     }
   }
   formatAllUsdValues()
