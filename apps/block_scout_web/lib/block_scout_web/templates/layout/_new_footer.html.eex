@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 </div>
-                            <div class="footer-text-1 mt-3">
+                            <div class="footer-text-2 mt-3">
                                 <%= gettext("PoolsScan is a Block Explorer and Analytics Platform for Pools Chain") %>
                             </div>
                         </div>

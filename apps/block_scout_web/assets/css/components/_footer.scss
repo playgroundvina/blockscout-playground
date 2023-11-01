@@ -15,12 +15,14 @@ $footer-logo-width: auto !default;
   margin: 0;
   padding: 40px 0;
   position: relative;
+
   .contact-us {
     @include media-breakpoint-down(md) {
       margin-top: 15px;
       align-items: start !important;
     }
   }
+
   .add-chain-btn {
     border-radius: 6px;
     background: #f5f5f5;
@@ -28,12 +30,14 @@ $footer-logo-width: auto !default;
     align-items: center;
     padding: 6px 16px;
     gap: 12px;
+
     @include media-breakpoint-down(md) {
       margin-top: 30px;
     }
+
     a {
       color: #262626;
-      
+
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -54,6 +58,7 @@ $footer-logo-width: auto !default;
 .footer-logo-row {
   margin-bottom: 30px;
 }
+
 .footer-body {
   display: flex;
   max-width: 1440px;
@@ -63,18 +68,28 @@ $footer-logo-width: auto !default;
   border-radius: 15px;
   background: #fff;
   box-shadow: 0px 8px 120px 0px rgba(0, 0, 0, 0.05);
+
   .footer-text-1 {
     color: #262626;
-    
-    font-size: 15px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.09px;
   }
+
+  .footer-text-2 {
+    color: #262626;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.08px;
+  }
+
   .title-contact-us {
     color: #262626;
-    
+
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
@@ -82,20 +97,24 @@ $footer-logo-width: auto !default;
     letter-spacing: 0.18px;
     text-transform: uppercase;
   }
+
   .footer-sns {
     display: flex;
     gap: 15px;
     align-items: center;
+
     img {
       width: 24px;
       height: 24px;
       flex-shrink: 0;
     }
   }
+
   .footer-logo-new {
     display: flex;
     align-items: center;
     gap: 15px;
+
     .logo-text-chain {
       color: #262626;
       font-family: Kirang Haerang;
@@ -108,6 +127,7 @@ $footer-logo-width: auto !default;
     }
   }
 }
+
 // .footer-logo {
 //   max-height: $footer-logo-height;
 //   width: $footer-logo-width;
@@ -178,10 +198,12 @@ $footer-logo-width: auto !default;
 
       a {
         transition: $transition-cont;
+
         &:hover {
           text-decoration: none;
           color: #fff;
         }
+
         &:focus {
           color: darken($footer-text-color, 5);
         }
