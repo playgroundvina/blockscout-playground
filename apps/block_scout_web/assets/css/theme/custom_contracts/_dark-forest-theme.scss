@@ -445,7 +445,7 @@ $dark-primary-alternate: $dark-primary;
 	}
 	.tooltip > .tooltip-inner {
 		border-radius: 0px;
-		background-color: $dark-primary;
+		background-color: #e6cb82;
 	}
 
 	//coin dropdown
@@ -891,8 +891,8 @@ $dark-primary-alternate: $dark-primary;
 
 	.tooltip-inversed-color {
 		.tooltip-inner {
-			background-color: $btn-line-color !important;
-			color: #fff !important;
+			background-color: #e6cb82 !important;
+			color: #000 !important;
 		}
 	}
 

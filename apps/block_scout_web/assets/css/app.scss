@@ -1,6 +1,9 @@
 @import "./mixins";
 * {
   font-family: 'Sora', sans-serif;
+  .tooltip.show {
+    opacity: 1 !important;
+  }
 }
 /* Phoenix flash messages */
 .alert:empty {

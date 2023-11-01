@@ -302,7 +302,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
     &.active {
       background-color: $dark-primary-alternate;
-      color: #fff;
+      color: #000;
     }
   }
 
@@ -629,7 +629,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .tooltip>.tooltip-inner {
-    background-color: $dark-primary;
+    background-color: #e6cb82;
   }
 
   .tooltip-pale-color.bs-tooltip-top .arrow::before,
@@ -1288,8 +1288,8 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .tooltip-inversed-color {
     .tooltip-inner {
-      background-color: $btn-line-color !important;
-      color: #fff !important;
+      background-color: #e6cb82 !important;
+      color: #000 !important;
     }
   }
 

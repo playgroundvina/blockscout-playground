@@ -282,7 +282,7 @@ $c-dark-text-color: #8a8dba;
     	border-bottom-color: $c-primary;
 	}
 	.tooltip > .tooltip-inner {
-		background-color: $c-primary;
+		background-color: #e6cb82;
 	}
 
 	//coin dropdown
@@ -424,8 +424,8 @@ $c-dark-text-color: #8a8dba;
 
 	.tooltip-inversed-color {
 		.tooltip-inner {
-			background-color: $btn-line-color !important;
-			color: #fff !important;
+			background-color: #e6cb82 !important;
+			color: #000 !important;
 		}
 	}
 
