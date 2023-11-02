@@ -1,5 +1,5 @@
 <section
-	class="container-body container-table" style="padding:30px;"
+	class="container-body container-table"
 	data-page="tokens"
 	data-chain-id="<%= Application.get_env(:block_scout_web, :chain_id) %>"
 	data-display-token-icons="<%= Application.get_env(:block_scout_web, :display_token_icons) %>"

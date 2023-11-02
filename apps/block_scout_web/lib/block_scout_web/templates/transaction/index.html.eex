@@ -4,7 +4,7 @@
    }
    window.onload = ShowLayoutContainer()
 </script>
-<section class="container-body container-table" style="padding:30px;" data-page="transaction-list">
+<section class="container-body container-table" data-page="transaction-list">
    <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
    <div class="card-table">
    <div class="" data-async-listing="<%= @current_path %>">

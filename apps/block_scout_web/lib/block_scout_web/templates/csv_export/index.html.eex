@@ -4,7 +4,7 @@
           end
         %>
 <link rel="stylesheet" href="<%= static_path(@conn, "/css/export-csv.css") %>">
-<section class="container-body" style="padding:30px;">
+<section class="container-body">
   <div class="card">
     <div class="card-body">
       <h1 class="card-title list-title-description"><%= gettext "Export Data" %></h1>

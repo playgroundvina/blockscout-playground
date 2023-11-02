@@ -13,13 +13,15 @@
   max-width: 1440px !important;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 30px;
   width: 100%;
+  @include media-breakpoint-down(md) {
+    padding: 15px !important;
+  }
 }
 
 .box-body {
-  padding: 15px;
+  padding: 0 px;
 
   @include media-breakpoint-down(md) {
     padding: 0px;

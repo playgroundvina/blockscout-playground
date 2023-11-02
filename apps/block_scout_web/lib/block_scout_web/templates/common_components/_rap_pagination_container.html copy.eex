@@ -1,5 +1,5 @@
 <div 
-class='pagination-container mlm17 mrm18 <%= if assigns[:position] == "top" do %>position-top<% end %> <%= if assigns[:position] == "bottom" do %>position-bottom<% end %>'
+class='pagination-container  <%= if assigns[:position] == "top" do %>position-top<% end %> <%= if assigns[:position] == "bottom" do %>position-bottom<% end %>'
 data-pagination-container>
     <ul class="pagination align-end" pages-numbers-container>
     </ul>

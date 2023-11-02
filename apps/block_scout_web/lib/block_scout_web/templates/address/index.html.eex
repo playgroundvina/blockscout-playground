@@ -1,4 +1,4 @@
-<section class="container-body container-table" style="padding:30px;">
+<section class="container-body container-table">
   <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
   <div class="">
     <div class="" data-async-load data-async-listing="<%= @current_path %>">

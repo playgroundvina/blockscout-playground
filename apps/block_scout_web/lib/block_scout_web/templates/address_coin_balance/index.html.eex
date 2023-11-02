@@ -1,4 +1,4 @@
-<section class="container-body" style="padding:30px;" data-page="coin-balance-history">
+<section class="container-body" data-page="coin-balance-history">
   <script defer src="<%= static_path(@conn, "/js/balance-chart-loader.js") %>"></script>
 
   <% is_proxy = BlockScoutWeb.AddressView.smart_contract_is_proxy?(@address) %>

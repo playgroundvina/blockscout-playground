@@ -1,4 +1,4 @@
-<section class="container-body" style="padding:30px;" data-page="verified-contracts-list">
+<section class="container-body" data-page="verified-contracts-list">
   <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
   <div class="card">
     <div id="withdrawals-list" class="card-body" data-async-load data-async-listing="<%= @current_path %>">

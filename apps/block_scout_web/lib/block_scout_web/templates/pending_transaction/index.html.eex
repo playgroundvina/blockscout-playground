@@ -1,4 +1,4 @@
-<section class="container-body" style="padding:30px;" data-page="transaction-pending-list">
+<section class="container-body" data-page="transaction-pending-list">
   <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
   <div class="card">
     <div class="card-body" data-async-listing="<%= @current_path %>">
