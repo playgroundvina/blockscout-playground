@@ -14,7 +14,8 @@
       letter-spacing: 0.08px;
     }
   }
-  tbody > tr {
+
+  tbody>tr {
     border: none;
     // border-top: 1px solid #dee2e6;
   }
@@ -22,72 +23,75 @@
 
 
 .container-table {
-    /* table wrapper for continuous border */
+  /* table wrapper for continuous border */
 
-    border-radius: 4px;
-  
-    /* table border */
-    table {
-      width: 100%;
-      border-collapse: collapse; /* removes gap between cells */
-    }
-  
-    thead th {
-      color: $text-light;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.08px;
-      text-transform: uppercase;
-      border-bottom: 2px solid #efefef;
-    }
-  
-    /* cell padding */
-    th,
-    td {
-      padding: 20px;
-    }
-  
-    /* add row hover */
-    tr:hover td {
-      background-color: rgb(245, 245, 245);
-    }
-  
-    /* create 1px gap in table for line */
-    tr.line-break td {
-      position: relative;
-    }
-  
-    /* create the line */
-    tr.line-break td:after {
-      content: "";
-      position: absolute;
-      top: -1px;
-      left: 0px;
-      height: 1px;
-      width: 100%;
-      background-color: rgb(235, 235, 235);
-    }
-  
-    /* reduce width of line for first and last cells, by cell padding amount */
-    tr.line-break td:first-child:after,
-    .table tr.line-break td:last-child:after {
-      width: calc(100% - 20px);
-    }
-  
-    /* pull line on first cell to the right */
-    tr.line-break td:first-child:after {
-      right: 0px;
-      left: auto;
-    }
-    tr:first-child td:after {
-      background: transparent;
-    }
+  border-radius: 4px;
+
+  /* table border */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    /* removes gap between cells */
+  }
+
+  thead th {
+    color: $text-light;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.08px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #efefef;
+  }
+
+  /* cell padding */
+  th,
+  td {
+    padding: 20px;
+  }
+
+  /* add row hover */
+  tr:hover td {
+    background-color: rgb(245, 245, 245);
+  }
+
+  /* create 1px gap in table for line */
+  tr.line-break td {
+    position: relative;
+  }
+
+  /* create the line */
+  tr.line-break td:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    height: 1px;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+  }
+
+  /* reduce width of line for first and last cells, by cell padding amount */
+  tr.line-break td:first-child:after,
+  .table tr.line-break td:last-child:after {
+    width: calc(100% - 20px);
+  }
+
+  /* pull line on first cell to the right */
+  tr.line-break td:first-child:after {
+    right: 0px;
+    left: auto;
+  }
+
+  tr:first-child td:after {
+    background: transparent;
+  }
 
   .card-body-table {
     padding: 0px;
   }
+
   .method {
     .bs-label {
       background: #e6cb82;
@@ -99,6 +103,7 @@
       letter-spacing: 0.06px;
     }
   }
+
   .td-block {
     a {
       color: $text-glow;
@@ -109,6 +114,7 @@
       letter-spacing: 0.08px;
     }
   }
+
   .td-age {
     .time-transaction {
       color: $text-light;
@@ -119,8 +125,12 @@
       letter-spacing: 0.08px;
     }
   }
-  .td-from, .td-to {
-    a, span {
+
+  .td-from,
+  .td-to {
+
+    a,
+    span {
       color: $text-glow;
       font-size: 16px;
       font-style: normal;
@@ -129,6 +139,7 @@
       letter-spacing: 0.08px;
     }
   }
+
   .td-value {
     color: $text-light;
     font-size: 16px;
@@ -137,6 +148,7 @@
     line-height: normal;
     letter-spacing: 0.08px;
   }
+
   .td-txn-fee {
     color: #9e9e9e;
     font-size: 16px;

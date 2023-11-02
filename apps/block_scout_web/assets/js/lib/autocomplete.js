@@ -169,7 +169,7 @@ window.addEventListener("load", function () {
     autoComplete.trigger('focus')
   });
   autoComplete.on("focusout", function () {
-    searchBar.width(115)
+    searchBar.width(120)
     $('.search-hide').delay(300).fadeIn(100)
   });
 }, false);

@@ -6,6 +6,9 @@
       font-style: normal;
       font-weight: 400;
       letter-spacing: 0.2px;
+      @include media-breakpoint-down(md) {
+        font-size: 16px;
+      }
     }
   }
   .td-age {
@@ -15,6 +18,9 @@
       font-style: normal;
       font-weight: 400;
       letter-spacing: 0.2px;
+      @include media-breakpoint-down(md) {
+        font-size: 16px;
+      }
     }
   }
   .td-transaction {
@@ -24,6 +30,9 @@
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0.2px;
+    @include media-breakpoint-down(md) {
+      font-size: 16px;
+    }
   }
   .td-hash {
     .text-truncate {
@@ -34,6 +43,9 @@
       font-weight: 400;
       letter-spacing: 0.2px;
       margin: auto;
+      @include media-breakpoint-down(md) {
+        font-size: 16px;
+      }
     }
   }
   .td-gas-used,
@@ -45,5 +57,8 @@
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0.2px;
+    @include media-breakpoint-down(md) {
+      font-size: 16px;
+    }
   }
 }

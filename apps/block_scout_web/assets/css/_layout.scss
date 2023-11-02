@@ -15,6 +15,7 @@
   margin-right: auto;
   padding: 30px;
   width: 100%;
+
   @include media-breakpoint-down(md) {
     padding: 15px !important;
   }
@@ -38,7 +39,8 @@
 }
 
 #searchBar {
-  width: 115px;
+  width: 120px;
+  margin-top: 5px;
   -webkit-transition: 300ms linear;
   -moz-transition: 300ms linear;
   -o-transition: 300ms linear;
