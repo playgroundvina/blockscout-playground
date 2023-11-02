@@ -54,7 +54,7 @@ defmodule BlockScoutWeb.AddressValidationController do
         Enum.map(blocks, fn block ->
           View.render_to_string(
             BlockView,
-            "_tile.html",
+            "_tile_old.html",
             conn: conn,
             block: block,
             block_type: BlockView.block_type(block)

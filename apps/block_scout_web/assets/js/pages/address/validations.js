@@ -11,7 +11,7 @@ export const initialState = {
   channelDisconnected: false
 }
 
-export function reducer (state = initialState, action) {
+export function reducer(state = initialState, action) {
   switch (action.type) {
     case 'PAGE_LOAD':
     case 'ELEMENTS_LOAD': {
@@ -38,7 +38,7 @@ export function reducer (state = initialState, action) {
 
 const elements = {
   '[data-selector="channel-disconnected-message"]': {
-    render ($el, state) {
+    render($el, state) {
       // @ts-ignore
       if (state.channelDisconnected && !window.loading) $el.show()
     }
@@ -66,6 +66,6 @@ if ($('[data-page="blocks-validated"]').length) {
   }))
   blocksChannel.on('new_block', (msg) => store.dispatch({
     type: 'RECEIVED_NEW_BLOCK',
-    blockHtml: humps.camelizeKeys(msg).blockHtml
+    blockHtml: humps.camelizeKeys(msg).validationBlockHtml
   }))
 }

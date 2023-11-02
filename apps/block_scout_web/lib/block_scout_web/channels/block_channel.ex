@@ -52,9 +52,19 @@ defmodule BlockScoutWeb.BlockChannel do
         block: block
       )
 
+    rendered_validation_block =
+      View.render_to_string(
+        BlockView,
+        "_tile_old.html",
+        block: block,
+        block_type: BlockView.block_type(block)
+      )
+
+
     push(socket, "new_block", %{
       average_block_time: Timex.format_duration(average_block_time, Explorer.Counters.AverageBlockTimeDurationFormat),
       chain_block_html: rendered_chain_block,
+      validation_block_html: rendered_validation_block,
       block_html: rendered_block,
       block_number: block.number,
       block_miner_hash: to_string(block.miner_hash)
