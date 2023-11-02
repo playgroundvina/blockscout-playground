@@ -160,7 +160,7 @@
             </li>
             <% end %>
             <li class="nav-item">
-               <div class='search-dashboard' id="searchBar" >
+               <div class='search-dashboard <%= tab_status("/", @conn.request_path)%>' id="searchBar" >
                   <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete", additional_classes: ["mobile-search-hide"] %>
                </div>
             </li>
@@ -270,5 +270,7 @@
          </ul>
       </div>
    </div>
-   <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
+   <div class='search <%= tab_status("/", @conn.request_path)%>' >
+      <%= render  BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
+   </div>
 </nav>

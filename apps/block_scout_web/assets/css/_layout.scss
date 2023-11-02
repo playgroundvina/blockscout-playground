@@ -38,6 +38,57 @@
   box-shadow: 2px 2px 25px 0px rgba(0, 0, 0, 0.05);
 }
 
+/* hidde search in topnav at page home */
+/* note: because of quick editing should use tab active*/
+
+.search-dashboard.active {
+  display: none;
+}
+
+.search {
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
+}
+
+.search.active {
+  display: none;
+}
+
+.search-dashboard-home {
+  max-width: 876px;
+  margin: auto;
+  margin-top: 4rem;
+
+  @include media-breakpoint-down(md) {
+    max-width: 90%;
+    margin-top: 2rem;
+  }
+
+  .search-form {
+    padding: 5px;
+    border: none;
+
+    @include media-breakpoint-down(md) {
+      padding: 0px;
+    }
+  }
+
+  .form-control {
+    background-color: transparent;
+    padding-left: 0px;
+  }
+
+  .autoComplete_wrapper input {
+    height: 35px;
+    padding-top: 0px !important;
+
+    @include media-breakpoint-down(md) {
+      padding-top: 8px !important;
+    }
+  }
+}
+
 #searchBar {
   width: 120px;
   margin-top: 5px;

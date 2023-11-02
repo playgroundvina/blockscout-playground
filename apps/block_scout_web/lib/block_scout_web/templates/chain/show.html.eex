@@ -3,12 +3,13 @@
       <h3>
          Explore Pools Blockchain
       </h3>
+      <div class='search-dashboard-home' >
+         <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-home", additional_classes: [""] %>
+      </div>
    </div>
 
 
-   <div class='search-dashboard' style="display:none">
-      <%#= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
-   </div>
+
 
 
 

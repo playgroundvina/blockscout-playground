@@ -122,7 +122,7 @@ $(document).ready(() => {
     timer = setTimeout(() => {
       let eventName = 'Occurs searching according to substring at the nav bar'
       let eventProperties = {
-        search: $('.main-search-autocomplete').val() || $('.main-search-autocomplete-mobile').val()
+        search: $('.main-search-autocomplete').val() || $('.main-search-autocomplete-mobile').val() || $('.main-search-autocomplete-home').val()
       }
 
       analytics.trackEvent(eventName, eventProperties)
@@ -191,6 +191,17 @@ $(document)
     addChainToMM({ btn: $btn })
   })
 
+  $(document)
+  .on('keyup', function (event) {
+    if (event.key === '/') {
+      $('.main-search-autocomplete-home').trigger('focus')
+    }
+  })
+  .on('click', '.js-btn-add-chain-to-mm', event => {
+    const $btn = $(event.target)
+    addChainToMM({ btn: $btn })
+  })
+
 $('.main-search-autocomplete').on('keyup', function (event) {
   if (event.key === 'Enter') {
     let selected = false
@@ -206,8 +217,23 @@ $('.main-search-autocomplete').on('keyup', function (event) {
   }
 })
 
+$('.main-search-autocomplete-home').on('keyup', function (event) {
+  if (event.key === 'Enter') {
+    let selected = false
+    $('li[id^="autoComplete_result_"]').each(function () {
+      if ($(this).attr('aria-selected')) {
+        selected = true
+      }
+    })
+    if (!selected) {
+      // @ts-ignore
+      search(event.target.value)
+    }
+  }
+})
+
 $('#search-icon').on('click', function (event) {
-  const value = $('.main-search-autocomplete').val() || $('.main-search-autocomplete-mobile').val()
+  const value = $('.main-search-autocomplete').val() || $('.main-search-autocomplete-mobile').val() || $('.main-search-autocomplete-home').val()
   search(value)
 })
 

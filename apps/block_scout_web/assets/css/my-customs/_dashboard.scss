@@ -57,6 +57,7 @@
     padding-right: 7.5px;
     padding-left: 7.5px;
     display: block;
+    margin-top: 2rem;
   }
 }
 
@@ -67,7 +68,7 @@
   margin-right: auto;
   padding-left: 45px;
   padding-right: 15px;
-  margin-top: -40px;
+  margin-top: -6rem;
 
   @include media-breakpoint-down(md) {
     display: none;

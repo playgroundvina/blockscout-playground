@@ -141,11 +141,14 @@ const config = (id) => {
   }
 }
 const autoCompleteJS = document.querySelector('#main-search-autocomplete') && new AutoComplete(config('main-search-autocomplete'))
+const autoCompleteHomeJS = document.querySelector('#main-search-autocomplete-home') && new AutoComplete(config('main-search-autocomplete-home'))
+
 // eslint-disable-next-line
 const autoCompleteJSMobile = document.querySelector('#main-search-autocomplete-mobile') && new AutoComplete(config('main-search-autocomplete-mobile'))
 
 window.addEventListener("load", function () {
   const autoComplete = $("#main-search-autocomplete")
+  const autoCompleteHome = $("#main-search-autocomplete-home")
   const searchBar = $("#searchBar")
   autoComplete.on("input", function () {
     if ($(this).val().length <= 1) {
@@ -154,6 +157,14 @@ window.addEventListener("load", function () {
       autoComplete.attr('autocomplete', 'off')
     }
   });
+  autoCompleteHome.on("input", function () {
+    if ($(this).val().length <= 1) {
+      autoCompleteHome.attr('autocomplete', 'on')
+    } else {
+      autoCompleteHome.attr('autocomplete', 'off')
+    }
+  });
+
   $("#search-icon").on("click", function () {
     $('.search-hide').hide()
     let widthSearchBar = 800;
@@ -191,6 +202,7 @@ const selection = (event) => {
 const openOnFocus = (event, type) => {
   const query = event.target.value
   if (query) {
+    autoCompleteHomeJS && autoCompleteHomeJS.start(query)
     if (type === 'desktop') {
       // @ts-ignore
       autoCompleteJS && autoCompleteJS.start(query)
@@ -202,6 +214,7 @@ const openOnFocus = (event, type) => {
     getTextAdData()
       .then(({ data: adData, inHouse: _inHouse }) => {
         if (adData) {
+          autoCompleteHomeJS && autoCompleteHomeJS.start('###')
           if (type === 'desktop') {
             // @ts-ignore
             autoCompleteJS && autoCompleteJS.start('###')
@@ -215,11 +228,18 @@ const openOnFocus = (event, type) => {
 }
 
 const mainSearchAutocompleteObj = document.querySelector('#main-search-autocomplete')
+const mainSearchAutocompleteHomeObj = document.querySelector('#main-search-autocomplete-home')
+
 const mainSearchAutocompleteMobileObj = document.querySelector('#main-search-autocomplete-mobile')
 
 mainSearchAutocompleteObj && mainSearchAutocompleteObj.addEventListener('selection', function (event) {
   selection(event)
 })
+
+mainSearchAutocompleteHomeObj && mainSearchAutocompleteHomeObj.addEventListener('selection', function (event) {
+  selection(event)
+})
+
 mainSearchAutocompleteMobileObj && mainSearchAutocompleteMobileObj.addEventListener('selection', function (event) {
   selection(event)
 })

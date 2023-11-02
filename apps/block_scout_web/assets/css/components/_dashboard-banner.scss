@@ -1,20 +1,12 @@
 $dashboard-banner-gradient-start: $primary !default;
-$dashboard-banner-gradient-end: lighten(
-  $dashboard-banner-gradient-start,
-  5%
-) !default;
-$dashboard-banner-network-plain-container-background-color: lighten(
-  $dashboard-banner-gradient-end,
-  5%
-) !default;
-$dashboard-line-color-price: lighten(
-  $dashboard-banner-gradient-end,
-  5%
-) !default;
-$dashboard-line-color-price-dark-theme: lighten(
-  $dashboard-banner-gradient-end,
-  5%
-) !default;
+$dashboard-banner-gradient-end: lighten($dashboard-banner-gradient-start,
+    5%) !default;
+$dashboard-banner-network-plain-container-background-color: lighten($dashboard-banner-gradient-end,
+    5%) !default;
+$dashboard-line-color-price: lighten($dashboard-banner-gradient-end,
+    5%) !default;
+$dashboard-line-color-price-dark-theme: lighten($dashboard-banner-gradient-end,
+    5%) !default;
 $dashboard-line-color-market: $secondary !default;
 $dashboard-line-color-market-dark-theme: $secondary !default;
 $dashboard-line-color-transactions: $warning !default;
@@ -37,25 +29,28 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
   padding: 0;
   position: relative;
   min-height: 300px;
+
   @include media-breakpoint-down(md) {
     height: auto;
     min-height: 0;
     margin-bottom: 0;
   }
+
   .search-dashboard {
     width: 100%;
     padding: 35px;
   }
+
+
   .title-dashboard {
-    display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5rem;
-    padding-bottom: 8rem;
+    margin-top: 6rem;
+    padding-bottom: 13rem;
 
     h3 {
       color: #edbe40;
-      
+
       font-size: 96px;
       font-style: normal;
       font-weight: 500;
@@ -65,14 +60,16 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
     }
 
     @include media-breakpoint-down(md) {
-      padding-top: 1rem;
+      margin-top: 2rem;
       padding-bottom: 1rem;
+
       h3 {
         text-align: center;
         font-size: 32px;
         font-style: normal;
         font-weight: 500;
-        line-height: 42px; /* 131.25% */
+        line-height: 42px;
+        /* 131.25% */
         letter-spacing: 0.32px;
       }
     }
@@ -92,6 +89,7 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
 .dashboard-banner-network-graph {
   flex-grow: 1;
   padding: 15px 0 0 0;
+
   @include media-breakpoint-down(md) {
     display: flex;
     flex-direction: column;
@@ -112,7 +110,7 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
     max-width: 100%;
   }
 
-  > canvas {
+  >canvas {
     max-height: 100%;
     max-width: 100%;
     width: 100%;
@@ -146,6 +144,7 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     @include media-breakpoint-down(md) {
       display: flex;
       flex-direction: row;
@@ -218,7 +217,7 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
   .dashboard-banner-chart-legend-value {
     color: #262626;
     display: block;
-    
+
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -237,6 +236,7 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
   .gas-price-icon {
     position: relative;
     top: -2px;
+
     path {
       fill: $dashboard-line-color-price;
     }
@@ -306,6 +306,7 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
   grid-template-columns: 1fr 1fr;
   width: 100%;
   height: 100%;
+
   @include media-breakpoint-down(lg) {
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
@@ -321,11 +322,9 @@ $dashboard-banner-chart-axis-font-color-alt: #fff;
     grid-template-columns: 1fr;
   }
 
-  @include stats-item(
-    $dashboard-stats-item-border-color,
+  @include stats-item($dashboard-stats-item-border-color,
     $dashboard-stats-item-label-color,
-    $dashboard-stats-item-value-color
-  );
+    $dashboard-stats-item-value-color );
 
   .dashboard-banner-network-stats-item {
     @media (max-width: 374px) {

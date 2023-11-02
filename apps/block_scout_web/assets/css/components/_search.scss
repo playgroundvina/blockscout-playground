@@ -50,7 +50,7 @@ $main-search-autocomplete-background-color: #f5f6fa !default;
   color: #828ba0 !important;
 
   @include media-breakpoint-down(md) {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 }
 
