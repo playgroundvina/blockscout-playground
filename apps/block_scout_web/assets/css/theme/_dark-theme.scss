@@ -474,6 +474,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     border: 1px solid #e6cb82;
   }
 
+  .btn-wallet-icon:hover {
+    color: #FFF
+  }
+
   // pagination
   .pagination-container .pagination .page-link {
     color: $labels-dark;
@@ -588,11 +592,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .i-tooltip {
     .i-tooltip-circle {
-      fill: $labels-dark;
+      fill: #a3a9b5;
     }
 
     .i-tooltip-info {
-      fill: $dark-light-bg;
+      fill: #a3a9b5;
     }
 
     &:hover {
