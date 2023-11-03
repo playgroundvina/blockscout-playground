@@ -682,7 +682,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .token-balance-dropdown .dropdown-search-field {
     background-color: $dark-light;
     border-color: $dark-light;
-    color: #fff;
+    color: #000;
 
     &::placeholder {
       color: $labels-dark;
@@ -1126,7 +1126,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     .modal-content {
-      background-color: $dark-light-bg;
+      background-color: #FFF;
     }
 
     .modal-bottom-disclaimer {
