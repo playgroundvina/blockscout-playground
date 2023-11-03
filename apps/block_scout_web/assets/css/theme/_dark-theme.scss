@@ -809,7 +809,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     transition: border-color 0.15s ease-in-out;
 
     &[readonly] {
-      background-color: $dark-light !important;
+      background-color: transparent !important;
     }
 
     &::placeholder {
@@ -828,6 +828,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       -webkit-text-fill-color: #fff;
       -webkit-box-shadow: 0 0 0px 1000px $dark-light inset;
     }
+
+    option {
+      background: #282828;
+    }
   }
 
   .input-group:not(.input-status-error) .form-control:focus~.input-group-prepend.last {
@@ -845,7 +849,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .radio-big .radio-icon {
-    border-color: $labels-dark;
+    border-color: #fff;
   }
 
   .radio-big input[type="radio"]:checked+.radio-icon {
@@ -1254,12 +1258,12 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .button-primary {
     background: $dark-primary;
     border-color: $dark-primary;
-    color: #fff;
+    color: #000;
 
     &:hover {
       background: darken($dark-primary, 6);
       border-color: darken($dark-primary, 6);
-      color: #fff;
+      color: #000;
     }
 
     &[disabled] {
