@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const main = document.getElementById("dependant-man");
     const mainStyles = window.getComputedStyle(main);
     const mainMarginTop = mainStyles.marginTop;
-    console.log("DOMContentLoaded")
-    console.log(h)
-    console.log(mainMarginTop)
-    console.log((parseInt(mainMarginTop) + parseInt(h) - 80) + "px")
     main.style.marginTop = (parseInt(mainMarginTop) + parseInt(h) - 80) + "px";
 });
 
@@ -22,7 +18,6 @@ window.onscroll = function () {
     if (prevScrollpos > currentScrollPos) {
         document.getElementById("head-scroll").style.top = "0";
     } else {
-        console.log('-' + h)
         document.getElementById("head-scroll").style.top = '-' + h;
     }
     prevScrollpos = currentScrollPos;
