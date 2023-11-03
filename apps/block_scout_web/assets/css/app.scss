@@ -1,14 +1,22 @@
 @import "./mixins";
+
 * {
   font-family: 'Sora', sans-serif;
+  overflow-anchor: none !important;
+  scroll-snap-stop: normal !important;
+  overscroll-behavior: unset !important;
+  scroll-behavior: unset !important;
+
   .tooltip.show {
     opacity: 1 !important;
   }
 }
+
 /* Phoenix flash messages */
 .alert:empty {
   display: none;
 }
+
 
 /* This file is for your main application css. */
 
@@ -143,4 +151,3 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 @import "theme/custom_contracts/dark-forest-theme";
 @import "theme/custom_contracts/circles-theme";
-

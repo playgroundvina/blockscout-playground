@@ -9,12 +9,21 @@
   line-height: 24px !important;
 }
 
+.js-ad-dependant-pt {
+  margin-top: 80px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 110px;
+  }
+}
+
 .container-body {
   max-width: 1440px !important;
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
   width: 100%;
+
   @include media-breakpoint-down(md) {
     padding: 15px !important;
   }
@@ -41,12 +50,13 @@
 /* note: because of quick editing should use tab active*/
 
 
-#top-navbar {
+#head-scroll {
   position: fixed;
   top: 0;
   display: block;
   transition: top 0.3s;
   width: 100%;
+  z-index: 150;
 }
 
 .search-dashboard.active {
@@ -56,7 +66,6 @@
 .search {
   @include media-breakpoint-down(md) {
     width: 100%;
-    padding-top: 10px;
   }
 }
 
