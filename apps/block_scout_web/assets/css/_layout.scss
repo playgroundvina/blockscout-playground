@@ -41,6 +41,15 @@
 /* hidde search in topnav at page home */
 /* note: because of quick editing should use tab active*/
 
+
+#top-navbar {
+  position: fixed;
+  top: 0;
+  display: block;
+  transition: top 0.3s;
+  width: 100%;
+}
+
 .search-dashboard.active {
   display: none;
 }
@@ -48,6 +57,7 @@
 .search {
   @include media-breakpoint-down(md) {
     width: 100%;
+    padding-top: 10px;
   }
 }
 
