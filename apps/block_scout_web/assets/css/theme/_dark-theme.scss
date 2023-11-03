@@ -2,8 +2,8 @@ $primary: #e6cb82;
 $body-dark: #111111; // body background
 $dark-bg: #111111; // hero shade
 $dark-light-bg: #0a0a0a; // pills bg shade
-$dark-light: #313355; // tile light top share
-$labels-dark: #8f8f8f; // header nav, labels
+$dark-light: #e6cb82; // tile light top share
+$labels-dark: #000; // header nav, labels
 $dark-stakes-banned-background: #3e314c;
 $dashboard-banner-network-stats-item-before-background-color-dark-mode: $dark-secondary !default;
 $header-links-background-color-dark-mode: $dark-light-bg !default;
@@ -70,7 +70,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     .nav-submenu {
-      color: $labels-dark;
+      color: #8F8F8F;
       background-color: $header-links-background-color-dark-mode;
     }
   }
@@ -375,6 +375,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     color: $labels-dark;
   }
 
+  .tile .tile-body a {
+    color: #e6cb82;
+  }
+
+  .tile .tile-title {
+    color: #FFF;
+  }
+
   // .tile .tile-body a,
   // .tile a:hover,
   // .tile span[data-address-hash],
@@ -474,6 +482,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       path {
         fill: #fff;
       }
+    }
+
+    path {
+      fill: #000;
     }
 
     &[disabled] {
@@ -591,7 +603,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   // api's
   .api-anchors-list {
-    background-color: $dark-light;
+    background-color: #262626;
   }
 
   .api-doc-list-item {
@@ -681,7 +693,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .border-bottom {
-    border-bottom-color: darken($labels-dark, 30) !important;
+    border-bottom-color: #525252 !important;
   }
 
   // coin balance history chart
@@ -796,7 +808,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     &:focus {
-      background-color: $dark-light;
       border-color: $dark-primary;
       color: #fff;
     }
@@ -1332,10 +1343,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
   }
 
-  // .main-search-autocomplete {
-  // 	background-color: $dark-bg !important;
-  // 	color: #fff !important;
-  // }
+  .main-search-autocomplete {
+    color: #fff !important;
+  }
+
   .autocomplete-category {
     color: #fff !important;
   }

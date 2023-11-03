@@ -87,7 +87,7 @@
                   <%= link(gettext("Verified contracts"),
                      to: verified_contracts_path(@conn, :index),
 
-                     class: "dropdown-item border-bottom #{tab_status("verified-contracts", @conn.request_path)}")%>
+                     class: "dropdown-item #{tab_status("verified-contracts", @conn.request_path)}")%>
                   <%= if show_withdrawals? do %>
                   <%= link(gettext("Withdrawals"),
                      to: withdrawal_path(@conn, :index),
