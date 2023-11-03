@@ -15,7 +15,6 @@
   margin-right: auto;
   padding: 30px;
   width: 100%;
-
   @include media-breakpoint-down(md) {
     padding: 15px !important;
   }

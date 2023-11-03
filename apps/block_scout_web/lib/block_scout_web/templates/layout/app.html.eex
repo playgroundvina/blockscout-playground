@@ -126,7 +126,7 @@
         <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <% end %>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <main class="js-ad-dependant-pt">
+      <main class="js-ad-dependant-pt" style="margin-top: 80px;">
         <%= @inner_content %>
       </main>
       <div class="f-container">
