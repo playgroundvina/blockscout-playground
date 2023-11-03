@@ -27,16 +27,13 @@
                         Transaction
                      </th>
                      <th style="text-align: center;">
-                        Hash
+                        Miner
                      </th>
                      <th style="text-align: center;">
                         Gas Used
                      </th>
                      <th style="text-align: center;">
                       Gas Limit
-                     </th>
-                     <th style="text-align: center;">
-                        Tx Fee
                      </th>
                   </tr>
                </thead>

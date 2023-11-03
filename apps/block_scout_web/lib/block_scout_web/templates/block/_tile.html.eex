@@ -29,22 +29,21 @@
       <%= ngettext("%{count}", "%{count}", Enum.count(@block.transactions)) %>
     </td>
     <td class="td-hash" >
-      <div class="text-truncate" style="max-width:200px;">
-        <%= @block.hash %>
-      </div>
+      <%= if !Application.get_env(:block_scout_web, :hide_block_miner) do %>
+        <div class="text-nowrap text-truncate mt-3 mt-md-0">
+          <!-- validator -->
+          <%= render BlockScoutWeb.AddressView,
+            "_link.html",
+            address: @block.miner,
+            contract: false,
+            use_custom_tooltip: false %>
+        </div>
+      <% end %>
     </td>
     <td class="td-gas-used">
         <%= formatted_gas(@block.gas_used) %>
     </td>
     <td class="td-gas-limit">
       <%= formatted_gas(@block.gas_limit) %>
-    </td>
-    <td class="td-tx-fee">
-      <%= if !is_nil(@block.base_fee_per_gas) do %>
-        <!-- Priority Fee -->
-        <span> <%= format_wei_value(%Wei{value: priority_fee}, :ether) %> <%= gettext "Priority Fees" %> </span>
-        <!-- Burnt Fees -->
-        <span> <%= format_wei_value(burned_fee, :ether) %> <%= gettext "Burnt Fees" %> </span>
-      <% end %>
     </td>
 </tr>
