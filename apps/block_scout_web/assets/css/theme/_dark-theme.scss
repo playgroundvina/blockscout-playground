@@ -469,6 +469,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
   }
 
+  .btn-wallet-icon {
+    color: #e6cb82;
+    border: 1px solid #e6cb82;
+  }
+
   // pagination
   .pagination-container .pagination .page-link {
     color: $labels-dark;
