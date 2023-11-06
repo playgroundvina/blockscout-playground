@@ -1081,9 +1081,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   // validator info
   #validatorModal {
-    .modal-title {
-      color: #fff;
-    }
 
     .text-muted {
       color: $labels-dark;
@@ -1129,10 +1126,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .modal-dialog {
-    .modal-title {
-      color: #fff;
-    }
-
     .modal-content {
       background-color: #FFF;
     }
