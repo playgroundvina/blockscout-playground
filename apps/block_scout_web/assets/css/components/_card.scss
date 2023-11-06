@@ -218,6 +218,13 @@ $card-tab-icon-color-active: #fff !default;
   }
 }
 
+.card-tabs .card-tab:first-child {
+  border-radius: 24px 0px 0px 0px;
+  @include media-breakpoint-down(md) {
+    border-radius: 0px;
+  }
+}
+
 .card-tab {
   align-items: center;
   background-color: $card-background-color;
