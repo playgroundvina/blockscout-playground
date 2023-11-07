@@ -66,15 +66,12 @@ defmodule Explorer.SmartContract.Reader do
   @spec query_verified_contract(Hash.Address.t(), functions(), String.t() | nil, true | false, SmartContract.abi()) ::
           functions_results()
   def query_verified_contract(address_hash, functions, from, leave_error_as_map, mabi) do
-    Logger.info("query_verified_contract #{inspect(1)}")
     query_verified_contract_inner(address_hash, functions, mabi, from, leave_error_as_map)
   end
 
   @spec query_verified_contract(Hash.Address.t(), functions(), true | false, SmartContract.abi() | nil) ::
           functions_results()
   def query_verified_contract(address_hash, functions, leave_error_as_map, mabi \\ nil) do
-    Logger.info("query_verified_contract #{inspect(2)}")
-
     query_verified_contract_inner(address_hash, functions, mabi, nil, leave_error_as_map)
   end
 
@@ -135,13 +132,6 @@ defmodule Explorer.SmartContract.Reader do
   end
 
   defp query_contract_inner(contract_address, abi, functions, block_number, from, leave_error_as_map) do
-
-    Logger.info("query_contract_inner contract_address  #{inspect(contract_address)}")
-    Logger.info("query_contract_inner abi  #{inspect(abi)}")
-    Logger.info("query_contract_inner block_number  #{inspect(block_number)}")
-    Logger.info("query_contract_inner from  #{inspect(from)}")
-    Logger.info("query_contract_inner leave_error_as_map  #{inspect(leave_error_as_map)}")
-
     requests =
       functions
       |> Enum.map(fn {method_id, args} ->
@@ -158,7 +148,6 @@ defmodule Explorer.SmartContract.Reader do
     |> query_contracts(abi, [], leave_error_as_map)
     |> Enum.zip(requests)
     |> Enum.into(%{}, fn {response, request} ->
-      Logger.info("query_contract_inner requests response #{inspect(response)}")
       {request.method_id, response}
     end)
   end
@@ -176,8 +165,6 @@ defmodule Explorer.SmartContract.Reader do
   """
   @spec query_contracts([Contract.call()], term(), contract_call_options()) :: [Contract.call_result()]
   def query_contracts(requests, abi, opts \\ []) do
-    Logger.info("query_contracts 1 #{inspect(requests)}")
-
     json_rpc_named_arguments =
       Keyword.get(opts, :json_rpc_named_arguments) || Application.get_env(:explorer, :json_rpc_named_arguments)
 
@@ -186,8 +173,6 @@ defmodule Explorer.SmartContract.Reader do
 
   @spec query_contracts([Contract.call()], term(), true | false) :: [Contract.call_result()]
   def query_contracts(requests, abi, [], leave_error_as_map) do
-    Logger.info("query_contracts 2 #{inspect(requests)}")
-
     json_rpc_named_arguments = Application.get_env(:explorer, :json_rpc_named_arguments)
 
     EthereumJSONRPC.execute_contract_functions(requests, abi, json_rpc_named_arguments, leave_error_as_map)
@@ -576,18 +561,14 @@ defmodule Explorer.SmartContract.Reader do
 
   defp process_abi(abi, method_id) do
     function_object = find_function_by_method(abi, method_id)
-    Logger.info("show process_abi function_object 1 #{inspect(function_object)}")
 
     if function_object do
       %ABI.FunctionSelector{returns: returns, method_id: method_id} = function_object
-
-      Logger.info("show process_abi function_object 2 #{inspect(function_object)}")
-
       Logger.info("show process_abi returns #{inspect(returns)}")
 
       outputs = extract_outputs(returns)
 
-      Logger.info("show process_abi  outputs #{inspect(outputs)}")
+      Logger.info("show process_abi  outputs#{inspect(outputs)}")
 
 
       %{outputs: outputs, method_id: method_id}
@@ -724,16 +705,10 @@ defmodule Explorer.SmartContract.Reader do
 
   def link_outputs_and_values(blockchain_values, outputs, method_id) do
     default_value = Enum.map(outputs, fn _ -> "" end)
-    Logger.info("link_outputs_and_values outputs #{inspect(outputs)}")
-    Logger.info("link_outputs_and_values blockchain_values #{inspect(blockchain_values)}")
-
 
     case Map.get(blockchain_values, method_id, {:ok, default_value}) do
       {:ok, value} ->
-        Logger.info("link_outputs_and_values value #{inspect(value)}")
-
         for {output, index} <- Enum.with_index(outputs) do
-          Logger.info("link_outputs_and_values for #{inspect(output)}")
           new_value(output, List.wrap(value), index)
         end
 

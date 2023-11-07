@@ -7,6 +7,7 @@ defmodule BlockScoutWeb.SmartContractController do
   alias Explorer.SmartContract.{Reader, Writer}
 
   import Explorer.SmartContract.Solidity.Verifier, only: [parse_boolean: 1]
+  require Logger
 
   @burn_address "0x0000000000000000000000000000000000000000"
 
@@ -16,6 +17,8 @@ defmodule BlockScoutWeb.SmartContractController do
         :smart_contract => :optional
       }
     ]
+    Logger.info("params", params: :params)
+
 
     is_custom_abi = parse_boolean(params["is_custom_abi"])
 
@@ -53,8 +56,12 @@ defmodule BlockScoutWeb.SmartContractController do
       read_functions_required_wallet =
         if action == "read" do
           if contract_type == "proxy" do
+            Logger.info("proxy 1")
+
             Reader.read_functions_required_wallet_proxy(implementation_address_hash_string)
           else
+            Logger.info("proxy 2")
+
             Reader.read_functions_required_wallet(address.smart_contract)
           end
         else
@@ -152,6 +159,8 @@ defmodule BlockScoutWeb.SmartContractController do
   end
 
   def show(conn, params) do
+    Logger.info("show params", params: :params)
+
     address_options = [
       necessity_by_association: %{
         :contracts_creation_internal_transaction => :optional,
@@ -161,6 +170,7 @@ defmodule BlockScoutWeb.SmartContractController do
         :contracts_creation_transaction => :optional
       }
     ]
+
 
     custom_abi =
       if parse_boolean(params["is_custom_abi"]), do: AddressView.fetch_custom_abi(conn, params["id"]), else: nil
@@ -184,6 +194,8 @@ defmodule BlockScoutWeb.SmartContractController do
 
       %{output: outputs, names: names} =
         if custom_abi do
+          Logger.info("query_function_with_names_custom_abi")
+
           Reader.query_function_with_names_custom_abi(
             address_hash,
             %{method_id: params["method_id"], args: args},
@@ -191,6 +203,8 @@ defmodule BlockScoutWeb.SmartContractController do
             custom_abi.abi
           )
         else
+          Logger.info("query_function_with_names")
+
           Reader.query_function_with_names(
             address_hash,
             %{method_id: params["method_id"], args: args},
