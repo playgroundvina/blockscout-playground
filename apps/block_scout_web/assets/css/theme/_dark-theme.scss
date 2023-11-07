@@ -1697,6 +1697,10 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
 .dark-theme-applied .container-table .pagination-container .pagination .page-link {
   background: var(--gray-scale-80, #282828);
+  color: #AEAEAE;
+  path {
+    fill: #aeaeae;
+  }
 }
 
 .dark-theme-applied .container-table .page-number {
