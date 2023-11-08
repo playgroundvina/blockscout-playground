@@ -19,23 +19,23 @@ $tooltip-background-color: $btn-line-color !default;
 
 .tooltip-inversed-color.bs-tooltip-top .arrow::before,
 .tooltip-inversed-color.bs-tooltip-auto[x-placement^="top"] .arrow::before {
-    border-top-color: #fff !important;
+    border-top-color: #e6cb82 !important;
 }
-    
+
 .tooltip-inversed-color.bs-tooltip-right .arrow::before,
 .tooltip-inversed-color.bs-tooltip-auto[x-placement^="right"] .arrow::before {
-    border-right-color: #fff !important;
+    border-right-color: #e6cb82 !important;
 }
-    
+
 .tooltip-inversed-color.bs-tooltip-bottom .arrow::before,
 .tooltip-inversed-color.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
-    border-bottom-color: #fff !important;
+    border-bottom-color: #e6cb82 !important;
 }
-    
-    
+
+
 .tooltip-inversed-color.bs-tooltip-left .arrow::before,
 .tooltip-inversed-color.bs-tooltip-auto[x-placement^="left"] .arrow::before {
-    border-left-color: #fff !important;
+    border-left-color: #e6cb82 !important;
 }
 
 /* Inversed color Bootstrap Tooltip end*/
@@ -51,23 +51,23 @@ $tooltip-background-color: $btn-line-color !default;
 
 .tooltip-pale-color.bs-tooltip-top .arrow::before,
 .tooltip-pale-color.bs-tooltip-auto[x-placement^="top"] .arrow::before {
-    border-top-color: rgba($primary, 0.5) !important;
+    border-top-color: #e6cb82 !important;
 }
-    
+
 .tooltip-pale-color.bs-tooltip-right .arrow::before,
 .tooltip-pale-color.bs-tooltip-auto[x-placement^="right"] .arrow::before {
-    border-right-color: rgba($primary, 0.5) !important;
+    border-right-color: #e6cb82 !important;
 }
-    
+
 .tooltip-pale-color.bs-tooltip-bottom .arrow::before,
 .tooltip-pale-color.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
-    border-bottom-color: rgba($primary, 0.5) !important;
+    border-bottom-color: #e6cb82 !important;
 }
-    
-    
+
+
 .tooltip-pale-color.bs-tooltip-left .arrow::before,
 .tooltip-pale-color.bs-tooltip-auto[x-placement^="left"] .arrow::before {
-    border-left-color: rgba($primary, 0.5) !important;
+    border-left-color: #e6cb82 !important;
 }
 
 /* Pale color Bootstrap Tooltip end*/
@@ -77,9 +77,11 @@ $tooltip-background-color: $btn-line-color !default;
         @media (min-width: 576px) {
             max-width: 250px !important;
         }
+
         @media (min-width: 768px) {
             max-width: 350px !important;
         }
+
         width: 350px !important;
     }
 }
@@ -89,9 +91,11 @@ $tooltip-background-color: $btn-line-color !default;
         @media (min-width: 576px) {
             max-width: 150px !important;
         }
+
         @media (min-width: 768px) {
             max-width: 150px !important;
         }
+
         width: 150px !important;
     }
 }
@@ -101,9 +105,11 @@ $tooltip-background-color: $btn-line-color !default;
         @media (min-width: 576px) {
             max-width: 150px !important;
         }
+
         @media (min-width: 768px) {
             max-width: 150px !important;
         }
+
         width: 150px !important;
     }
 }
@@ -119,6 +125,7 @@ $tooltip-background-color: $btn-line-color !default;
 
 .custom-tooltip.total-transactions {
     margin-top: 6px;
+
     @media (min-width: 992px) {
         margin-top: 9px;
     }
@@ -126,9 +133,11 @@ $tooltip-background-color: $btn-line-color !default;
 
 .custom-tooltip.description {
     width: 100%;
+
     .left {
         text-align: left;
     }
+
     .right {
         text-align: right;
     }
