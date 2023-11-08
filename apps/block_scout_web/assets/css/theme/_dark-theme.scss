@@ -774,7 +774,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .smart-contract-form-group-inner-wrapper>label {
-    color: $labels-dark;
+    color: #fff;
   }
 
   .smart-contract-form-buttons {
@@ -1698,6 +1698,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 .dark-theme-applied .container-table .pagination-container .pagination .page-link {
   background: var(--gray-scale-80, #282828);
   color: #AEAEAE;
+
   path {
     fill: #aeaeae;
   }
