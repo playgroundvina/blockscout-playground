@@ -34,11 +34,11 @@
          </div>
          <% end %><% end %>
          <%= if price_chart_legend_enabled? || Enum.member?(@chart_config.market, :market_cap) do %>
-         <div class="banner-two-mobile b-banner text-left">
+         <div class="banner-two-mobile b-banner text-right">
             <span class="dashboard-banner-network-stats-label">
             <%= gettext "Market Cap" %>
             </span>
-            <div class="d-flex" style="height: 20px; line-height: 20px;">
+            <div class="text-right" style="height: 20px; line-height: 20px;">
                <% total_market_cap = market_cap(@market_cap_calculation, @exchange_rate) %>
                <span style="display: contents;" class="dashboard-banner-network-stats-value" data-selector="market-cap" data-usd-value="<%= total_market_cap %>">
                </span>
