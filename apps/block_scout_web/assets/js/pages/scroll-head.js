@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 window.onscroll = function () {
     var currentScrollPos = document.documentElement.scrollTop;
-    const headAlert = document.getElementById("head-scroll");
-    const headAlertStyles = window.getComputedStyle(headAlert);
-    const h = headAlertStyles.height;
+    const head = document.getElementById("head-scroll");
+    const headStyles = window.getComputedStyle(head);
+    const h = headStyles.height;
     if (prevScrollpos > currentScrollPos) {
         document.getElementById("head-scroll").style.top = "0";
     } else {
-        document.getElementById("head-scroll").style.top = '-' + h;
+        if (currentScrollPos > parseInt(h)) document.getElementById("head-scroll").style.top = '-' + h;
     }
     prevScrollpos = currentScrollPos;
 }
