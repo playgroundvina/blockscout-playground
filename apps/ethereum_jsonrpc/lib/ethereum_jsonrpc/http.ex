@@ -25,6 +25,8 @@ defmodule EthereumJSONRPC.HTTP do
     http = Keyword.fetch!(options, :http)
     url = url(options, method)
     http_options = Keyword.fetch!(options, :http_options)
+    Logger.info("http json_rpc 1 #{inspect(options)}")
+
 
     with {:ok, %{body: body, status_code: code}} <- http.json_rpc(url, json, headers(), http_options),
          {:ok, json} <- decode_json(request: [url: url, body: json], response: [status_code: code, body: body]),
@@ -39,11 +41,17 @@ defmodule EthereumJSONRPC.HTTP do
   end
 
   def json_rpc([batch | _] = chunked_batch_request, options) when is_list(batch) do
+    Logger.info("http json_rpc 2 #{inspect(options)}")
+
     chunked_json_rpc(chunked_batch_request, options, [])
   end
 
   def json_rpc(batch_request, options) when is_list(batch_request) do
-    chunked_json_rpc([batch_request], options, [])
+    Logger.info("http json_rpc 3 #{inspect(options)}")
+
+    data = chunked_json_rpc([batch_request], options, [])
+    Logger.info("http data chunked_json_rpc 3 #{inspect(data)}")
+    data
   end
 
   defp chunked_json_rpc([], _options, decoded_response_bodies) when is_list(decoded_response_bodies) do

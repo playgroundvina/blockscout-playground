@@ -172,7 +172,11 @@ defmodule EthereumJSONRPC do
   @spec execute_contract_functions([Contract.call()], [map()], json_rpc_named_arguments) :: [Contract.call_result()]
   def execute_contract_functions(functions, abi, json_rpc_named_arguments, leave_error_as_map \\ false) do
     if Enum.count(functions) > 0 do
-      Contract.execute_contract_functions(functions, abi, json_rpc_named_arguments, leave_error_as_map)
+      Logger.info("Erpc functions #{inspect(functions)}")
+      Logger.info("Erpc json_rpc_named_arguments #{inspect(json_rpc_named_arguments)}")
+      data = Contract.execute_contract_functions(functions, abi, json_rpc_named_arguments, leave_error_as_map)
+      Logger.info("Erpc data #{inspect(data)}")
+      data
     else
       []
     end
@@ -431,6 +435,10 @@ defmodule EthereumJSONRPC do
   @spec json_rpc(Transport.batch_request(), json_rpc_named_arguments) ::
           {:ok, Transport.batch_response()} | {:error, reason :: term()}
   def json_rpc(request, named_arguments) when (is_map(request) or is_list(request)) and is_list(named_arguments) do
+    Logger.info("ethereum_jsonrpc json_rpc request #{inspect(request)}")
+    Logger.info("ethereum_jsonrpc json_rpc named_arguments #{inspect(named_arguments)}")
+
+
     transport = Keyword.fetch!(named_arguments, :transport)
     transport_options = Keyword.fetch!(named_arguments, :transport_options)
     throttle_timeout = Keyword.get(named_arguments, :throttle_timeout, @default_throttle_timeout)
@@ -440,8 +448,8 @@ defmodule EthereumJSONRPC do
 
     case RequestCoordinator.perform(request, transport, corrected_transport_options, throttle_timeout) do
       {:ok, result} ->
+        Logger.info("ethereum_jsonrpc json_rpc result #{inspect(result)}")
         {:ok, result}
-
       {:error, reason} ->
         maybe_inc_error_count(corrected_transport_options[:url], named_arguments, transport)
         {:error, reason}

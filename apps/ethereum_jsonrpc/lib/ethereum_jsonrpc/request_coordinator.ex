@@ -57,6 +57,7 @@ defmodule EthereumJSONRPC.RequestCoordinator do
   require EthereumJSONRPC.Tracer
 
   alias EthereumJSONRPC.{RollingWindow, Tracer, Transport}
+  require Logger
 
   @error_key :throttleable_error_count
   @throttle_key :throttle_requests_count
@@ -74,11 +75,12 @@ defmodule EthereumJSONRPC.RequestCoordinator do
           {:ok, Transport.batch_response()} | {:error, term()}
   def perform(request, transport, transport_options, throttle_timeout) do
     sleep_time = sleep_time()
+    Logger.info("request corrdinator perform request #{inspect(request)}")
 
+    Logger.info("request corrdinator perform transport_options #{inspect(transport_options)}")
     if sleep_time <= throttle_timeout do
       :timer.sleep(sleep_time)
       remaining_wait_time = throttle_timeout - sleep_time
-
       case throttle_request(remaining_wait_time) do
         :ok ->
           # credo:disable-for-next-line
@@ -124,6 +126,7 @@ defmodule EthereumJSONRPC.RequestCoordinator do
 
   defp handle_transport_response(response) do
     inc_throttle_table()
+    Logger.info("request corrdinator handle_transport_response  response #{inspect(response)}")
     response
   end
 

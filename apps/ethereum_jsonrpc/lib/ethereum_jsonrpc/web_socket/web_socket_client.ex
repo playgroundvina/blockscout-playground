@@ -109,6 +109,7 @@ defmodule EthereumJSONRPC.WebSocket.WebSocketClient do
   @impl WebSocket
   @spec json_rpc(WebSocket.web_socket(), Transport.request()) :: {:ok, Transport.result()} | {:error, reason :: term()}
   def json_rpc(web_socket, request) do
+    Logger.info("websocket_client json_rpc 1 #{inspect(request)}")
     GenServer.call(web_socket, {:gen_call, {:json_rpc, request}})
   end
 

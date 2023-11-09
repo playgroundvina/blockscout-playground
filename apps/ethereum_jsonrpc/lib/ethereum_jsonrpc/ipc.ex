@@ -3,6 +3,7 @@ defmodule EthereumJSONRPC.IPC do
   @moduledoc false
 
   import EthereumJSONRPC.HTTP, only: [standardize_response: 1]
+  require Logger
 
   # Server
 
@@ -89,6 +90,7 @@ defmodule EthereumJSONRPC.IPC do
   end
 
   def json_rpc(payload, _opts) do
+    Logger.info("IPC json_rpc 1 #{inspect(payload)}")
     :poolboy.transaction(:ipc_worker, fn pid -> request(pid, payload) end, 600_000)
   end
 end

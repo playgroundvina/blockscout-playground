@@ -3,6 +3,7 @@ defmodule EthereumJSONRPC.Encoder do
   Deals with encoding and decoding data to be sent to, or that is
   received from, the blockchain.
   """
+  require Logger
 
   alias ABI.TypeDecoder
 

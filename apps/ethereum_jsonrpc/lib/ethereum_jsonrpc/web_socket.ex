@@ -4,6 +4,7 @@ defmodule EthereumJSONRPC.WebSocket do
   """
 
   alias EthereumJSONRPC.{Subscription, Transport}
+  require Logger
 
   @behaviour Transport
 
@@ -91,6 +92,7 @@ defmodule EthereumJSONRPC.WebSocket do
   @impl Transport
   @spec json_rpc(Transport.request(), t()) :: {:ok, Transport.result()} | {:error, reason :: term()}
   def json_rpc(request, %__MODULE__{web_socket: web_socket_module, web_socket_options: %{web_socket: web_socket}}) do
+    Logger.info("web_socket json_rpc 1 #{inspect(request)}")
     web_socket_module.json_rpc(web_socket, request)
   end
 

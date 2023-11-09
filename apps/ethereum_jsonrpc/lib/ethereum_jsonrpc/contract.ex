@@ -2,6 +2,7 @@ defmodule EthereumJSONRPC.Contract do
   @moduledoc """
   Smart contract functions executed by `eth_call`.
   """
+  require Logger
 
   import EthereumJSONRPC, only: [integer_to_quantity: 1, json_rpc: 2, request: 1]
 
@@ -71,7 +72,10 @@ defmodule EthereumJSONRPC.Contract do
         response ->
           selectors = define_selectors(parsed_abi, method_id)
 
+          Logger.info("Econtract response #{inspect(response)}")
           {^index, result} = Encoder.decode_result(response, selectors, leave_error_as_map)
+          Logger.info("Econtract index #{inspect(index)}")
+          Logger.info("Econtract result #{inspect(result)}")
           result
       end
     end)
