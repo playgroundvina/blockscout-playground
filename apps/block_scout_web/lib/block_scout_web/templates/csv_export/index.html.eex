@@ -5,9 +5,10 @@
         %>
 <link rel="stylesheet" href="<%= static_path(@conn, "/css/export-csv.css") %>">
 <section class="container-body">
+  <h1 class="card-title list-title-description"><%= gettext "Export Data" %></h1>
+
   <div class="card">
     <div class="card-body">
-      <h1 class="card-title list-title-description"><%= gettext "Export Data" %></h1>
 
       <div>
         <% filter_text = if Helper.is_valid_filter?(@filter_type, @filter_value, @type), do: " with applied filter by #{@filter_type} (#{@filter_value})", else: ""  %>
