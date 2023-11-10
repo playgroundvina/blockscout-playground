@@ -10,6 +10,7 @@ defmodule Explorer.SmartContract.Reader do
   alias Explorer.Chain
   alias Explorer.Chain.{Hash, SmartContract}
   alias Explorer.SmartContract.Helper
+  require Logger
 
   @typedoc """
   Map of functions to call with the values for the function to be called with.
@@ -166,6 +167,7 @@ defmodule Explorer.SmartContract.Reader do
   def query_contracts(requests, abi, opts \\ []) do
     json_rpc_named_arguments =
       Keyword.get(opts, :json_rpc_named_arguments) || Application.get_env(:explorer, :json_rpc_named_arguments)
+      Logger.info("reader query_contracts  1 #{inspect(requests)}")
 
     EthereumJSONRPC.execute_contract_functions(requests, abi, json_rpc_named_arguments)
   end
@@ -173,6 +175,8 @@ defmodule Explorer.SmartContract.Reader do
   @spec query_contracts([Contract.call()], term(), true | false) :: [Contract.call_result()]
   def query_contracts(requests, abi, [], leave_error_as_map) do
     json_rpc_named_arguments = Application.get_env(:explorer, :json_rpc_named_arguments)
+    Logger.info("reader query_contracts  2 #{inspect(requests)}")
+
 
     EthereumJSONRPC.execute_contract_functions(requests, abi, json_rpc_named_arguments, leave_error_as_map)
   end

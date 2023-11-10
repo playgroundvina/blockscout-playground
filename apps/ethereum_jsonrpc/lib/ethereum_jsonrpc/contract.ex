@@ -31,6 +31,9 @@ defmodule EthereumJSONRPC.Contract do
           call_result()
         ]
   def execute_contract_functions(requests, abi, json_rpc_named_arguments, leave_error_as_map \\ false) do
+
+    Logger.info("contract execute_contract_functions  requests #{inspect(requests)}")
+
     parsed_abi =
       abi
       |> ABI.parse_specification()
@@ -38,6 +41,7 @@ defmodule EthereumJSONRPC.Contract do
     functions = Enum.into(parsed_abi, %{}, &{&1.method_id, &1})
 
     requests_with_index = Enum.with_index(requests)
+    Logger.info("contract execute_contract_functions  requests_with_index #{inspect(requests_with_index)}")
 
     indexed_responses =
       requests_with_index
@@ -48,6 +52,12 @@ defmodule EthereumJSONRPC.Contract do
           |> Map.drop([:method_id])
 
         formatted_args = format_args(function, args)
+        Logger.info("contract execute_contract_functions  formatted_args #{inspect(formatted_args)}")
+
+
+        Logger.info("contract execute_contract_functions  json_rpc_named_arguments #{inspect(json_rpc_named_arguments)}")
+
+
 
         function
         |> Encoder.encode_function_call(formatted_args)
@@ -187,6 +197,8 @@ defmodule EthereumJSONRPC.Contract do
   end
 
   def eth_call_request(data, contract_address, id, block_number, from) do
+    Logger.info("Econtract eth_call_request data #{inspect(data)}")
+
     block =
       case block_number do
         nil -> "latest"
@@ -202,6 +214,7 @@ defmodule EthereumJSONRPC.Contract do
       method: "eth_call",
       params: [params, block]
     }
+    Logger.info("Econtract eth_call_request full_params #{inspect(full_params)}")
 
     request(full_params)
   end

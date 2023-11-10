@@ -7,19 +7,26 @@ defmodule EthereumJSONRPC.Encoder do
 
   alias ABI.TypeDecoder
 
-  @doc """
+  @doc """ pipi
   Given a function selector and a list of arguments, returns their encoded versions.
 
   This is what is expected on the Json RPC data parameter.
   """
   @spec encode_function_call(ABI.FunctionSelector.t(), [term()]) :: String.t()
   def encode_function_call(function_selector, args) when is_list(args) do
+
+    Logger.info("encode_function_call function_selector 1 #{inspect(function_selector)}")
+    Logger.info("encode_function_call args 1 #{inspect(args)}")
+
     parsed_args = parse_args(args)
+    Logger.info("encode_function_call parsed_args 1 #{inspect(parsed_args)}")
 
     encoded_args =
       function_selector
       |> ABI.encode(parsed_args)
       |> Base.encode16(case: :lower)
+
+    Logger.info("encode_function_call encoded_args 1 #{inspect(encoded_args)}")
 
     "0x" <> encoded_args
   end

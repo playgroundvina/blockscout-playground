@@ -1,5 +1,6 @@
 defmodule BlockScoutWeb.ChainView do
   use BlockScoutWeb, :view
+  require Logger
 
   require Decimal
   import Number.Currency, only: [number_to_currency: 2]
@@ -60,6 +61,7 @@ defmodule BlockScoutWeb.ChainView do
   defp gas_prices do
     case GasPriceOracle.get_gas_prices() do
       {:ok, gas_prices} ->
+        Logger.info("chain_view gas_prices #{inspect(gas_prices)}")
         gas_prices
 
       nil ->
