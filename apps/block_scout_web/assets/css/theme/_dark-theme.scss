@@ -379,6 +379,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     color: #e6cb82;
   }
 
+  .tile a[data-test=token_link] {
+    color: #e6cb82;
+  }
+
+
   .tile .tile-title {
     color: #FFF;
   }
