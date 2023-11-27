@@ -7,6 +7,12 @@ $labels-dark: #000; // header nav, labels
 $dark-stakes-banned-background: #3e314c;
 $dashboard-banner-network-stats-item-before-background-color-dark-mode: $dark-secondary !default;
 $header-links-background-color-dark-mode: $dark-light-bg !default;
+$text-color: #fff;
+$text-color-one: #262626;
+$text-color-sub-menu: #8f8f8f;
+$boder-color: #575757;
+$chart-color: #e0ba75;
+$tool-tip-one: #a3a9b5;
 
 .dark-mode-changer {
   display: inline-flex;
@@ -21,29 +27,25 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   outline: none !important;
   box-shadow: none !important;
   transition: 0.2s ease-in;
-
   .card-chain-transactions {
     svg {
       filter: invert(1);
     }
   }
-
   &:hover {
     opacity: 0.8;
   }
 }
 
 .dark-theme-applied {
-  color: #fff;
+  color: $text-color;
   background-color: $body-dark !important;
-
   // navbar
   .btn-view-all {
-    border: 0.75px solid #fff;
+    border: 0.75px solid $text-color;
     background: transparent;
-    color: #fff !important;
+    color: $text-color !important;
   }
-
   .icon-block {
     svg {
       filter: invert(1);
@@ -52,7 +54,6 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .navbar.navbar-primary {
     background-color: $dark-light-bg !important;
-
     .input-group-text {
       &.border {
         background-color: $dark-light-bg;
@@ -60,18 +61,18 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     .nav-submenu {
-      color: #8f8f8f;
+      color: $text-color-sub-menu;
       background-color: $header-links-background-color-dark-mode;
     }
   }
 
   .dashboard-banner-chart-legend-value,
   .dashboard-banner-network-stats-value {
-    color: #fff;
+    color: $text-color;
   }
 
   .card-title {
-    color: #fff;
+    color: $text-color;
   }
 
   .dashboard-banner {
@@ -94,8 +95,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .navbar.navbar-primary .navbar-nav .nav-link {
-    color: #fff;
-
+    color: $text-color;
     .nav-link-icon {
       svg path {
         fill: $labels-dark;
@@ -111,7 +111,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     &:hover {
-      color: var(--Primary, #e6cb82);
+      color: var(--Primary, $dark-light);
 
       .nav-link-icon {
         svg path {
@@ -129,8 +129,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     background-color: transparent;
     border: 0;
     border-width: 0;
-    color: #fff;
-
+    color: $text-color;
     &::placeholder {
       color: $labels-dark;
     }
@@ -150,7 +149,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .footer-coppy-right {
     font-size: 20px;
     height: 100px;
-    border-top: 1px solid var(--gray-scale-40, #575757);
+    border-top: 1px solid var(--gray-scale-40, $boder-color);
     background: rgba(255, 255, 255, 0.03);
   }
 
@@ -158,14 +157,13 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .footer {
     background: transparent;
     color: $labels-dark;
-
     svg {
       filter: invert(1);
     }
   }
 
   .footer .add-chain-btn a {
-    color: var(--gray-scale-white, #fff);
+    color: var(--gray-scale-white, $text-color);
   }
 
   .footer .add-chain-btn {
@@ -179,7 +177,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .footer-social-icon:hover,
   .footer-link:hover {
-    color: #262626;
+    color: text-color-one;
   }
 
   .footer-list ul li::before {
@@ -188,7 +186,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .f-container {
     @include media-breakpoint-down(md) {
-      border-top: 1px solid var(--gray-scale-40, #575757);
+      border-top: 1px solid var(--gray-scale-40, $boder-color);
       background: rgba(255, 255, 255, 0.03);
 
       .footer-container {
@@ -201,7 +199,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       }
 
       .footer-coppy-right {
-        border-top: 0.75px solid var(--gray-scale-40, #575757);
+        border-top: 0.75px solid var(--gray-scale-40, $boder-color);
       }
     }
   }
@@ -215,7 +213,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .dashboard-banner-network-stats-label,
   .dashboard-banner-chart-legend .dashboard-banner-chart-legend-label {
-    color: #e0ba75;
+    color: $chart-color;
   }
 
   .dashboard-banner-chart-legend .dashboard-banner-chart-legend-item {
@@ -258,7 +256,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .address-detail-hash-title {
-    color: #fff;
+    color: $text-color;
   }
 
   .card-tabs {
@@ -289,23 +287,23 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   a.tile-title {
-    color: var(--Primary, #e6cb82) !important;
+    color: var(--Primary, $dark-light) !important;
   }
 
   .tile a[data-test="transaction_hash_link"] {
-    color: var(--Primary, #e6cb82) !important;
+    color: var(--Primary, $dark-light) !important;
   }
 
   .tile.tile-type-block .tile-title {
-    color: var(--Primary, #e6cb82) !important;
+    color: var(--Primary, $dark-light) !important;
   }
 
   .tile.tile-type-block .tile-transaction-type-block a {
-    color: #fff;
+    color: $text-color;
   }
 
   .tile.tile-type-block .tile-bottom-contents a {
-    color: #fff;
+    color: $text-color;
   }
 
   .fade-up-blocks-chain .tile-type-block-animation {
@@ -324,15 +322,15 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .tile .tile-body a {
-    color: #e6cb82;
+    color: $dark-light;
   }
 
   .tile a[data-test="token_link"] {
-    color: #e6cb82;
+    color: $dark-light;
   }
 
   .tile .tile-title {
-    color: #fff;
+    color: $text-color;
   }
 
   .fade-up-blocks-chain .tile-type-block-animation .tile-type-line-up {
@@ -354,7 +352,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .tile .progress {
-    background-color: rgba(#fff, 0.2);
+    background-color: rgba($text-color, 0.2);
   }
 
   .tile .progress .progress-bar {
@@ -367,14 +365,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .footer-body {
     border-radius: 24px;
-    border: 1px solid #575757;
+    border: 1px solid $boder-color;
     background: rgba(255, 255, 255, 0.03);
 
     .footer-text-1,
     .footer-text-2,
     .title-contact-us,
     .logo-text-chain {
-      color: #fff;
+      color: $text-color;
     }
 
     .footer-sns {
@@ -397,18 +395,18 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       background-color: $dark-primary;
 
       path {
-        fill: #fff;
+        fill: $text-color;
       }
     }
   }
 
   .btn-wallet-icon {
-    color: #e6cb82;
-    border: 1px solid #e6cb82;
+    color: $dark-light;
+    border: 1px solid $dark-light;
   }
 
   .btn-wallet-icon:hover {
-    color: #fff;
+    color: $text-color;
   }
 
   // pagination
@@ -418,11 +416,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     background-color: $dark-light;
 
     &:not(.no-hover):hover {
-      color: #fff;
+      color: $text-color;
       background-color: $dark-primary;
 
       path {
-        fill: #fff;
+        fill: $text-color;
       }
     }
 
@@ -449,15 +447,15 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     border: none;
 
     @include media-breakpoint-down(md) {
-      border-left: 1px solid #e6cb82 !important;
+      border-left: 1px solid $dark-light !important;
     }
   }
 
   .dropdown-item {
-    color: #fff;
+    color: $text-color;
 
     &:hover {
-      background-color: rgba(#fff, 0.1);
+      background-color: rgba($text-color, 0.1);
     }
   }
 
@@ -525,11 +523,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .i-tooltip {
     .i-tooltip-circle {
-      fill: #a3a9b5;
+      fill: $tool-tip-one;
     }
 
     .i-tooltip-info {
-      fill: #a3a9b5;
+      fill: $tool-tip-one;
     }
 
     &:hover {
@@ -538,14 +536,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       }
 
       .i-tooltip-info {
-        fill: #fff;
+        fill: $text-color;
       }
     }
   }
 
   // api's
   .api-anchors-list {
-    background-color: #262626;
+    background-color: text-color-one;
   }
 
   .api-doc-list-item {
@@ -555,7 +553,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .card-subtitle,
   .api-anchors-list-item-title,
   .api-doc-list-item-title {
-    color: #fff;
+    color: $text-color;
   }
 
   .api-text-monospace {
@@ -583,27 +581,27 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .tooltip > .tooltip-inner {
-    background-color: #e6cb82;
+    background-color: $dark-light;
   }
 
   .tooltip-pale-color.bs-tooltip-top .arrow::before,
   .tooltip-pale-color.bs-tooltip-auto[x-placement^="top"] .arrow::before {
-    border-top-color: #e6cb82 !important;
+    border-top-color: $dark-light !important;
   }
 
   .tooltip-pale-color.bs-tooltip-right .arrow::before,
   .tooltip-pale-color.bs-tooltip-auto[x-placement^="right"] .arrow::before {
-    border-right-color: #e6cb82 !important;
+    border-right-color: $dark-light !important;
   }
 
   .tooltip-pale-color.bs-tooltip-bottom .arrow::before,
   .tooltip-pale-color.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
-    border-bottom-color: #e6cb82 !important;
+    border-bottom-color: $dark-light !important;
   }
 
   .tooltip-pale-color.bs-tooltip-left .arrow::before,
   .tooltip-pale-color.bs-tooltip-auto[x-placement^="left"] .arrow::before {
-    border-left-color: #e6cb82 !important;
+    border-left-color: $dark-light !important;
   }
 
   //coin dropdown
@@ -629,7 +627,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .token-balance-dropdown[aria-labelledby="dropdown-tokens"]
     .dropdown-items
     .dropdown-item:hover {
-    color: #fff !important;
+    color: $text-color !important;
   }
 
   .dropdown-header {
@@ -651,7 +649,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .logs-search-btn-cancel {
     background-color: $dark-light;
     border-color: $dark-light;
-    color: #fff;
+    color: $text-color;
   }
 
   .logs-search-btn {
@@ -661,7 +659,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .logs-search-btn {
     &:hover {
       background-color: $dark-primary;
-      color: #fff;
+      color: $text-color;
     }
   }
 
@@ -673,7 +671,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   // code
   pre {
-    color: #fff;
+    color: $text-color;
   }
 
   // info alert
@@ -685,7 +683,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   // dark text
   .text-dark {
-    color: #fff !important;
+    color: $text-color !important;
   }
 
   // Contract Verification
@@ -707,11 +705,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .smart-contract-title {
-    color: #fff;
+    color: $text-color;
   }
 
   .smart-contract-form-group-inner-wrapper > label {
-    color: #fff;
+    color: $text-color;
   }
 
   .smart-contract-form-buttons {
@@ -720,11 +718,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     .btn-no-border {
       background-color: $dark-light;
       border-color: $dark-light;
-      color: #fff;
+      color: $text-color;
 
       &:hover {
         background-color: $dark-primary;
-        color: #fff;
+        color: $text-color;
       }
     }
   }
@@ -742,7 +740,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   // Form Controlls
   .form-control {
     background-color: transparent;
-    color: #fff;
+    color: $text-color;
     transition: border-color 0.15s ease-in-out;
 
     &[readonly] {
@@ -755,14 +753,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
     &:focus {
       border-color: $dark-primary;
-      color: #fff;
+      color: $text-color;
     }
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      caret-color: #fff;
-      -webkit-text-fill-color: #fff;
+      caret-color: $text-color;
+      -webkit-text-fill-color: $text-color;
       -webkit-box-shadow: 0 0 0px 1000px $dark-light inset;
     }
 
@@ -788,7 +786,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .radio-big .radio-icon {
-    border-color: #fff;
+    border-color: $text-color;
   }
 
   .radio-big input[type="radio"]:checked + .radio-icon {
@@ -800,7 +798,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .radio-big .radio-text {
-    color: #fff;
+    color: $text-color;
   }
 
   .check input[type="checkbox"]:checked + .check-icon::before {
@@ -832,7 +830,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
     .exp-content {
       h3 {
-        color: #fff;
+        color: $text-color;
       }
 
       div {
@@ -852,7 +850,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       background-color: $dark-primary;
 
       svg path {
-        fill: #fff;
+        fill: $text-color;
       }
     }
   }
@@ -860,12 +858,12 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .verify-other-explorers-elem {
     &:hover {
       text-decoration: none;
-      color: #fff;
+      color: $text-color;
 
       .exp-content {
         h3,
         div {
-          color: #fff;
+          color: $text-color;
         }
       }
     }
@@ -873,7 +871,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   #explorersModal {
     .modal-title {
-      color: #fff;
+      color: $text-color;
     }
 
     .text-muted {
@@ -900,18 +898,18 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
     .verify-other-explorers-cell {
       .exp-logo {
-        color: #fff;
+        color: $text-color;
       }
     }
 
     .close {
-      color: #fff;
+      color: $text-color;
     }
   }
 
   #qrModal {
     .close {
-      color: #fff;
+      color: $text-color;
     }
   }
 
@@ -920,7 +918,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .api-doc-parameters-list-item-title,
   .api-doc-parameters-list-title,
   .api-doc-list-item-controls-view-more {
-    color: #fff;
+    color: $text-color;
   }
 
   .api-doc-parameters-list {
@@ -949,13 +947,13 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     &:hover {
       background-color: $dark-primary;
       border-color: $dark-primary;
-      color: #fff;
+      color: $text-color;
     }
   }
 
   // Decoded data
   .table.thead-light.table-bordered {
-    color: #fff !important;
+    color: $text-color !important;
   }
 
   .table-bordered,
@@ -971,14 +969,14 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .btn-copy-ico svg path {
-    fill: #fff;
+    fill: $text-color;
   }
 
   // pre
   .pre-scrollable.line-numbers,
   .hljs {
     background: #111111;
-    color: #fff;
+    color: $text-color;
   }
 
   .hljs-comment {
@@ -1016,7 +1014,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   // 'text dark' label
   .text-dark {
-    color: #fff;
+    color: $text-color;
   }
 
   // validator info
@@ -1044,13 +1042,13 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     .close {
-      color: #fff;
+      color: $text-color;
     }
   }
 
   .modal-status {
     .modal-status-title {
-      color: #fff;
+      color: $text-color;
     }
 
     .modal-status-button-wrapper .btn-line {
@@ -1066,7 +1064,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .modal-dialog {
     .modal-content {
-      background-color: #fff;
+      background-color: $text-color;
     }
 
     .modal-bottom-disclaimer {
@@ -1076,7 +1074,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     }
 
     .modal-bottom-disclaimer-graphic svg {
-      fill: #fff;
+      fill: $text-color;
     }
 
     .modal-header {
@@ -1085,7 +1083,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       }
 
       .modal-validator-info-item-value {
-        color: #fff;
+        color: $text-color;
       }
     }
 
@@ -1093,7 +1091,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       background-color: $dark-light;
 
       .modal-validator-info-item-value {
-        color: #fff;
+        color: $text-color;
       }
     }
   }
@@ -1111,7 +1109,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .stakes-progress-data-progress,
   .stakes-progress-info-value {
-    color: #fff;
+    color: $text-color;
   }
 
   .stakes-empty-content-text {
@@ -1135,7 +1133,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .progress-from-to-value {
-    color: #fff;
+    color: $text-color;
   }
 
   .progress-from-to-background {
@@ -1208,7 +1206,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .logo-text {
-    color: #fff;
+    color: $text-color;
   }
 
   .bs-label.omni {
@@ -1223,7 +1221,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .dropdown-item {
     .external-link-icon {
       path {
-        fill: #fff;
+        fill: $text-color;
       }
     }
 
@@ -1233,7 +1231,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       &:focus {
         .external-link-icon {
           path {
-            fill: #fff;
+            fill: $text-color;
           }
         }
       }
@@ -1242,30 +1240,30 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .tooltip-inversed-color {
     .tooltip-inner {
-      background-color: #e6cb82 !important;
+      background-color: $dark-light !important;
       color: #000 !important;
     }
   }
 
   .tooltip-inversed-color.bs-tooltip-top .arrow::before,
   .tooltip-inversed-color.bs-tooltip-auto[x-placement^="top"] .arrow::before {
-    border-top-color: #e6cb82 !important;
+    border-top-color: $dark-light !important;
   }
 
   .tooltip-inversed-color.bs-tooltip-right .arrow::before,
   .tooltip-inversed-color.bs-tooltip-auto[x-placement^="right"] .arrow::before {
-    border-right-color: #e6cb82 !important;
+    border-right-color: $dark-light !important;
   }
 
   .tooltip-inversed-color.bs-tooltip-bottom .arrow::before,
   .tooltip-inversed-color.bs-tooltip-auto[x-placement^="bottom"]
     .arrow::before {
-    border-bottom-color: #e6cb82 !important;
+    border-bottom-color: $dark-light !important;
   }
 
   .tooltip-inversed-color.bs-tooltip-left .arrow::before,
   .tooltip-inversed-color.bs-tooltip-auto[x-placement^="left"] .arrow::before {
-    border-left-color: #e6cb82 !important;
+    border-left-color: $dark-light !important;
   }
 
   .stakes-top {
@@ -1283,16 +1281,16 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .stakes-btn-close-alert {
     path {
-      fill: #fff;
+      fill: $text-color;
     }
   }
 
   .main-search-autocomplete {
-    color: #fff !important;
+    color: $text-color !important;
   }
 
   .autocomplete-category {
-    color: #fff !important;
+    color: $text-color !important;
   }
 
   ul[id^="autoComplete_list_"] {
@@ -1301,7 +1299,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   li[id^="autoComplete_result_"] {
     background-color: $dark-light-bg !important;
-    color: #fff !important;
+    color: $text-color !important;
 
     &:hover {
       background-color: $dark-primary !important;
@@ -1319,7 +1317,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 
 .dark-theme-applied .dropdown-item {
-  color: #fff !important;
+  color: $text-color !important;
 }
 
 .dark-theme-applied .dropdown-item.active:not(.header),
@@ -1336,7 +1334,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   .dark-theme-applied .navbar.navbar-primary .navbar-nav .nav-link:focus {
     background-image: none;
     width: 100%;
-    color: var(--Primary, #e6cb82);
+    color: var(--Primary, $dark-light);
     border: none;
   }
 
@@ -1360,7 +1358,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     background: none;
     left: 24%;
     top: 14%;
-    color: var(--Primary, #e6cb82);
+    color: var(--Primary, $dark-light);
   }
 }
 
@@ -1385,11 +1383,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 
 .dark-theme-applied .tile span[data-address-hash] {
-  color: #ffffff;
+  color: $text-colorfff;
 }
 
 .dark-theme-applied .tile span[data-address-hash] {
-  color: #ffffff;
+  color: $text-colorfff;
 }
 
 .time-transaction {
@@ -1405,7 +1403,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 
 .dark-theme-applied .tile-transactions {
-  color: #ffffff;
+  color: $text-colorfff;
 }
 
 .text-truncate {
@@ -1413,11 +1411,11 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 
 .dark-theme-applied .text-truncate {
-  color: #ffffff !important;
+  color: $text-colorfff !important;
 }
 
 .dark-theme-applied .tile .transaction-address {
-  color: #fff;
+  color: $text-color;
 
   span {
     color: #aeaeae;
@@ -1425,7 +1423,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 
 .dark-theme-applied .transaction-address .txs-from-to {
-  color: var(--gray-scale-white, #fff);
+  color: var(--gray-scale-white, $text-color);
 
   a.span {
     color: var(--gray-scale-20, #aeaeae);
@@ -1451,8 +1449,8 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
 .dark-theme-applied #dark-mode-changer {
   svg * {
-    fill: #fff;
-    stroke: #fff;
+    fill: $text-color;
+    stroke: $text-color;
   }
 }
 
@@ -1466,7 +1464,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 .dark-theme-applied #dark-mode-changer-sun {
   svg * {
     fill: none;
-    stroke: #fff;
+    stroke: $text-color;
   }
 }
 
@@ -1489,12 +1487,12 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 /* Transactions */
 
 .dark-theme-applied .list-title-description {
-  color: #fff;
+  color: $text-color;
 }
 
 .dark-theme-applied .tile.tile-type-transaction {
   .text-truncate {
-    color: var(--Primary, #e6cb82) !important;
+    color: var(--Primary, $dark-light) !important;
   }
 }
 
@@ -1507,7 +1505,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   /* table wrapper for continuous border */
 
   thead th {
-    color: var(--gray-scale-white, #fff);
+    color: var(--gray-scale-white, $text-color);
     border-bottom: 2px solid var(--gray-scale-black, #0a0a0a);
   }
 
@@ -1559,7 +1557,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 
   .method {
     .bs-label {
-      background: #e6cb82;
+      background: $dark-light;
       color: #191919;
     }
   }
@@ -1642,7 +1640,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
 }
 
 .dark-theme-applied table {
-  color: #fff;
+  color: $text-color;
 }
 
 .dark-theme-applied {
