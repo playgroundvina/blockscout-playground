@@ -174,7 +174,7 @@ $color-title: #fff;
 
   .footer-social-icon:hover,
   .footer-link:hover {
-    color: text-color-one;
+    color: $text-color-one;
   }
 
   .footer-list ul li::before {
@@ -540,7 +540,7 @@ $color-title: #fff;
 
   // api's
   .api-anchors-list {
-    background-color: text-color-one;
+    background-color: $text-color-one;
   }
 
   .api-doc-list-item {
