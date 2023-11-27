@@ -90,10 +90,6 @@ $tool-tip-one: #a3a9b5;
     background: rgba(255, 255, 255, 0.1);
   }
 
-  .navbar-brand .navbar-logo {
-    filter: brightness(0) invert(1);
-  }
-
   .navbar.navbar-primary .navbar-nav .nav-link {
     color: $text-color;
     .nav-link-icon {
