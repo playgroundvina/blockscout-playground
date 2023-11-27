@@ -13,6 +13,7 @@ $text-color-sub-menu: #8f8f8f;
 $boder-color: #575757;
 $chart-color: #e0ba75;
 $tool-tip-one: #a3a9b5;
+$color-title: #fff;
 
 .dark-mode-changer {
   display: inline-flex;
@@ -1476,7 +1477,7 @@ $tool-tip-one: #a3a9b5;
   );
 
   h3 {
-    color: $text-glow-dark;
+    color: $color-title;
   }
 }
 
