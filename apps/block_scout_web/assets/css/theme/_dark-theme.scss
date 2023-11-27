@@ -1,6 +1,6 @@
 $primary: #e6cb82;
-$body-dark: #111111; // body background
-$dark-bg: #111111; // hero shade
+$body-dark: #081114; // body background
+$dark-bg: #081114; // hero shade
 $dark-light-bg: #0a0a0a; // pills bg shade
 $dark-light: #e6cb82; // tile light top share
 $labels-dark: #000; // header nav, labels
@@ -245,7 +245,7 @@ $color-title: #fff;
   }
 
   .card {
-    background: var(--gray-scale-80, #282828);
+    background: rgba(255, 255, 255, 0.10); 
   }
 
   .card-header {
@@ -972,7 +972,7 @@ $color-title: #fff;
   // pre
   .pre-scrollable.line-numbers,
   .hljs {
-    background: #111111;
+    background: $dark-bg;
     color: $text-color;
   }
 
@@ -1468,13 +1468,13 @@ $color-title: #fff;
 /* title dashboard */
 
 .dark-theme-applied .title-dashboard {
-  background: radial-gradient(
-    ellipse at center,
-    #cbcb821a,
-    #cbcb8211,
-    #111111aa,
-    #111111ff
-  );
+  // background: radial-gradient(
+  //   ellipse at center,
+  //   #cbcb821a,
+  //   #cbcb8211,
+  //   #111111aa,
+  //   #111111ff
+  // );
 
   h3 {
     color: $color-title;
@@ -1494,7 +1494,7 @@ $color-title: #fff;
 }
 
 .dark-theme-applied .card-body-table {
-  background-color: #282828;
+  background: rgba(255, 255, 255, 0.10); 
   background-image: linear-gradient(#3d3d3d, #3d3d3d, #282828, #282828);
 }
 
