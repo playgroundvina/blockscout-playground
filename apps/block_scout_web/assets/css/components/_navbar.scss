@@ -38,7 +38,7 @@ $header-logo-text-color: #333 !default;
 
   .network {
     border-radius: 1000px;
-    background: #e6cb82;
+    background: var(--Primary, linear-gradient(99deg, #26FDE6 0%, #6AA5FD 113.32%));
     padding: 12px 32px;
     border: none;
     color: #262626;
