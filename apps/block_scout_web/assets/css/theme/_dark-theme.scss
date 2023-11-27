@@ -1383,11 +1383,11 @@ $tool-tip-one: #a3a9b5;
 }
 
 .dark-theme-applied .tile span[data-address-hash] {
-  color: $text-colorfff;
+  color: $text-color;
 }
 
 .dark-theme-applied .tile span[data-address-hash] {
-  color: $text-colorfff;
+  color: $text-color;
 }
 
 .time-transaction {
@@ -1403,7 +1403,7 @@ $tool-tip-one: #a3a9b5;
 }
 
 .dark-theme-applied .tile-transactions {
-  color: $text-colorfff;
+  color: $text-color;
 }
 
 .text-truncate {
@@ -1411,7 +1411,7 @@ $tool-tip-one: #a3a9b5;
 }
 
 .dark-theme-applied .text-truncate {
-  color: $text-colorfff !important;
+  color: $text-color !important;
 }
 
 .dark-theme-applied .tile .transaction-address {
