@@ -1,32 +1,32 @@
 <footer class="footer">
-   <div class="footer-container" >
+    <div class="footer-container">
         <div class="footer-body row w-100">
             <div class="col-lg-6">
-                 <div>
-                            <div class="footer-text-1 mb-3" >
-                                Powered by Pools
-                            </div>
-                            <div class="footer-logo-new">
-                                <%= render BlockScoutWeb.IconsView, "_logo_icon.html" %>
-                                <div class="d-flex flex-column text-logo" style="gap:5px">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="183" height="23" viewBox="0 0 183 23" fill="none">
-                                        <path d="M0.386902 0.312561H14.7448C17.1396 0.312561 18.8776 0.811304 19.9589 1.80879C21.0402 2.80628 21.5816 4.40748 21.583 6.61239V9.7613C21.583 11.9675 21.0417 13.5687 19.9589 14.5649C18.8762 15.561 17.1381 16.0594 14.7448 16.0601H6.54044V22.3579H0.386902V0.312561ZM15.4295 6.61339C15.4295 5.35316 14.7455 4.72304 13.3776 4.72304H6.54044V11.6516H13.3776C14.7448 11.6516 15.4288 11.0219 15.4295 9.7623V6.61339Z" fill="#262626"/>
-                                        <path d="M63.1753 16.3815C63.1753 18.5877 62.6339 20.1886 61.5512 21.1841C60.4685 22.1795 58.7308 22.6783 56.3382 22.6803H47.7909C45.3961 22.6803 43.6584 22.1815 42.5779 21.1841C41.4973 20.1866 40.9559 18.5857 40.9538 16.3815V6.30195C40.9538 4.09571 41.4951 2.49485 42.5779 1.49936C43.6606 0.503882 45.3983 0.00413342 47.7909 0.00012207H56.3382C58.733 0.00012207 60.4706 0.498865 61.5512 1.49635C62.6318 2.49384 63.1731 4.09471 63.1753 6.29895V16.3815ZM57.0218 6.30195C57.0218 5.04238 56.3382 4.41261 54.9709 4.41261H49.1592C47.7905 4.41261 47.1066 5.04238 47.1073 6.30195V16.3815C47.1073 17.641 47.7913 18.2708 49.1592 18.2708H54.9709C56.3382 18.2708 57.0218 17.641 57.0218 16.3815V6.30195Z" fill="#262626"/>
-                                        <path d="M104.771 16.3785C104.771 18.5847 104.23 20.1856 103.147 21.181C102.064 22.1765 100.326 22.6753 97.9327 22.6773H89.3866C86.9918 22.6773 85.2537 22.1785 84.1724 21.181C83.0911 20.1836 82.549 18.5827 82.5461 16.3785V6.29894C82.5461 4.09269 83.0875 2.49184 84.1702 1.49635C85.253 0.50087 86.991 0.00212774 89.3844 0.00012207H97.9305C100.325 0.00012207 102.063 0.498865 103.145 1.49635C104.226 2.49384 104.767 4.0947 104.769 6.29894L104.771 16.3785ZM98.6163 6.29894C98.6163 5.03937 97.9327 4.40959 96.5655 4.40959H90.7538C89.3866 4.40959 88.7029 5.03937 88.7029 6.29894V16.3785C88.7029 17.638 89.3866 18.2678 90.7538 18.2678H96.5655C97.9327 18.2678 98.6163 17.638 98.6163 16.3785V6.29894Z" fill="#262626"/>
-                                        <path d="M130.295 17.888H142.774V22.3005H124.142V0.250122H130.295V17.888Z" fill="#262626"/>
-                                        <path d="M162.454 17.792C168.698 18.1069 172.926 18.2643 175.138 18.2643C175.661 18.2643 176.078 18.1219 176.385 17.8391C176.692 17.5563 176.847 17.1733 176.847 16.6899V13.8549H168.984C166.589 13.8549 164.851 13.3561 163.77 12.3586C162.689 11.3612 162.147 9.7603 162.146 7.55606V6.61239C162.146 4.40614 162.687 2.80494 163.77 1.80879C164.853 0.812641 166.591 0.313898 168.984 0.312561H180.983V4.72505H170.351C168.984 4.72505 168.3 5.35517 168.3 6.6154V7.24518C168.3 8.50475 168.984 9.13452 170.351 9.13452H176.505C178.738 9.13452 180.38 9.61755 181.428 10.5836C182.477 11.5497 183.001 13.0613 183 15.1184V16.6939C183 18.7517 182.476 20.2633 181.428 21.2287C180.38 22.1941 178.739 22.6772 176.505 22.6778C175.344 22.6778 174.113 22.6568 172.812 22.6147L169.668 22.4883C167.345 22.3833 164.941 22.2366 162.454 22.0481V17.792Z" fill="#262626"/>
-                                    </svg>
-                                    <div class="logo-text-chain" style="margin-bottom:5px">
-                                        Chain
-                                    </div>
-                                </div>
-                                </div>
-                            <div class="footer-text-2 mt-3">
-                                <%= gettext("PoolsScan is a Block Explorer and Analytics Platform for Pools Chain") %>
+                <div>
+                    <div class="footer-text-1 mb-3">
+                        Powered by Pools
+                    </div>
+                    <div class="footer-logo-new">
+                        <%= if logo() do %>
+                        <img class="navbar-logo" id="navbar-logo"   style="margin-bottom: 5px;" src="<%= static_path(@conn, logo()) %>" alt="<%= subnetwork_title() %>" />
+                        <% end %>
+                        <div class="d-flex flex-column text-logo" style="gap: 5px;">
+                            <svg width="182" height="18" viewBox="0 0 182 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.75096 4.68917C5.50296 4.68917 4.80696 5.14517 4.80696 6.08117C4.80696 6.99317 5.47896 7.44917 6.60696 7.44917H10.831C13.735 7.44917 15.703 9.39317 15.679 12.3932C15.655 15.5132 13.495 17.6492 10.279 17.6492H1.27896V13.8092H9.72696C10.951 13.8092 11.671 13.4012 11.671 12.5132C11.671 11.6252 10.951 11.0492 9.87096 11.0492H5.64696C2.74296 11.0492 0.798963 9.10517 0.798963 6.12917C0.798963 2.98517 2.98296 0.849169 6.19896 0.849169H14.719V4.68917H6.75096ZM21.4956 0.849169H36.3756V4.44917H30.8556V17.6492H27.0156V4.44917H21.4956V0.849169ZM42.6585 6.24917C42.6585 3.00917 44.8185 0.849169 48.0585 0.849169H54.0585C57.2985 0.849169 59.4585 3.00917 59.4585 6.24917V17.6492H55.6185V13.1852H46.4985V17.6492H42.6585V6.24917ZM46.4985 6.80117V9.58517H55.6185V6.80117C55.6185 5.52917 54.7785 4.68917 53.5065 4.68917H48.6105C47.3385 4.68917 46.4985 5.52917 46.4985 6.80117ZM67.0322 0.849169H78.4322C81.6722 0.849169 83.8322 3.00917 83.8322 6.24917V7.20917C83.8322 10.2332 81.9602 12.3212 79.0802 12.5852L83.8322 17.6492H78.5522L73.8242 12.6092H70.8722V17.6492H67.0322V0.849169ZM70.8722 4.68917V8.76917H77.9762C79.1762 8.76917 79.9922 7.95317 79.9922 6.70517C79.9922 5.50517 79.1762 4.68917 77.9762 4.68917H70.8722ZM95.9983 17.6492C92.7583 17.6492 90.5983 15.4892 90.5983 12.2492V6.24917C90.5983 3.00917 92.7583 0.849169 95.9983 0.849169H105.478V4.68917H96.5503C95.2783 4.68917 94.4383 5.52917 94.4383 6.80117V11.6972C94.4383 12.9692 95.2783 13.8092 96.5503 13.8092H101.638V11.0492H96.6463V7.44917H105.478V17.6492H95.9983ZM113.101 0.849169H124.501C127.741 0.849169 129.901 3.00917 129.901 6.24917V7.20917C129.901 10.2332 128.029 12.3212 125.149 12.5852L129.901 17.6492H124.621L119.893 12.6092H116.941V17.6492H113.101V0.849169ZM116.941 4.68917V8.76917H124.045C125.245 8.76917 126.061 7.95317 126.061 6.70517C126.061 5.50517 125.245 4.68917 124.045 4.68917H116.941ZM136.835 6.24917C136.835 3.00917 138.995 0.849169 142.235 0.849169H148.235C151.475 0.849169 153.635 3.00917 153.635 6.24917V17.6492H149.795V13.1852H140.675V17.6492H136.835V6.24917ZM140.675 6.80117V9.58517H149.795V6.80117C149.795 5.52917 148.955 4.68917 147.683 4.68917H142.787C141.515 4.68917 140.675 5.52917 140.675 6.80117ZM161.209 17.6492V0.849169H165.481L171.169 12.4892L176.857 0.849169H181.129V17.6492H177.289V8.69717L172.921 17.6492H169.417L165.049 8.69717V17.6492H161.209Z"
+                                    fill="black"
+                                />
+                            </svg>
+                            <div class="logo-text-chain" style="margin-top: 5px;">
+                                Chain
                             </div>
                         </div>
+                    </div>
+                    <div class="footer-text-2 mt-3">
+                        <%= gettext("PoolsScan is a Block Explorer and Analytics Platform for Pools Chain") %>
+                    </div>
                 </div>
-
+            </div>
             <div class="col-lg-3">
                 <div class="d-flex align-items-end w-100 h-100">
                     <div>
@@ -35,31 +35,30 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                    <div class="d-flex justify-content-end align-items-start flex-column w-100 h-100 contact-us">
-                            <div class="title-contact-us mb-2">Contact us</div>
-                            <div class="footer-sns">
-                                <a target="_blank" href="https://twitter.com/pools_club">
-                                    <img src="/images/mdi_twitter.png"/>
-                                </a>
-                                <a target="_blank" href=" https://www.youtube.com/@poolscontact">
-                                    <img src="/images/mdi_youtube.png"/>
-                                </a>
-                                <a  target="_blank" href="https://www.facebook.com/bpoolsclub">
-                                    <img src="/images/akar-icons_facebook-fill.png"/>
-                                </a>
-                                <a target="_blank" href="https://www.instagram.com/poolclubs123">
-                                    <img src="/images/mdi_instagram.png"/>
-                                </a>
-                                <a target="_blank" href="https://t.me/Poolsclub">
-                                    <img src="/images/icon-park_telegram.png"/>
-                                </a>
-                                <a target="_blank" href="https://discord.com/invite/SVy65eh4aJ">
-                                    <img src="/images/ic_baseline-discord.png"/>
-                                </a>
-                            </div>
-
+                <div class="d-flex justify-content-end align-items-start flex-column w-100 h-100 contact-us">
+                    <div class="title-contact-us mb-2">Contact us</div>
+                    <div class="footer-sns">
+                        <a target="_blank" href="https://twitter.com/pools_club">
+                            <img src="/images/mdi_twitter.png" />
+                        </a>
+                        <a target="_blank" href=" https://www.youtube.com/@poolscontact">
+                            <img src="/images/mdi_youtube.png" />
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/bpoolsclub">
+                            <img src="/images/akar-icons_facebook-fill.png" />
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/poolclubs123">
+                            <img src="/images/mdi_instagram.png" />
+                        </a>
+                        <a target="_blank" href="https://t.me/Poolsclub">
+                            <img src="/images/icon-park_telegram.png" />
+                        </a>
+                        <a target="_blank" href="https://discord.com/invite/SVy65eh4aJ">
+                            <img src="/images/ic_baseline-discord.png" />
+                        </a>
                     </div>
+                </div>
             </div>
         </div>
-   </div>
+    </div>
 </footer>
