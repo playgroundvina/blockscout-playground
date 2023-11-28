@@ -100,11 +100,11 @@ $color-title: #fff;
     }
 
     &.active {
-      color: $primary;
+      @include text-gradient;
     }
 
     &.active:before {
-      background-color: $primary;
+      @include background-gradient;
     }
 
     &:hover {
@@ -117,7 +117,7 @@ $color-title: #fff;
       }
 
       &:before {
-        background-color: $primary;
+        @include background-gradient;
       }
     }
   }
@@ -311,7 +311,7 @@ $color-title: #fff;
   }
 
   .fade-up-blocks-chain .tile-type-block-animation:after {
-    background-color: $dark-light;
+    @include background-gradient;
   }
 
   .cube-animation-title {
@@ -410,8 +410,7 @@ $color-title: #fff;
   .pagination-container .pagination .page-link {
     color: $labels-dark;
     border-color: $dark-light;
-    background-color: $dark-light;
-
+    @include background-gradient;
     &:not(.no-hover):hover {
       color: $text-color;
       background-color: $dark-primary;
@@ -428,7 +427,7 @@ $color-title: #fff;
     &[disabled] {
       color: $labels-dark;
       border-color: $dark-light;
-      background-color: $dark-light;
+      @include background-gradient;
     }
   }
 
@@ -467,16 +466,16 @@ $color-title: #fff;
   }
 
   .btn-dropdown-line {
-    background-color: $dark-light;
     border-color: $dark-light;
+    @include background-gradient;
     color: $labels-dark;
   }
 
   // table
   .stakes-table-head,
   .stakes-table-th {
-    background-color: $dark-light;
     color: $labels-dark;
+    @include background-gradient;
   }
 
   .stakes-table-body {
@@ -578,7 +577,7 @@ $color-title: #fff;
   }
 
   .tooltip > .tooltip-inner {
-    background-color: $dark-light;
+    @include background-gradient;
   }
 
   .tooltip-pale-color.bs-tooltip-top .arrow::before,
@@ -612,9 +611,9 @@ $color-title: #fff;
   }
 
   .token-balance-dropdown .dropdown-search-field {
-    background-color: $dark-light;
     border-color: $dark-light;
     color: #000;
+    @include background-gradient;
 
     &::placeholder {
       color: $labels-dark;
@@ -644,9 +643,10 @@ $color-title: #fff;
   .logs-search-input,
   .logs-search-btn,
   .logs-search-btn-cancel {
-    background-color: $dark-light;
     border-color: $dark-light;
     color: $text-color;
+    @include background-gradient;
+
   }
 
   .logs-search-btn {
@@ -674,8 +674,9 @@ $color-title: #fff;
   // info alert
   .alert-info {
     color: #19b5cf;
-    background-color: $dark-light;
     border-color: $dark-light;
+    @include background-gradient;
+
   }
 
   // dark text
@@ -713,9 +714,9 @@ $color-title: #fff;
     border-top-color: darken($labels-dark, 30);
 
     .btn-no-border {
-      background-color: $dark-light;
       border-color: $dark-light;
       color: $text-color;
+      @include background-gradient;
 
       &:hover {
         background-color: $dark-primary;
@@ -776,9 +777,10 @@ $color-title: #fff;
 
   .input-group-prepend.last {
     .input-group-text {
-      background: $dark-light;
       border-color: $dark-light;
       color: $labels-dark;
+      @include background-gradient;
+
     }
   }
 
@@ -1065,7 +1067,7 @@ $color-title: #fff;
     }
 
     .modal-bottom-disclaimer {
-      background-color: $dark-light;
+      @include background-gradient;
 
       color: $labels-dark;
     }
@@ -1085,7 +1087,7 @@ $color-title: #fff;
     }
 
     .modal-validator-info-content {
-      background-color: $dark-light;
+      @include background-gradient;
 
       .modal-validator-info-item-value {
         color: $text-color;
@@ -1168,7 +1170,7 @@ $color-title: #fff;
   }
 
   .alert-danger {
-    background-color: $dark-light;
+    @include background-gradient;
     border-color: $dark-light;
 
     .alert-link {
@@ -1237,7 +1239,7 @@ $color-title: #fff;
 
   .tooltip-inversed-color {
     .tooltip-inner {
-      background-color: $dark-light !important;
+      @include background-gradient;
       color: #000 !important;
     }
   }
@@ -1291,11 +1293,11 @@ $color-title: #fff;
   }
 
   ul[id^="autoComplete_list_"] {
-    background-color: $dark-light-bg !important;
+    @include background-gradient;
   }
 
   li[id^="autoComplete_result_"] {
-    background-color: $dark-light-bg !important;
+    @include background-gradient;
     color: $text-color !important;
 
     &:hover {
@@ -1554,7 +1556,7 @@ $color-title: #fff;
 
   .method {
     .bs-label {
-      background: $dark-light;
+      @include background-gradient;
       color: #191919;
     }
   }

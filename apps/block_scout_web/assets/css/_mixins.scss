@@ -268,3 +268,7 @@ input:-webkit-autofill:active {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@mixin background-gradient {
+  background: var(--Primary, linear-gradient(99deg, #26FDE6 0%, #6AA5FD 113.32%));
+}
