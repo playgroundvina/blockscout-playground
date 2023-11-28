@@ -108,7 +108,7 @@ $color-title: #fff;
     }
 
     &:hover {
-      color: var(--Primary, $dark-light);
+      @include text-gradient;
 
       .nav-link-icon {
         svg path {
@@ -284,15 +284,15 @@ $color-title: #fff;
   }
 
   a.tile-title {
-    color: var(--Primary, $dark-light) !important;
+    @include text-gradient;
   }
 
   .tile a[data-test="transaction_hash_link"] {
-    color: var(--Primary, $dark-light) !important;
+    @include text-gradient;
   }
 
   .tile.tile-type-block .tile-title {
-    color: var(--Primary, $dark-light) !important;
+    @include text-gradient;
   }
 
   .tile.tile-type-block .tile-transaction-type-block a {
@@ -323,7 +323,7 @@ $color-title: #fff;
   }
 
   .tile a[data-test="token_link"] {
-    color: $dark-light;
+   @include text-gradient;
   }
 
   .tile .tile-title {
@@ -398,7 +398,7 @@ $color-title: #fff;
   }
 
   .btn-wallet-icon {
-    color: $dark-light;
+   @include text-gradient;
     border: 1px solid $dark-light;
   }
 
@@ -1331,7 +1331,7 @@ $color-title: #fff;
   .dark-theme-applied .navbar.navbar-primary .navbar-nav .nav-link:focus {
     background-image: none;
     width: 100%;
-    color: var(--Primary, $dark-light);
+    @include text-gradient;
     border: none;
   }
 
@@ -1355,7 +1355,7 @@ $color-title: #fff;
     background: none;
     left: 24%;
     top: 14%;
-    color: var(--Primary, $dark-light);
+    @include text-gradient;
   }
 }
 
@@ -1413,7 +1413,6 @@ $color-title: #fff;
 
 .dark-theme-applied .tile .transaction-address {
   color: $text-color;
-
   span {
     color: #aeaeae;
   }
@@ -1526,6 +1525,7 @@ $color-title: #fff;
 
   .td-age {
     .time-transaction {
+      -webkit-text-fill-color: unset;
       color: $text-dark;
     }
   }
