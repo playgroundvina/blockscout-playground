@@ -612,7 +612,7 @@ $cube-quantity: 5;
   }
 }
 .tile-muted {
-  border: none;
-  border-style: none;
+  background-color: $gray-100;
+  border-left: 1px solid $border-color;
   box-shadow: none;
 }
