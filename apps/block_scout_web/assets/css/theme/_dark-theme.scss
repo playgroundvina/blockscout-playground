@@ -596,13 +596,13 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
   }
 
   .i-tooltip {
-    .i-tooltip-circle {
-      fill: #a3a9b5;
-    }
+    // .i-tooltip-circle {
+    //   fill: $dark-primary;
+    // }
 
-    .i-tooltip-info {
-      fill: #a3a9b5;
-    }
+    // .i-tooltip-info {
+    //   fill: $dark-primary;
+    // }
 
     &:hover {
       .i-tooltip-circle {
@@ -610,7 +610,7 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       }
 
       .i-tooltip-info {
-        fill: #fff;
+        fill: $labels-dark;
       }
     }
   }
@@ -702,9 +702,9 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
     color: #fff !important;
   }
 
-  .dropdown-header {
-    color: $labels-dark;
-  }
+  // .dropdown-header {
+  //   color: $labels-dark;
+  // }
 
   .border-bottom {
     border-bottom-color: #525252 !important;
