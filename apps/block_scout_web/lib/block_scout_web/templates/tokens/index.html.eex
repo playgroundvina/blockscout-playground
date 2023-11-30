@@ -53,6 +53,13 @@
 	    <%= render BlockScoutWeb.CommonComponentsView, "_table-loader.html", columns_num: 7 %>
 	  </tbody>
 	</table>
+	<div data-empty-response-message style="display: none;">
+		<div class="tile tile-muted text-center">
+			<span data-selector="empty-tokens-list">
+				<%= gettext "There are no tokens." %>
+			</span>
+		</div>
+      	</div>
       </div>
     </div>
 
