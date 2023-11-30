@@ -1129,6 +1129,13 @@ $header-links-background-color-dark-mode: $dark-light-bg !default;
       }
     }
   }
+  
+  .btn-line {
+    &:hover {
+      background-color: $primary;
+    }
+  }
+
 
   .modal-dialog {
     .modal-content {
